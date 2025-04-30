@@ -19,5 +19,6 @@
         public decimal Total_Despacho { get; set; }
         public string Tipo_venta { get; set; } = null!;
         public List<ItemsDespacho> Items_Despacho { get; set; } = null!;
+        public List<RolloCortado> Detalle_RC { get; set; } = null!;
     }
 }

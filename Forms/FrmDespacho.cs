@@ -44,6 +44,8 @@ namespace Ritrama2025.Forms
             txt_porc_itbis.DataBindings.Add("Text", Bs, "porc_itbis");
             txt_itbis.DataBindings.Add("Text", Bs, "itbis");
             txt_totalmonto.DataBindings.Add("Text", Bs, "total$rd");
+            txt_custname.DataBindings.Add("Text", Bs, "customer_name");
+            txt_vendorname.DataBindings.Add("Text", Bs, "vendor_name");
 
         }
 

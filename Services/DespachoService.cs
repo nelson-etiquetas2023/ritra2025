@@ -2,10 +2,9 @@
 using Ritrama2025.Models;
 using System.Data;
 
-
 namespace Ritrama2025.Services
 {
-    internal class DespachoService : IDespachoService
+    public class DespachoService : IDespachoService
     {
         public string StringConnex { get; set; } = null!;
         public string ErrorMsg { get; set; } = null!;
@@ -17,6 +16,8 @@ namespace Ritrama2025.Services
         public SqlDataAdapter DaClientes = new();
         public DataTable DtVendors = new();
         public SqlDataAdapter DaVendors = new();
+        public DataTable DtDetalleRC = new();
+        public SqlDataAdapter DaDetalleRC = new();
 
 
         public DespachoService()
@@ -52,7 +53,6 @@ namespace Ritrama2025.Services
                     CommandType = CommandType.Text,
                     CommandText = "SELECT customer_id,customer_name FROM customer"
                 };
-
                 SqlDataReader readerCliente = await  ComandoClientes.ExecuteReaderAsync();
                 await readerCliente.CloseAsync();
                 DaClientes.SelectCommand = ComandoClientes;
@@ -68,6 +68,17 @@ namespace Ritrama2025.Services
                 await readerVendor.CloseAsync();
                 DaVendors.SelectCommand = ComandoVendor;
                 DaVendors.Fill(Ds, "DtVendors");
+                //3.- Carga de Detalle de Rollo Cortado
+                SqlCommand ComandoRC = new()
+                {
+                    Connection = conn,
+                    CommandType = CommandType.Text,
+                    CommandText = "SELECT conduce,unique_code,a.product_id,b.product_Name,roll_number,width,lenght,msi,splice,cant_despacho,tipo,no_paleta,roll_id FROM rcdespacho a LEFT JOIN producto b on a.product_id=b.product_ID"
+                };
+                SqlDataReader readerRC = await ComandoRC.ExecuteReaderAsync();
+                await readerRC.CloseAsync();
+                DaDetalleRC.SelectCommand = ComandoRC;
+                DaDetalleRC.Fill(Ds, "DtDetalleRC");
 
                 RelationDataset();
             }
@@ -96,6 +107,11 @@ namespace Ritrama2025.Services
                 DataRelation Despacho_Vendors = new("FK_DESPACHOS_VENDOR", ParentCol1, ChildCol1);
                 Ds.Relations.Add(Despacho_Vendors);
                 Ds.Tables["DtMasterDespachos"]!.Columns.Add("vendor_name", Type.GetType("System.String")!, "parent(FK_DESPACHOS_VENDOR).vendor_name");
+                //Relacion entre master y Detalle RC
+                DataColumn ParentCol2 = Ds.Tables["DtMasterDespachos"]!.Columns["numero"]!;
+                DataColumn ChildCol2 = Ds.Tables["DtDetalleRC"]!.Columns["conduce"]!;
+                DataRelation Despacho_DetalleRC = new("FK_DESPACHOS_DETALLERC", ParentCol2, ChildCol2);
+                Ds.Relations.Add(Despacho_DetalleRC);
 
                 return true;
             }

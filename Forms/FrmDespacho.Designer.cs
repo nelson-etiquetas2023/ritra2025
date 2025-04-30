@@ -1,0 +1,1341 @@
+﻿namespace Ritrama2025.Forms
+{
+    partial class FrmDespacho
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDespacho));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            toolStrip1 = new ToolStrip();
+            bot_primero = new ToolStripButton();
+            bot_siguiente = new ToolStripButton();
+            bot_anterior = new ToolStripButton();
+            bot_ultimo = new ToolStripButton();
+            bot_nuevo = new ToolStripButton();
+            bot_grabar = new ToolStripButton();
+            bot_cancelar = new ToolStripButton();
+            bot_buscar = new ToolStripButton();
+            bot_imprimir = new ToolStripButton();
+            bot_anular = new ToolStripButton();
+            bot_sincro = new ToolStripButton();
+            label1 = new Label();
+            txt_numero = new TextBox();
+            btn_buscar_customer = new Button();
+            txt_custid = new TextBox();
+            txt_custname = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            txt_fecha_despacho = new DateTimePicker();
+            label4 = new Label();
+            txt_persondelivery = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            txt_transport = new TextBox();
+            button2 = new Button();
+            button3 = new Button();
+            txt_chofer = new TextBox();
+            label7 = new Label();
+            button4 = new Button();
+            txt_camion = new TextBox();
+            label8 = new Label();
+            txt_venid = new TextBox();
+            label9 = new Label();
+            txt_vendorname = new TextBox();
+            label10 = new Label();
+            bot_buscar_vendor = new Button();
+            txt_tipo_embalaje = new TextBox();
+            label11 = new Label();
+            txt_orden_trabajo = new TextBox();
+            label12 = new Label();
+            txt_orden_compra = new TextBox();
+            label13 = new Label();
+            txt_tipoventa = new TextBox();
+            label14 = new Label();
+            bot_picking = new Button();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            grid_items = new DataGridView();
+            product_id = new DataGridViewTextBoxColumn();
+            product_name = new DataGridViewTextBoxColumn();
+            unidad = new DataGridViewTextBoxColumn();
+            cantidad = new DataGridViewTextBoxColumn();
+            width = new DataGridViewTextBoxColumn();
+            lenght = new DataGridViewTextBoxColumn();
+            msi = new DataGridViewTextBoxColumn();
+            ratio = new DataGridViewTextBoxColumn();
+            pielin = new DataGridViewTextBoxColumn();
+            kilo_rollo = new DataGridViewTextBoxColumn();
+            kilos_total = new DataGridViewTextBoxColumn();
+            precio = new DataGridViewTextBoxColumn();
+            total_renglon = new DataGridViewTextBoxColumn();
+            code_person = new DataGridViewTextBoxColumn();
+            tabPage2 = new TabPage();
+            grid_rc = new DataGridView();
+            unique_code = new DataGridViewTextBoxColumn();
+            Productid = new DataGridViewTextBoxColumn();
+            productname = new DataGridViewTextBoxColumn();
+            roll_number = new DataGridViewTextBoxColumn();
+            width_rc = new DataGridViewTextBoxColumn();
+            lenght_rc = new DataGridViewTextBoxColumn();
+            msi_rc = new DataGridViewTextBoxColumn();
+            splice = new DataGridViewTextBoxColumn();
+            roll_id = new DataGridViewTextBoxColumn();
+            cant_despacho = new DataGridViewTextBoxColumn();
+            tipo = new DataGridViewTextBoxColumn();
+            paleta = new DataGridViewTextBoxColumn();
+            grid_detalle_paletas = new DataGridView();
+            num_paleta = new DataGridViewTextBoxColumn();
+            medida = new DataGridViewTextBoxColumn();
+            Contenido = new DataGridViewTextBoxColumn();
+            busca = new DataGridViewTextBoxColumn();
+            KilosNetos = new DataGridViewTextBoxColumn();
+            KilosBrutos = new DataGridViewTextBoxColumn();
+            label15 = new Label();
+            bot_add_palet = new Button();
+            bot_delete_palet = new Button();
+            bot_update_palet = new Button();
+            label16 = new Label();
+            txt_subtotal = new TextBox();
+            txt_itbis = new TextBox();
+            txt_totalmonto = new TextBox();
+            label17 = new Label();
+            txt_porc_itbis = new TextBox();
+            label18 = new Label();
+            label19 = new Label();
+            chk_impuesto = new CheckBox();
+            txt_total_kilnet = new TextBox();
+            txt_kilbru = new TextBox();
+            txt_cant_total = new TextBox();
+            txt_msi_total = new TextBox();
+            txt_pie_total = new TextBox();
+            txt_kilos_total = new TextBox();
+            label20 = new Label();
+            label21 = new Label();
+            label22 = new Label();
+            label23 = new Label();
+            label24 = new Label();
+            label25 = new Label();
+            toolStrip1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)grid_items).BeginInit();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)grid_rc).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)grid_detalle_paletas).BeginInit();
+            SuspendLayout();
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Font = new Font("Segoe UI", 10.18868F);
+            toolStrip1.ImageScalingSize = new Size(18, 18);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { bot_primero, bot_siguiente, bot_anterior, bot_ultimo, bot_nuevo, bot_grabar, bot_cancelar, bot_buscar, bot_imprimir, bot_anular, bot_sincro });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1146, 27);
+            toolStrip1.TabIndex = 0;
+            toolStrip1.Text = "Grabar";
+            // 
+            // bot_primero
+            // 
+            bot_primero.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bot_primero.Image = (Image)resources.GetObject("bot_primero.Image");
+            bot_primero.ImageTransparentColor = Color.Magenta;
+            bot_primero.Name = "bot_primero";
+            bot_primero.Size = new Size(83, 24);
+            bot_primero.Text = "Primero";
+            bot_primero.ToolTipText = "Primero";
+            bot_primero.Click += bot_primero_Click;
+            // 
+            // bot_siguiente
+            // 
+            bot_siguiente.Font = new Font("Segoe UI", 10.18868F);
+            bot_siguiente.Image = (Image)resources.GetObject("bot_siguiente.Image");
+            bot_siguiente.ImageTransparentColor = Color.Magenta;
+            bot_siguiente.Name = "bot_siguiente";
+            bot_siguiente.Size = new Size(93, 24);
+            bot_siguiente.Text = "Siguiente";
+            bot_siguiente.Click += bot_siguiente_Click;
+            // 
+            // bot_anterior
+            // 
+            bot_anterior.Font = new Font("Segoe UI", 10.18868F);
+            bot_anterior.Image = (Image)resources.GetObject("bot_anterior.Image");
+            bot_anterior.ImageTransparentColor = Color.Magenta;
+            bot_anterior.Name = "bot_anterior";
+            bot_anterior.Size = new Size(85, 24);
+            bot_anterior.Text = "Anterior";
+            bot_anterior.Click += bot_anterior_Click;
+            // 
+            // bot_ultimo
+            // 
+            bot_ultimo.Font = new Font("Segoe UI", 10.18868F);
+            bot_ultimo.Image = (Image)resources.GetObject("bot_ultimo.Image");
+            bot_ultimo.ImageTransparentColor = Color.Magenta;
+            bot_ultimo.Name = "bot_ultimo";
+            bot_ultimo.Size = new Size(76, 24);
+            bot_ultimo.Text = "Ultimo";
+            bot_ultimo.Click += bot_ultimo_Click;
+            // 
+            // bot_nuevo
+            // 
+            bot_nuevo.Font = new Font("Segoe UI", 10.18868F);
+            bot_nuevo.Image = (Image)resources.GetObject("bot_nuevo.Image");
+            bot_nuevo.ImageTransparentColor = Color.Magenta;
+            bot_nuevo.Name = "bot_nuevo";
+            bot_nuevo.Size = new Size(74, 24);
+            bot_nuevo.Text = "Nuevo";
+            // 
+            // bot_grabar
+            // 
+            bot_grabar.Font = new Font("Segoe UI", 10.18868F);
+            bot_grabar.Image = (Image)resources.GetObject("bot_grabar.Image");
+            bot_grabar.ImageTransparentColor = Color.Magenta;
+            bot_grabar.Name = "bot_grabar";
+            bot_grabar.Size = new Size(76, 24);
+            bot_grabar.Text = "Grabar";
+            // 
+            // bot_cancelar
+            // 
+            bot_cancelar.Font = new Font("Segoe UI", 10.18868F);
+            bot_cancelar.Image = (Image)resources.GetObject("bot_cancelar.Image");
+            bot_cancelar.ImageTransparentColor = Color.Magenta;
+            bot_cancelar.Name = "bot_cancelar";
+            bot_cancelar.Size = new Size(88, 24);
+            bot_cancelar.Text = "Cancelar";
+            // 
+            // bot_buscar
+            // 
+            bot_buscar.Font = new Font("Segoe UI", 10.18868F);
+            bot_buscar.Image = (Image)resources.GetObject("bot_buscar.Image");
+            bot_buscar.ImageTransparentColor = Color.Magenta;
+            bot_buscar.Name = "bot_buscar";
+            bot_buscar.Size = new Size(74, 24);
+            bot_buscar.Text = "Buscar";
+            // 
+            // bot_imprimir
+            // 
+            bot_imprimir.Font = new Font("Segoe UI", 10.18868F);
+            bot_imprimir.Image = (Image)resources.GetObject("bot_imprimir.Image");
+            bot_imprimir.ImageTransparentColor = Color.Magenta;
+            bot_imprimir.Name = "bot_imprimir";
+            bot_imprimir.Size = new Size(88, 24);
+            bot_imprimir.Text = "Imprimir";
+            // 
+            // bot_anular
+            // 
+            bot_anular.Font = new Font("Segoe UI", 10.18868F);
+            bot_anular.Image = (Image)resources.GetObject("bot_anular.Image");
+            bot_anular.ImageTransparentColor = Color.Magenta;
+            bot_anular.Name = "bot_anular";
+            bot_anular.Size = new Size(74, 24);
+            bot_anular.Text = "Anular";
+            // 
+            // bot_sincro
+            // 
+            bot_sincro.Font = new Font("Segoe UI", 10.18868F);
+            bot_sincro.Image = (Image)resources.GetObject("bot_sincro.Image");
+            bot_sincro.ImageTransparentColor = Color.Magenta;
+            bot_sincro.Name = "bot_sincro";
+            bot_sincro.Size = new Size(72, 24);
+            bot_sincro.Text = "Sincro";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label1.Location = new Point(31, 52);
+            label1.Name = "label1";
+            label1.Size = new Size(62, 17);
+            label1.TabIndex = 1;
+            label1.Text = "Numero:";
+            // 
+            // txt_numero
+            // 
+            txt_numero.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txt_numero.Location = new Point(31, 75);
+            txt_numero.Margin = new Padding(3, 4, 3, 4);
+            txt_numero.Name = "txt_numero";
+            txt_numero.ReadOnly = true;
+            txt_numero.Size = new Size(125, 27);
+            txt_numero.TabIndex = 2;
+            txt_numero.TextChanged += Txt_numero_TextChanged;
+            // 
+            // btn_buscar_customer
+            // 
+            btn_buscar_customer.Location = new Point(1082, 78);
+            btn_buscar_customer.Margin = new Padding(3, 4, 3, 4);
+            btn_buscar_customer.Name = "btn_buscar_customer";
+            btn_buscar_customer.Size = new Size(45, 29);
+            btn_buscar_customer.TabIndex = 3;
+            btn_buscar_customer.Text = "...";
+            btn_buscar_customer.UseVisualStyleBackColor = true;
+            // 
+            // txt_custid
+            // 
+            txt_custid.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txt_custid.Location = new Point(593, 78);
+            txt_custid.Margin = new Padding(3, 4, 3, 4);
+            txt_custid.Name = "txt_custid";
+            txt_custid.ReadOnly = true;
+            txt_custid.Size = new Size(59, 27);
+            txt_custid.TabIndex = 4;
+            // 
+            // txt_custname
+            // 
+            txt_custname.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txt_custname.Location = new Point(659, 79);
+            txt_custname.Margin = new Padding(3, 4, 3, 4);
+            txt_custname.Name = "txt_custname";
+            txt_custname.ReadOnly = true;
+            txt_custname.Size = new Size(415, 27);
+            txt_custname.TabIndex = 5;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label2.Location = new Point(591, 55);
+            label2.Name = "label2";
+            label2.Size = new Size(59, 17);
+            label2.TabIndex = 6;
+            label2.Text = "Cust. Id:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label3.Location = new Point(659, 55);
+            label3.Name = "label3";
+            label3.Size = new Size(111, 17);
+            label3.TabIndex = 7;
+            label3.Text = "Customer Name:";
+            // 
+            // txt_fecha_despacho
+            // 
+            txt_fecha_despacho.Enabled = false;
+            txt_fecha_despacho.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txt_fecha_despacho.Location = new Point(163, 75);
+            txt_fecha_despacho.Margin = new Padding(3, 4, 3, 4);
+            txt_fecha_despacho.Name = "txt_fecha_despacho";
+            txt_fecha_despacho.Size = new Size(337, 27);
+            txt_fecha_despacho.TabIndex = 8;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label4.Location = new Point(163, 52);
+            label4.Name = "label4";
+            label4.Size = new Size(114, 17);
+            label4.TabIndex = 9;
+            label4.Text = "Decha Despacho:";
+            // 
+            // txt_persondelivery
+            // 
+            txt_persondelivery.Location = new Point(31, 145);
+            txt_persondelivery.Margin = new Padding(3, 4, 3, 4);
+            txt_persondelivery.Name = "txt_persondelivery";
+            txt_persondelivery.ReadOnly = true;
+            txt_persondelivery.Size = new Size(371, 27);
+            txt_persondelivery.TabIndex = 11;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label5.Location = new Point(31, 121);
+            label5.Name = "label5";
+            label5.Size = new Size(117, 17);
+            label5.TabIndex = 10;
+            label5.Text = "Entregar persona:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label6.Location = new Point(27, 207);
+            label6.Name = "label6";
+            label6.Size = new Size(93, 17);
+            label6.TabIndex = 12;
+            label6.Text = "Transportista:";
+            // 
+            // txt_transport
+            // 
+            txt_transport.Font = new Font("Segoe UI", 10.18868F);
+            txt_transport.Location = new Point(134, 204);
+            txt_transport.Margin = new Padding(3, 4, 3, 4);
+            txt_transport.Name = "txt_transport";
+            txt_transport.ReadOnly = true;
+            txt_transport.Size = new Size(217, 27);
+            txt_transport.TabIndex = 13;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(358, 206);
+            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Name = "button2";
+            button2.Size = new Size(45, 29);
+            button2.TabIndex = 14;
+            button2.Text = "...";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(358, 242);
+            button3.Margin = new Padding(3, 4, 3, 4);
+            button3.Name = "button3";
+            button3.Size = new Size(45, 29);
+            button3.TabIndex = 17;
+            button3.Text = "...";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // txt_chofer
+            // 
+            txt_chofer.Font = new Font("Segoe UI", 10.18868F);
+            txt_chofer.Location = new Point(134, 240);
+            txt_chofer.Margin = new Padding(3, 4, 3, 4);
+            txt_chofer.Name = "txt_chofer";
+            txt_chofer.ReadOnly = true;
+            txt_chofer.Size = new Size(217, 27);
+            txt_chofer.TabIndex = 16;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label7.Location = new Point(27, 244);
+            label7.Name = "label7";
+            label7.Size = new Size(54, 17);
+            label7.TabIndex = 15;
+            label7.Text = "Chofer:";
+            // 
+            // button4
+            // 
+            button4.Location = new Point(358, 279);
+            button4.Margin = new Padding(3, 4, 3, 4);
+            button4.Name = "button4";
+            button4.Size = new Size(45, 29);
+            button4.TabIndex = 20;
+            button4.Text = "...";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // txt_camion
+            // 
+            txt_camion.Font = new Font("Segoe UI", 10.18868F);
+            txt_camion.Location = new Point(134, 276);
+            txt_camion.Margin = new Padding(3, 4, 3, 4);
+            txt_camion.Name = "txt_camion";
+            txt_camion.ReadOnly = true;
+            txt_camion.Size = new Size(217, 27);
+            txt_camion.TabIndex = 19;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label8.Location = new Point(27, 280);
+            label8.Name = "label8";
+            label8.Size = new Size(59, 17);
+            label8.TabIndex = 18;
+            label8.Text = "Camion:";
+            // 
+            // txt_venid
+            // 
+            txt_venid.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txt_venid.Location = new Point(418, 145);
+            txt_venid.Margin = new Padding(3, 4, 3, 4);
+            txt_venid.Name = "txt_venid";
+            txt_venid.ReadOnly = true;
+            txt_venid.Size = new Size(125, 27);
+            txt_venid.TabIndex = 22;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label9.Location = new Point(418, 121);
+            label9.Name = "label9";
+            label9.Size = new Size(72, 17);
+            label9.TabIndex = 21;
+            label9.Text = "Vendor Id:";
+            // 
+            // txt_vendorname
+            // 
+            txt_vendorname.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txt_vendorname.Location = new Point(418, 207);
+            txt_vendorname.Margin = new Padding(3, 4, 3, 4);
+            txt_vendorname.Name = "txt_vendorname";
+            txt_vendorname.ReadOnly = true;
+            txt_vendorname.Size = new Size(285, 27);
+            txt_vendorname.TabIndex = 24;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label10.Location = new Point(418, 184);
+            label10.Name = "label10";
+            label10.Size = new Size(96, 17);
+            label10.TabIndex = 23;
+            label10.Text = "Vendor Name:";
+            // 
+            // bot_buscar_vendor
+            // 
+            bot_buscar_vendor.Location = new Point(551, 146);
+            bot_buscar_vendor.Margin = new Padding(3, 4, 3, 4);
+            bot_buscar_vendor.Name = "bot_buscar_vendor";
+            bot_buscar_vendor.Size = new Size(45, 29);
+            bot_buscar_vendor.TabIndex = 25;
+            bot_buscar_vendor.Text = "...";
+            bot_buscar_vendor.UseVisualStyleBackColor = true;
+            // 
+            // txt_tipo_embalaje
+            // 
+            txt_tipo_embalaje.Font = new Font("Segoe UI", 10.18868F);
+            txt_tipo_embalaje.Location = new Point(859, 144);
+            txt_tipo_embalaje.Margin = new Padding(3, 4, 3, 4);
+            txt_tipo_embalaje.Name = "txt_tipo_embalaje";
+            txt_tipo_embalaje.ReadOnly = true;
+            txt_tipo_embalaje.Size = new Size(268, 27);
+            txt_tipo_embalaje.TabIndex = 27;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label11.Location = new Point(723, 147);
+            label11.Name = "label11";
+            label11.Size = new Size(119, 17);
+            label11.TabIndex = 26;
+            label11.Text = "Tipo de Embalaje:";
+            // 
+            // txt_orden_trabajo
+            // 
+            txt_orden_trabajo.Font = new Font("Segoe UI", 10.18868F);
+            txt_orden_trabajo.Location = new Point(859, 179);
+            txt_orden_trabajo.Margin = new Padding(3, 4, 3, 4);
+            txt_orden_trabajo.Name = "txt_orden_trabajo";
+            txt_orden_trabajo.ReadOnly = true;
+            txt_orden_trabajo.Size = new Size(268, 27);
+            txt_orden_trabajo.TabIndex = 29;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label12.Location = new Point(746, 184);
+            label12.Name = "label12";
+            label12.Size = new Size(100, 17);
+            label12.TabIndex = 28;
+            label12.Text = "Orden Trabajo:";
+            // 
+            // txt_orden_compra
+            // 
+            txt_orden_compra.Font = new Font("Segoe UI", 10.18868F);
+            txt_orden_compra.Location = new Point(859, 214);
+            txt_orden_compra.Margin = new Padding(3, 4, 3, 4);
+            txt_orden_compra.Name = "txt_orden_compra";
+            txt_orden_compra.ReadOnly = true;
+            txt_orden_compra.Size = new Size(268, 27);
+            txt_orden_compra.TabIndex = 31;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label13.Location = new Point(744, 218);
+            label13.Name = "label13";
+            label13.Size = new Size(102, 17);
+            label13.TabIndex = 30;
+            label13.Text = "Orden Compra:";
+            // 
+            // txt_tipoventa
+            // 
+            txt_tipoventa.Font = new Font("Segoe UI", 10.18868F);
+            txt_tipoventa.Location = new Point(859, 249);
+            txt_tipoventa.Margin = new Padding(3, 4, 3, 4);
+            txt_tipoventa.Name = "txt_tipoventa";
+            txt_tipoventa.ReadOnly = true;
+            txt_tipoventa.Size = new Size(268, 27);
+            txt_tipoventa.TabIndex = 33;
+            txt_tipoventa.TextChanged += Txt_tipoventa_TextChanged;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label14.Location = new Point(743, 254);
+            label14.Name = "label14";
+            label14.Size = new Size(98, 17);
+            label14.TabIndex = 32;
+            label14.Text = "Tipo de Venta:";
+            // 
+            // bot_picking
+            // 
+            bot_picking.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            bot_picking.Location = new Point(418, 260);
+            bot_picking.Margin = new Padding(3, 4, 3, 4);
+            bot_picking.Name = "bot_picking";
+            bot_picking.Size = new Size(286, 45);
+            bot_picking.TabIndex = 34;
+            bot_picking.Text = "Picking";
+            bot_picking.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Font = new Font("Segoe UI", 10.18868F);
+            tabControl1.Location = new Point(14, 321);
+            tabControl1.Margin = new Padding(3, 4, 3, 4);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1133, 338);
+            tabControl1.TabIndex = 35;
+            tabControl1.SelectedIndexChanged += TabControl1_SelectedIndexChanged;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(grid_items);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Margin = new Padding(3, 4, 3, 4);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3, 4, 3, 4);
+            tabPage1.Size = new Size(1125, 305);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Renglones";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // grid_items
+            // 
+            grid_items.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid_items.Columns.AddRange(new DataGridViewColumn[] { product_id, product_name, unidad, cantidad, width, lenght, msi, ratio, pielin, kilo_rollo, kilos_total, precio, total_renglon, code_person });
+            grid_items.Location = new Point(7, 7);
+            grid_items.Margin = new Padding(3, 4, 3, 4);
+            grid_items.Name = "grid_items";
+            grid_items.RowHeadersWidth = 45;
+            grid_items.Size = new Size(1107, 288);
+            grid_items.TabIndex = 0;
+            // 
+            // product_id
+            // 
+            product_id.HeaderText = "Product Id.";
+            product_id.MinimumWidth = 6;
+            product_id.Name = "product_id";
+            product_id.Width = 50;
+            // 
+            // product_name
+            // 
+            product_name.HeaderText = "Product Name";
+            product_name.MinimumWidth = 6;
+            product_name.Name = "product_name";
+            product_name.Width = 110;
+            // 
+            // unidad
+            // 
+            unidad.HeaderText = "Unidad";
+            unidad.MinimumWidth = 6;
+            unidad.Name = "unidad";
+            unidad.Width = 60;
+            // 
+            // cantidad
+            // 
+            cantidad.HeaderText = "Cantidad";
+            cantidad.MinimumWidth = 6;
+            cantidad.Name = "cantidad";
+            cantidad.Width = 60;
+            // 
+            // width
+            // 
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            width.DefaultCellStyle = dataGridViewCellStyle1;
+            width.HeaderText = "width[Pulg.]";
+            width.MinimumWidth = 6;
+            width.Name = "width";
+            width.Width = 80;
+            // 
+            // lenght
+            // 
+            lenght.HeaderText = "Lenght[Pies]";
+            lenght.MinimumWidth = 6;
+            lenght.Name = "lenght";
+            lenght.Width = 80;
+            // 
+            // msi
+            // 
+            msi.HeaderText = "MSI.";
+            msi.MinimumWidth = 6;
+            msi.Name = "msi";
+            msi.Width = 80;
+            // 
+            // ratio
+            // 
+            ratio.HeaderText = "Ratio";
+            ratio.MinimumWidth = 6;
+            ratio.Name = "ratio";
+            ratio.Width = 80;
+            // 
+            // pielin
+            // 
+            pielin.HeaderText = "Total Pie Lin.";
+            pielin.MinimumWidth = 6;
+            pielin.Name = "pielin";
+            pielin.Width = 80;
+            // 
+            // kilo_rollo
+            // 
+            kilo_rollo.HeaderText = "Kilos Rollos";
+            kilo_rollo.MinimumWidth = 6;
+            kilo_rollo.Name = "kilo_rollo";
+            kilo_rollo.Width = 80;
+            // 
+            // kilos_total
+            // 
+            kilos_total.HeaderText = "Kilos Total";
+            kilos_total.MinimumWidth = 6;
+            kilos_total.Name = "kilos_total";
+            kilos_total.Width = 80;
+            // 
+            // precio
+            // 
+            precio.HeaderText = "Precio";
+            precio.MinimumWidth = 6;
+            precio.Name = "precio";
+            precio.Width = 80;
+            // 
+            // total_renglon
+            // 
+            total_renglon.HeaderText = "Total Renglon";
+            total_renglon.MinimumWidth = 6;
+            total_renglon.Name = "total_renglon";
+            total_renglon.Width = 80;
+            // 
+            // code_person
+            // 
+            code_person.HeaderText = "Codigo Personalizado";
+            code_person.MinimumWidth = 6;
+            code_person.Name = "code_person";
+            code_person.Width = 80;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(grid_rc);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Margin = new Padding(3, 4, 3, 4);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3, 4, 3, 4);
+            tabPage2.Size = new Size(1125, 305);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Rollos Cortados";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // grid_rc
+            // 
+            grid_rc.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid_rc.Columns.AddRange(new DataGridViewColumn[] { unique_code, Productid, productname, roll_number, width_rc, lenght_rc, msi_rc, splice, roll_id, cant_despacho, tipo, paleta });
+            grid_rc.Location = new Point(7, 7);
+            grid_rc.Margin = new Padding(3, 4, 3, 4);
+            grid_rc.Name = "grid_rc";
+            grid_rc.RowHeadersWidth = 45;
+            grid_rc.Size = new Size(1107, 288);
+            grid_rc.TabIndex = 0;
+            // 
+            // unique_code
+            // 
+            unique_code.HeaderText = "Codigo Unico";
+            unique_code.MinimumWidth = 6;
+            unique_code.Name = "unique_code";
+            unique_code.Width = 70;
+            // 
+            // Productid
+            // 
+            Productid.HeaderText = "Product Id.";
+            Productid.MinimumWidth = 6;
+            Productid.Name = "Productid";
+            Productid.Width = 70;
+            // 
+            // productname
+            // 
+            productname.HeaderText = "Product Name";
+            productname.MinimumWidth = 6;
+            productname.Name = "productname";
+            productname.Width = 110;
+            // 
+            // roll_number
+            // 
+            roll_number.HeaderText = "Roll Number";
+            roll_number.MinimumWidth = 6;
+            roll_number.Name = "roll_number";
+            roll_number.Width = 70;
+            // 
+            // width_rc
+            // 
+            width_rc.HeaderText = "Width";
+            width_rc.MinimumWidth = 6;
+            width_rc.Name = "width_rc";
+            width_rc.Width = 70;
+            // 
+            // lenght_rc
+            // 
+            lenght_rc.HeaderText = "Lenght";
+            lenght_rc.MinimumWidth = 6;
+            lenght_rc.Name = "lenght_rc";
+            lenght_rc.Width = 70;
+            // 
+            // msi_rc
+            // 
+            msi_rc.HeaderText = "Msi";
+            msi_rc.MinimumWidth = 6;
+            msi_rc.Name = "msi_rc";
+            msi_rc.Width = 70;
+            // 
+            // splice
+            // 
+            splice.HeaderText = "Splice";
+            splice.MinimumWidth = 6;
+            splice.Name = "splice";
+            splice.Width = 70;
+            // 
+            // roll_id
+            // 
+            roll_id.HeaderText = "Roll Id.";
+            roll_id.MinimumWidth = 6;
+            roll_id.Name = "roll_id";
+            roll_id.Width = 70;
+            // 
+            // cant_despacho
+            // 
+            cant_despacho.HeaderText = "Cantidad Despacho";
+            cant_despacho.MinimumWidth = 6;
+            cant_despacho.Name = "cant_despacho";
+            cant_despacho.Width = 70;
+            // 
+            // tipo
+            // 
+            tipo.HeaderText = "tipo";
+            tipo.MinimumWidth = 6;
+            tipo.Name = "tipo";
+            tipo.Width = 70;
+            // 
+            // paleta
+            // 
+            paleta.HeaderText = "Paleta";
+            paleta.MinimumWidth = 6;
+            paleta.Name = "paleta";
+            paleta.Width = 70;
+            // 
+            // grid_detalle_paletas
+            // 
+            grid_detalle_paletas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid_detalle_paletas.Columns.AddRange(new DataGridViewColumn[] { num_paleta, medida, Contenido, busca, KilosNetos, KilosBrutos });
+            grid_detalle_paletas.Location = new Point(32, 753);
+            grid_detalle_paletas.Margin = new Padding(3, 4, 3, 4);
+            grid_detalle_paletas.Name = "grid_detalle_paletas";
+            grid_detalle_paletas.RowHeadersWidth = 45;
+            grid_detalle_paletas.Size = new Size(584, 152);
+            grid_detalle_paletas.TabIndex = 36;
+            // 
+            // num_paleta
+            // 
+            num_paleta.HeaderText = "# Paleta";
+            num_paleta.MinimumWidth = 6;
+            num_paleta.Name = "num_paleta";
+            num_paleta.Width = 50;
+            // 
+            // medida
+            // 
+            medida.HeaderText = "Medida";
+            medida.MinimumWidth = 6;
+            medida.Name = "medida";
+            medida.Width = 110;
+            // 
+            // Contenido
+            // 
+            Contenido.HeaderText = "Contenido";
+            Contenido.MinimumWidth = 6;
+            Contenido.Name = "Contenido";
+            Contenido.Width = 150;
+            // 
+            // busca
+            // 
+            busca.HeaderText = "...";
+            busca.MinimumWidth = 6;
+            busca.Name = "busca";
+            busca.Width = 50;
+            // 
+            // KilosNetos
+            // 
+            KilosNetos.HeaderText = "Kilos Netos";
+            KilosNetos.MinimumWidth = 6;
+            KilosNetos.Name = "KilosNetos";
+            KilosNetos.Width = 50;
+            // 
+            // KilosBrutos
+            // 
+            KilosBrutos.HeaderText = "Kilos Brutos";
+            KilosBrutos.MinimumWidth = 6;
+            KilosBrutos.Name = "KilosBrutos";
+            KilosBrutos.Width = 50;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label15.Location = new Point(197, 718);
+            label15.Name = "label15";
+            label15.Size = new Size(117, 17);
+            label15.TabIndex = 37;
+            label15.Text = "Detalle de paleta:";
+            // 
+            // bot_add_palet
+            // 
+            bot_add_palet.Location = new Point(623, 753);
+            bot_add_palet.Margin = new Padding(3, 4, 3, 4);
+            bot_add_palet.Name = "bot_add_palet";
+            bot_add_palet.Size = new Size(95, 29);
+            bot_add_palet.TabIndex = 38;
+            bot_add_palet.Text = "Add";
+            bot_add_palet.UseVisualStyleBackColor = true;
+            // 
+            // bot_delete_palet
+            // 
+            bot_delete_palet.Location = new Point(623, 789);
+            bot_delete_palet.Margin = new Padding(3, 4, 3, 4);
+            bot_delete_palet.Name = "bot_delete_palet";
+            bot_delete_palet.Size = new Size(95, 29);
+            bot_delete_palet.TabIndex = 39;
+            bot_delete_palet.Text = "Delete";
+            bot_delete_palet.UseVisualStyleBackColor = true;
+            // 
+            // bot_update_palet
+            // 
+            bot_update_palet.Location = new Point(623, 826);
+            bot_update_palet.Margin = new Padding(3, 4, 3, 4);
+            bot_update_palet.Name = "bot_update_palet";
+            bot_update_palet.Size = new Size(95, 29);
+            bot_update_palet.TabIndex = 40;
+            bot_update_palet.Text = "Update";
+            bot_update_palet.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label16.Location = new Point(623, 729);
+            label16.Name = "label16";
+            label16.Size = new Size(66, 17);
+            label16.TabIndex = 41;
+            label16.Text = "Acciones:";
+            // 
+            // txt_subtotal
+            // 
+            txt_subtotal.Location = new Point(910, 753);
+            txt_subtotal.Margin = new Padding(3, 4, 3, 4);
+            txt_subtotal.Name = "txt_subtotal";
+            txt_subtotal.ReadOnly = true;
+            txt_subtotal.Size = new Size(231, 27);
+            txt_subtotal.TabIndex = 43;
+            // 
+            // txt_itbis
+            // 
+            txt_itbis.Location = new Point(910, 789);
+            txt_itbis.Margin = new Padding(3, 4, 3, 4);
+            txt_itbis.Name = "txt_itbis";
+            txt_itbis.ReadOnly = true;
+            txt_itbis.Size = new Size(231, 27);
+            txt_itbis.TabIndex = 44;
+            // 
+            // txt_totalmonto
+            // 
+            txt_totalmonto.Location = new Point(910, 826);
+            txt_totalmonto.Margin = new Padding(3, 4, 3, 4);
+            txt_totalmonto.Name = "txt_totalmonto";
+            txt_totalmonto.ReadOnly = true;
+            txt_totalmonto.Size = new Size(231, 27);
+            txt_totalmonto.TabIndex = 45;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label17.Location = new Point(816, 756);
+            label17.Name = "label17";
+            label17.Size = new Size(85, 17);
+            label17.TabIndex = 46;
+            label17.Text = "SUB-TOTAL :";
+            // 
+            // txt_porc_itbis
+            // 
+            txt_porc_itbis.Location = new Point(856, 789);
+            txt_porc_itbis.Margin = new Padding(3, 4, 3, 4);
+            txt_porc_itbis.Name = "txt_porc_itbis";
+            txt_porc_itbis.ReadOnly = true;
+            txt_porc_itbis.Size = new Size(49, 27);
+            txt_porc_itbis.TabIndex = 47;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label18.Location = new Point(803, 795);
+            label18.Name = "label18";
+            label18.Size = new Size(43, 17);
+            label18.TabIndex = 48;
+            label18.Text = "ITBIS:";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label19.Location = new Point(846, 829);
+            label19.Name = "label19";
+            label19.Size = new Size(56, 17);
+            label19.TabIndex = 49;
+            label19.Text = "TOTAL :";
+            // 
+            // chk_impuesto
+            // 
+            chk_impuesto.AutoSize = true;
+            chk_impuesto.Location = new Point(859, 909);
+            chk_impuesto.Margin = new Padding(3, 4, 3, 4);
+            chk_impuesto.Name = "chk_impuesto";
+            chk_impuesto.Size = new Size(114, 24);
+            chk_impuesto.TabIndex = 50;
+            chk_impuesto.Text = "Sin Impuesto";
+            chk_impuesto.UseVisualStyleBackColor = true;
+            // 
+            // txt_total_kilnet
+            // 
+            txt_total_kilnet.Location = new Point(490, 912);
+            txt_total_kilnet.Margin = new Padding(3, 4, 3, 4);
+            txt_total_kilnet.Name = "txt_total_kilnet";
+            txt_total_kilnet.ReadOnly = true;
+            txt_total_kilnet.Size = new Size(63, 27);
+            txt_total_kilnet.TabIndex = 51;
+            // 
+            // txt_kilbru
+            // 
+            txt_kilbru.Location = new Point(561, 912);
+            txt_kilbru.Margin = new Padding(3, 4, 3, 4);
+            txt_kilbru.Name = "txt_kilbru";
+            txt_kilbru.ReadOnly = true;
+            txt_kilbru.Size = new Size(63, 27);
+            txt_kilbru.TabIndex = 52;
+            // 
+            // txt_cant_total
+            // 
+            txt_cant_total.Location = new Point(318, 666);
+            txt_cant_total.Margin = new Padding(3, 4, 3, 4);
+            txt_cant_total.Name = "txt_cant_total";
+            txt_cant_total.ReadOnly = true;
+            txt_cant_total.Size = new Size(63, 27);
+            txt_cant_total.TabIndex = 53;
+            // 
+            // txt_msi_total
+            // 
+            txt_msi_total.Location = new Point(592, 666);
+            txt_msi_total.Margin = new Padding(3, 4, 3, 4);
+            txt_msi_total.Name = "txt_msi_total";
+            txt_msi_total.ReadOnly = true;
+            txt_msi_total.Size = new Size(78, 27);
+            txt_msi_total.TabIndex = 54;
+            // 
+            // txt_pie_total
+            // 
+            txt_pie_total.Location = new Point(767, 666);
+            txt_pie_total.Margin = new Padding(3, 4, 3, 4);
+            txt_pie_total.Name = "txt_pie_total";
+            txt_pie_total.ReadOnly = true;
+            txt_pie_total.Size = new Size(90, 27);
+            txt_pie_total.TabIndex = 55;
+            // 
+            // txt_kilos_total
+            // 
+            txt_kilos_total.Location = new Point(950, 666);
+            txt_kilos_total.Margin = new Padding(3, 4, 3, 4);
+            txt_kilos_total.Name = "txt_kilos_total";
+            txt_kilos_total.ReadOnly = true;
+            txt_kilos_total.Size = new Size(92, 27);
+            txt_kilos_total.TabIndex = 56;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label20.Location = new Point(243, 669);
+            label20.Name = "label20";
+            label20.Size = new Size(55, 17);
+            label20.TabIndex = 57;
+            label20.Text = "T. Cant:";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label21.Location = new Point(522, 669);
+            label21.Name = "label21";
+            label21.Size = new Size(49, 17);
+            label21.TabIndex = 58;
+            label21.Text = "T. Msi:";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label22.Location = new Point(697, 669);
+            label22.Name = "label22";
+            label22.Size = new Size(46, 17);
+            label22.TabIndex = 59;
+            label22.Text = "T. Pie:";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label23.Location = new Point(880, 669);
+            label23.Name = "label23";
+            label23.Size = new Size(57, 17);
+            label23.TabIndex = 60;
+            label23.Text = "T. Kilos:";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label24.Location = new Point(490, 945);
+            label24.Name = "label24";
+            label24.Size = new Size(57, 17);
+            label24.TabIndex = 61;
+            label24.Text = "T. Neto:";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            label25.Location = new Point(561, 945);
+            label25.Name = "label25";
+            label25.Size = new Size(61, 17);
+            label25.TabIndex = 62;
+            label25.Text = "T. Bruto:";
+            // 
+            // FrmDespacho
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1146, 1020);
+            Controls.Add(label25);
+            Controls.Add(label24);
+            Controls.Add(label23);
+            Controls.Add(label22);
+            Controls.Add(label21);
+            Controls.Add(label20);
+            Controls.Add(txt_kilos_total);
+            Controls.Add(txt_pie_total);
+            Controls.Add(txt_msi_total);
+            Controls.Add(txt_cant_total);
+            Controls.Add(txt_kilbru);
+            Controls.Add(txt_total_kilnet);
+            Controls.Add(chk_impuesto);
+            Controls.Add(label19);
+            Controls.Add(label18);
+            Controls.Add(txt_porc_itbis);
+            Controls.Add(label17);
+            Controls.Add(txt_totalmonto);
+            Controls.Add(txt_itbis);
+            Controls.Add(txt_subtotal);
+            Controls.Add(label16);
+            Controls.Add(bot_update_palet);
+            Controls.Add(bot_delete_palet);
+            Controls.Add(bot_add_palet);
+            Controls.Add(label15);
+            Controls.Add(grid_detalle_paletas);
+            Controls.Add(tabControl1);
+            Controls.Add(bot_picking);
+            Controls.Add(txt_tipoventa);
+            Controls.Add(label14);
+            Controls.Add(txt_orden_compra);
+            Controls.Add(label13);
+            Controls.Add(txt_orden_trabajo);
+            Controls.Add(label12);
+            Controls.Add(txt_tipo_embalaje);
+            Controls.Add(label11);
+            Controls.Add(bot_buscar_vendor);
+            Controls.Add(txt_vendorname);
+            Controls.Add(label10);
+            Controls.Add(txt_venid);
+            Controls.Add(label9);
+            Controls.Add(button4);
+            Controls.Add(txt_camion);
+            Controls.Add(label8);
+            Controls.Add(button3);
+            Controls.Add(txt_chofer);
+            Controls.Add(label7);
+            Controls.Add(button2);
+            Controls.Add(txt_transport);
+            Controls.Add(label6);
+            Controls.Add(txt_persondelivery);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(txt_fecha_despacho);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(txt_custname);
+            Controls.Add(txt_custid);
+            Controls.Add(btn_buscar_customer);
+            Controls.Add(txt_numero);
+            Controls.Add(label1);
+            Controls.Add(toolStrip1);
+            Font = new Font("Segoe UI", 10.18868F);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "FrmDespacho";
+            Text = "Despacho";
+            Load += Despacho_Load;
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)grid_items).EndInit();
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)grid_rc).EndInit();
+            ((System.ComponentModel.ISupportInitialize)grid_detalle_paletas).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private ToolStrip toolStrip1;
+        private ToolStripButton bot_primero;
+        private ToolStripButton bot_siguiente;
+        private ToolStripButton bot_anterior;
+        private ToolStripButton bot_ultimo;
+        private ToolStripButton bot_sincro;
+        private ToolStripButton bot_cancelar;
+        private ToolStripButton bot_grabar;
+        private ToolStripButton bot_buscar;
+        private ToolStripButton bot_imprimir;
+        private ToolStripButton bot_anular;
+        private Label label1;
+        private TextBox txt_numero;
+        private Button btn_buscar_customer;
+        private TextBox txt_custid;
+        private TextBox txt_custname;
+        private Label label2;
+        private Label label3;
+        private DateTimePicker txt_fecha_despacho;
+        private Label label4;
+        private TextBox txt_persondelivery;
+        private Label label5;
+        private Label label6;
+        private TextBox txt_transport;
+        private Button button2;
+        private Button button3;
+        private TextBox txt_chofer;
+        private Label label7;
+        private Button button4;
+        private TextBox txt_camion;
+        private Label label8;
+        private TextBox txt_venid;
+        private Label label9;
+        private TextBox txt_vendorname;
+        private Label label10;
+        private Button bot_buscar_vendor;
+        private TextBox txt_tipo_embalaje;
+        private Label label11;
+        private TextBox txt_orden_trabajo;
+        private Label label12;
+        private TextBox txt_orden_compra;
+        private Label label13;
+        private TextBox txt_tipoventa;
+        private Label label14;
+        private Button bot_picking;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private DataGridView grid_detalle_paletas;
+        private Label label15;
+        private DataGridViewTextBoxColumn num_paleta;
+        private DataGridViewTextBoxColumn medida;
+        private DataGridViewTextBoxColumn Contenido;
+        private DataGridViewTextBoxColumn busca;
+        private DataGridViewTextBoxColumn KilosNetos;
+        private DataGridViewTextBoxColumn KilosBrutos;
+        private Button bot_add_palet;
+        private Button bot_delete_palet;
+        private Button bot_update_palet;
+        private Label label16;
+        private TextBox txt_subtotal;
+        private TextBox txt_itbis;
+        private TextBox txt_totalmonto;
+        private Label label17;
+        private TextBox txt_porc_itbis;
+        private Label label18;
+        private Label label19;
+        private DataGridView grid_items;
+        private CheckBox chk_impuesto;
+        private TextBox txt_total_kilnet;
+        private TextBox txt_kilbru;
+        private TextBox txt_cant_total;
+        private TextBox txt_msi_total;
+        private TextBox txt_pie_total;
+        private TextBox txt_kilos_total;
+        private DataGridView grid_rc;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private Label label23;
+        private Label label24;
+        private Label label25;
+        private ToolStripButton bot_nuevo;
+        private DataGridViewTextBoxColumn unique_code;
+        private DataGridViewTextBoxColumn Productid;
+        private DataGridViewTextBoxColumn productname;
+        private DataGridViewTextBoxColumn roll_number;
+        private DataGridViewTextBoxColumn width_rc;
+        private DataGridViewTextBoxColumn lenght_rc;
+        private DataGridViewTextBoxColumn msi_rc;
+        private DataGridViewTextBoxColumn splice;
+        private DataGridViewTextBoxColumn roll_id;
+        private DataGridViewTextBoxColumn cant_despacho;
+        private DataGridViewTextBoxColumn tipo;
+        private DataGridViewTextBoxColumn paleta;
+        private DataGridViewTextBoxColumn product_id;
+        private DataGridViewTextBoxColumn product_name;
+        private DataGridViewTextBoxColumn unidad;
+        private DataGridViewTextBoxColumn cantidad;
+        private DataGridViewTextBoxColumn width;
+        private DataGridViewTextBoxColumn lenght;
+        private DataGridViewTextBoxColumn msi;
+        private DataGridViewTextBoxColumn ratio;
+        private DataGridViewTextBoxColumn pielin;
+        private DataGridViewTextBoxColumn kilo_rollo;
+        private DataGridViewTextBoxColumn kilos_total;
+        private DataGridViewTextBoxColumn precio;
+        private DataGridViewTextBoxColumn total_renglon;
+        private DataGridViewTextBoxColumn code_person;
+    }
+}

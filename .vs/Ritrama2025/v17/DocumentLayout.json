@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,28 +42,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DespachoService.cs",
-              "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Services\\DespachoService.cs",
-              "RelativeDocumentMoniker": "Services\\DespachoService.cs",
-              "ToolTip": "C:\\Programacion\\Ritrama2025\\Services\\DespachoService.cs",
-              "RelativeToolTip": "Services\\DespachoService.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAowEsAAACiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T19:43:42.872Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "FrmDespacho.cs",
               "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Forms\\FrmDespacho.cs",
               "RelativeDocumentMoniker": "Forms\\FrmDespacho.cs",
               "ToolTip": "C:\\Programacion\\Ritrama2025\\Forms\\FrmDespacho.cs",
               "RelativeToolTip": "Forms\\FrmDespacho.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAmwCwAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwDcAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T19:39:41.806Z",
+              "WhenOpened": "2025-05-01T11:19:44.02Z",
               "EditorCaption": ""
             },
             {
@@ -75,8 +62,21 @@
               "ToolTip": "C:\\Programacion\\Ritrama2025\\Forms\\FrmDespacho.cs [Dise\u00F1o]",
               "RelativeToolTip": "Forms\\FrmDespacho.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T18:22:01.792Z",
+              "WhenOpened": "2025-05-01T11:09:46.611Z",
               "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DespachoService.cs",
+              "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Services\\DespachoService.cs",
+              "RelativeDocumentMoniker": "Services\\DespachoService.cs",
+              "ToolTip": "C:\\Programacion\\Ritrama2025\\Services\\DespachoService.cs",
+              "RelativeToolTip": "Services\\DespachoService.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAiwFYAAAB5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T10:49:53.966Z",
+              "EditorCaption": ""
             }
           ]
         },

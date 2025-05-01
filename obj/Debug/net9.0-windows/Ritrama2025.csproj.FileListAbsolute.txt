@@ -67,3 +67,4 @@ C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\Ritrama2.AE66775C.Up2Date
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.Extensions.Configuration.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\Ritrama2025.sourcelink.json
+C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\Ritrama2025.Properties.Resources.resources

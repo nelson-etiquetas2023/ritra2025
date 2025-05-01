@@ -18,7 +18,8 @@ namespace Ritrama2025.Services
         public SqlDataAdapter DaVendors = new();
         public DataTable DtDetalleRC = new();
         public SqlDataAdapter DaDetalleRC = new();
-
+        public DataTable DtItems = new();
+        public SqlDataAdapter DaItems = new();
 
         public DespachoService()
         {
@@ -28,7 +29,6 @@ namespace Ritrama2025.Services
         {
             throw new NotImplementedException();
         }
-
         public async Task<DataSet> LoadDataDespachos()
         {
             try
@@ -46,7 +46,7 @@ namespace Ritrama2025.Services
                 await readerMaster.CloseAsync();
                 DaMasterDespachos.SelectCommand = ComandoMaster;
                 DaMasterDespachos.Fill(Ds, "DtMasterDespachos");
-                //1.- Carga de Clientes.
+                //2.- Carga de Clientes.
                 SqlCommand ComandoClientes = new()
                 {
                     Connection = conn,
@@ -57,7 +57,7 @@ namespace Ritrama2025.Services
                 await readerCliente.CloseAsync();
                 DaClientes.SelectCommand = ComandoClientes;
                 DaClientes.Fill(Ds, "DtClientes");
-                //2.- Carga de Vendedores
+                //3.- Carga de Vendedores
                 SqlCommand ComandoVendor = new()
                 {
                     Connection = conn,
@@ -68,7 +68,7 @@ namespace Ritrama2025.Services
                 await readerVendor.CloseAsync();
                 DaVendors.SelectCommand = ComandoVendor;
                 DaVendors.Fill(Ds, "DtVendors");
-                //3.- Carga de Detalle de Rollo Cortado
+                //4.- Carga de Detalle de Rollo Cortado
                 SqlCommand ComandoRC = new()
                 {
                     Connection = conn,
@@ -79,6 +79,17 @@ namespace Ritrama2025.Services
                 await readerRC.CloseAsync();
                 DaDetalleRC.SelectCommand = ComandoRC;
                 DaDetalleRC.Fill(Ds, "DtDetalleRC");
+                //5.- Carga de Reglones del Despacho.
+                SqlCommand ComandoItems = new()
+                {
+                    Connection = conn,
+                    CommandType = CommandType.Text,
+                    CommandText = "SELECT numero,a.product_id,cant,b.product_name,unid_id, width,lenght,msi,total_pie_lin,a.ratio,kilo_rollo,kilo_total,a.precio,total_renglon,code_person,m2 FROM item_despacho a LEFT JOIN producto b ON a.product_id=b.product_id "
+                };
+                SqlDataReader readerItems = await ComandoItems.ExecuteReaderAsync();
+                await readerItems.CloseAsync();
+                DaItems.SelectCommand = ComandoItems;
+                DaItems.Fill(Ds, "DtItems");
 
                 RelationDataset();
             }
@@ -112,6 +123,14 @@ namespace Ritrama2025.Services
                 DataColumn ChildCol2 = Ds.Tables["DtDetalleRC"]!.Columns["conduce"]!;
                 DataRelation Despacho_DetalleRC = new("FK_DESPACHOS_DETALLERC", ParentCol2, ChildCol2);
                 Ds.Relations.Add(Despacho_DetalleRC);
+                //Relacion entre master y Renglones de Despacho.
+                DataColumn ParentCol3 = Ds.Tables["DtMasterDespachos"]!.Columns["numero"]!;
+                DataColumn ChildCol3 = Ds.Tables["DtItems"]!.Columns["numero"]!;
+                DataRelation Despacho_Items = new("FK_DESPACHOS_ITEMS",
+                    ParentCol3, ChildCol3);
+                Ds.Relations.Add(Despacho_Items);
+
+
 
                 return true;
             }

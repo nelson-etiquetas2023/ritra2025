@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDespacho));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             toolStrip1 = new ToolStrip();
             bot_primero = new ToolStripButton();
-            bot_siguiente = new ToolStripButton();
             bot_anterior = new ToolStripButton();
+            bot_siguiente = new ToolStripButton();
             bot_ultimo = new ToolStripButton();
             bot_nuevo = new ToolStripButton();
             bot_grabar = new ToolStripButton();
@@ -79,20 +78,6 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             grid_items = new DataGridView();
-            product_id = new DataGridViewTextBoxColumn();
-            product_name = new DataGridViewTextBoxColumn();
-            unidad = new DataGridViewTextBoxColumn();
-            cantidad = new DataGridViewTextBoxColumn();
-            width = new DataGridViewTextBoxColumn();
-            lenght = new DataGridViewTextBoxColumn();
-            msi = new DataGridViewTextBoxColumn();
-            ratio = new DataGridViewTextBoxColumn();
-            pielin = new DataGridViewTextBoxColumn();
-            kilo_rollo = new DataGridViewTextBoxColumn();
-            kilos_total = new DataGridViewTextBoxColumn();
-            precio = new DataGridViewTextBoxColumn();
-            total_renglon = new DataGridViewTextBoxColumn();
-            code_person = new DataGridViewTextBoxColumn();
             tabPage2 = new TabPage();
             grid_rc = new DataGridView();
             grid_detalle_paletas = new DataGridView();
@@ -140,33 +125,25 @@
             // 
             toolStrip1.Font = new Font("Segoe UI", 10.18868F);
             toolStrip1.ImageScalingSize = new Size(18, 18);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { bot_primero, bot_siguiente, bot_anterior, bot_ultimo, bot_nuevo, bot_grabar, bot_cancelar, bot_buscar, bot_imprimir, bot_anular, bot_sincro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { bot_primero, bot_anterior, bot_siguiente, bot_ultimo, bot_nuevo, bot_grabar, bot_cancelar, bot_buscar, bot_imprimir, bot_anular, bot_sincro });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1146, 27);
+            toolStrip1.Size = new Size(1238, 33);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "Grabar";
             // 
             // bot_primero
             // 
+            bot_primero.AutoSize = false;
             bot_primero.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bot_primero.Image = (Image)resources.GetObject("bot_primero.Image");
+            bot_primero.ImageAlign = ContentAlignment.MiddleLeft;
             bot_primero.ImageTransparentColor = Color.Magenta;
             bot_primero.Name = "bot_primero";
-            bot_primero.Size = new Size(83, 24);
+            bot_primero.Size = new Size(100, 30);
             bot_primero.Text = "Primero";
             bot_primero.ToolTipText = "Primero";
             bot_primero.Click += bot_primero_Click;
-            // 
-            // bot_siguiente
-            // 
-            bot_siguiente.Font = new Font("Segoe UI", 10.18868F);
-            bot_siguiente.Image = (Image)resources.GetObject("bot_siguiente.Image");
-            bot_siguiente.ImageTransparentColor = Color.Magenta;
-            bot_siguiente.Name = "bot_siguiente";
-            bot_siguiente.Size = new Size(93, 24);
-            bot_siguiente.Text = "Siguiente";
-            bot_siguiente.Click += bot_siguiente_Click;
             // 
             // bot_anterior
             // 
@@ -174,9 +151,19 @@
             bot_anterior.Image = (Image)resources.GetObject("bot_anterior.Image");
             bot_anterior.ImageTransparentColor = Color.Magenta;
             bot_anterior.Name = "bot_anterior";
-            bot_anterior.Size = new Size(85, 24);
+            bot_anterior.Size = new Size(85, 30);
             bot_anterior.Text = "Anterior";
             bot_anterior.Click += bot_anterior_Click;
+            // 
+            // bot_siguiente
+            // 
+            bot_siguiente.Font = new Font("Segoe UI", 10.18868F);
+            bot_siguiente.Image = (Image)resources.GetObject("bot_siguiente.Image");
+            bot_siguiente.ImageTransparentColor = Color.Magenta;
+            bot_siguiente.Name = "bot_siguiente";
+            bot_siguiente.Size = new Size(93, 30);
+            bot_siguiente.Text = "Siguiente";
+            bot_siguiente.Click += bot_siguiente_Click;
             // 
             // bot_ultimo
             // 
@@ -184,7 +171,7 @@
             bot_ultimo.Image = (Image)resources.GetObject("bot_ultimo.Image");
             bot_ultimo.ImageTransparentColor = Color.Magenta;
             bot_ultimo.Name = "bot_ultimo";
-            bot_ultimo.Size = new Size(76, 24);
+            bot_ultimo.Size = new Size(76, 30);
             bot_ultimo.Text = "Ultimo";
             bot_ultimo.Click += bot_ultimo_Click;
             // 
@@ -194,7 +181,7 @@
             bot_nuevo.Image = (Image)resources.GetObject("bot_nuevo.Image");
             bot_nuevo.ImageTransparentColor = Color.Magenta;
             bot_nuevo.Name = "bot_nuevo";
-            bot_nuevo.Size = new Size(74, 24);
+            bot_nuevo.Size = new Size(74, 30);
             bot_nuevo.Text = "Nuevo";
             // 
             // bot_grabar
@@ -203,7 +190,7 @@
             bot_grabar.Image = (Image)resources.GetObject("bot_grabar.Image");
             bot_grabar.ImageTransparentColor = Color.Magenta;
             bot_grabar.Name = "bot_grabar";
-            bot_grabar.Size = new Size(76, 24);
+            bot_grabar.Size = new Size(76, 30);
             bot_grabar.Text = "Grabar";
             // 
             // bot_cancelar
@@ -212,7 +199,7 @@
             bot_cancelar.Image = (Image)resources.GetObject("bot_cancelar.Image");
             bot_cancelar.ImageTransparentColor = Color.Magenta;
             bot_cancelar.Name = "bot_cancelar";
-            bot_cancelar.Size = new Size(88, 24);
+            bot_cancelar.Size = new Size(88, 30);
             bot_cancelar.Text = "Cancelar";
             // 
             // bot_buscar
@@ -221,7 +208,7 @@
             bot_buscar.Image = (Image)resources.GetObject("bot_buscar.Image");
             bot_buscar.ImageTransparentColor = Color.Magenta;
             bot_buscar.Name = "bot_buscar";
-            bot_buscar.Size = new Size(74, 24);
+            bot_buscar.Size = new Size(74, 30);
             bot_buscar.Text = "Buscar";
             // 
             // bot_imprimir
@@ -230,7 +217,7 @@
             bot_imprimir.Image = (Image)resources.GetObject("bot_imprimir.Image");
             bot_imprimir.ImageTransparentColor = Color.Magenta;
             bot_imprimir.Name = "bot_imprimir";
-            bot_imprimir.Size = new Size(88, 24);
+            bot_imprimir.Size = new Size(88, 30);
             bot_imprimir.Text = "Imprimir";
             // 
             // bot_anular
@@ -239,7 +226,7 @@
             bot_anular.Image = (Image)resources.GetObject("bot_anular.Image");
             bot_anular.ImageTransparentColor = Color.Magenta;
             bot_anular.Name = "bot_anular";
-            bot_anular.Size = new Size(74, 24);
+            bot_anular.Size = new Size(74, 30);
             bot_anular.Text = "Anular";
             // 
             // bot_sincro
@@ -248,7 +235,7 @@
             bot_sincro.Image = (Image)resources.GetObject("bot_sincro.Image");
             bot_sincro.ImageTransparentColor = Color.Magenta;
             bot_sincro.Name = "bot_sincro";
-            bot_sincro.Size = new Size(72, 24);
+            bot_sincro.Size = new Size(72, 30);
             bot_sincro.Text = "Sincro";
             // 
             // label1
@@ -584,13 +571,15 @@
             // 
             // bot_picking
             // 
-            bot_picking.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
+            bot_picking.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bot_picking.Image = (Image)resources.GetObject("bot_picking.Image");
             bot_picking.Location = new Point(418, 229);
             bot_picking.Margin = new Padding(3, 4, 3, 4);
             bot_picking.Name = "bot_picking";
             bot_picking.Size = new Size(286, 45);
             bot_picking.TabIndex = 34;
             bot_picking.Text = "Picking";
+            bot_picking.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_picking.UseVisualStyleBackColor = true;
             // 
             // tabControl1
@@ -598,11 +587,11 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Font = new Font("Segoe UI", 10.18868F);
-            tabControl1.Location = new Point(14, 279);
+            tabControl1.Location = new Point(5, 279);
             tabControl1.Margin = new Padding(3, 4, 3, 4);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1133, 338);
+            tabControl1.Size = new Size(1233, 338);
             tabControl1.TabIndex = 35;
             tabControl1.SelectedIndexChanged += TabControl1_SelectedIndexChanged;
             // 
@@ -613,121 +602,21 @@
             tabPage1.Margin = new Padding(3, 4, 3, 4);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3, 4, 3, 4);
-            tabPage1.Size = new Size(1125, 305);
+            tabPage1.Size = new Size(1225, 305);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Renglones";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // grid_items
             // 
+            grid_items.AllowUserToAddRows = false;
             grid_items.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grid_items.Columns.AddRange(new DataGridViewColumn[] { product_id, product_name, unidad, cantidad, width, lenght, msi, ratio, pielin, kilo_rollo, kilos_total, precio, total_renglon, code_person });
             grid_items.Location = new Point(7, 7);
             grid_items.Margin = new Padding(3, 4, 3, 4);
             grid_items.Name = "grid_items";
             grid_items.RowHeadersWidth = 45;
-            grid_items.Size = new Size(1107, 288);
+            grid_items.Size = new Size(1210, 288);
             grid_items.TabIndex = 0;
-            // 
-            // product_id
-            // 
-            product_id.HeaderText = "Product Id.";
-            product_id.MinimumWidth = 6;
-            product_id.Name = "product_id";
-            product_id.Width = 50;
-            // 
-            // product_name
-            // 
-            product_name.HeaderText = "Product Name";
-            product_name.MinimumWidth = 6;
-            product_name.Name = "product_name";
-            product_name.Width = 110;
-            // 
-            // unidad
-            // 
-            unidad.HeaderText = "Unidad";
-            unidad.MinimumWidth = 6;
-            unidad.Name = "unidad";
-            unidad.Width = 60;
-            // 
-            // cantidad
-            // 
-            cantidad.HeaderText = "Cantidad";
-            cantidad.MinimumWidth = 6;
-            cantidad.Name = "cantidad";
-            cantidad.Width = 60;
-            // 
-            // width
-            // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            width.DefaultCellStyle = dataGridViewCellStyle1;
-            width.HeaderText = "width[Pulg.]";
-            width.MinimumWidth = 6;
-            width.Name = "width";
-            width.Width = 80;
-            // 
-            // lenght
-            // 
-            lenght.HeaderText = "Lenght[Pies]";
-            lenght.MinimumWidth = 6;
-            lenght.Name = "lenght";
-            lenght.Width = 80;
-            // 
-            // msi
-            // 
-            msi.HeaderText = "MSI.";
-            msi.MinimumWidth = 6;
-            msi.Name = "msi";
-            msi.Width = 80;
-            // 
-            // ratio
-            // 
-            ratio.HeaderText = "Ratio";
-            ratio.MinimumWidth = 6;
-            ratio.Name = "ratio";
-            ratio.Width = 80;
-            // 
-            // pielin
-            // 
-            pielin.HeaderText = "Total Pie Lin.";
-            pielin.MinimumWidth = 6;
-            pielin.Name = "pielin";
-            pielin.Width = 80;
-            // 
-            // kilo_rollo
-            // 
-            kilo_rollo.HeaderText = "Kilos Rollos";
-            kilo_rollo.MinimumWidth = 6;
-            kilo_rollo.Name = "kilo_rollo";
-            kilo_rollo.Width = 80;
-            // 
-            // kilos_total
-            // 
-            kilos_total.HeaderText = "Kilos Total";
-            kilos_total.MinimumWidth = 6;
-            kilos_total.Name = "kilos_total";
-            kilos_total.Width = 80;
-            // 
-            // precio
-            // 
-            precio.HeaderText = "Precio";
-            precio.MinimumWidth = 6;
-            precio.Name = "precio";
-            precio.Width = 80;
-            // 
-            // total_renglon
-            // 
-            total_renglon.HeaderText = "Total Renglon";
-            total_renglon.MinimumWidth = 6;
-            total_renglon.Name = "total_renglon";
-            total_renglon.Width = 80;
-            // 
-            // code_person
-            // 
-            code_person.HeaderText = "Codigo Personalizado";
-            code_person.MinimumWidth = 6;
-            code_person.Name = "code_person";
-            code_person.Width = 80;
             // 
             // tabPage2
             // 
@@ -736,7 +625,7 @@
             tabPage2.Margin = new Padding(3, 4, 3, 4);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3, 4, 3, 4);
-            tabPage2.Size = new Size(1125, 305);
+            tabPage2.Size = new Size(1225, 305);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Rollos Cortados";
             tabPage2.UseVisualStyleBackColor = true;
@@ -750,7 +639,7 @@
             grid_rc.Name = "grid_rc";
             grid_rc.ReadOnly = true;
             grid_rc.RowHeadersWidth = 45;
-            grid_rc.Size = new Size(1107, 288);
+            grid_rc.Size = new Size(1215, 288);
             grid_rc.TabIndex = 0;
             // 
             // grid_detalle_paletas
@@ -818,32 +707,39 @@
             // 
             // bot_add_palet
             // 
+            bot_add_palet.Image = (Image)resources.GetObject("bot_add_palet.Image");
+            bot_add_palet.ImageAlign = ContentAlignment.MiddleLeft;
             bot_add_palet.Location = new Point(623, 685);
             bot_add_palet.Margin = new Padding(3, 4, 3, 4);
             bot_add_palet.Name = "bot_add_palet";
-            bot_add_palet.Size = new Size(95, 29);
+            bot_add_palet.Size = new Size(98, 29);
             bot_add_palet.TabIndex = 38;
             bot_add_palet.Text = "Add";
+            bot_add_palet.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_add_palet.UseVisualStyleBackColor = true;
             // 
             // bot_delete_palet
             // 
+            bot_delete_palet.Image = Properties.Resources.multiply_32px;
             bot_delete_palet.Location = new Point(623, 721);
             bot_delete_palet.Margin = new Padding(3, 4, 3, 4);
             bot_delete_palet.Name = "bot_delete_palet";
-            bot_delete_palet.Size = new Size(95, 29);
+            bot_delete_palet.Size = new Size(98, 29);
             bot_delete_palet.TabIndex = 39;
             bot_delete_palet.Text = "Delete";
+            bot_delete_palet.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_delete_palet.UseVisualStyleBackColor = true;
             // 
             // bot_update_palet
             // 
+            bot_update_palet.Image = Properties.Resources.registry_editor_32px;
             bot_update_palet.Location = new Point(623, 758);
             bot_update_palet.Margin = new Padding(3, 4, 3, 4);
             bot_update_palet.Name = "bot_update_palet";
-            bot_update_palet.Size = new Size(95, 29);
+            bot_update_palet.Size = new Size(98, 29);
             bot_update_palet.TabIndex = 40;
             bot_update_palet.Text = "Update";
+            bot_update_palet.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_update_palet.UseVisualStyleBackColor = true;
             // 
             // label16
@@ -1051,7 +947,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1146, 915);
+            ClientSize = new Size(1238, 915);
             Controls.Add(label25);
             Controls.Add(label24);
             Controls.Add(label23);
@@ -1216,19 +1112,5 @@
         private Label label24;
         private Label label25;
         private ToolStripButton bot_nuevo;
-        private DataGridViewTextBoxColumn product_id;
-        private DataGridViewTextBoxColumn product_name;
-        private DataGridViewTextBoxColumn unidad;
-        private DataGridViewTextBoxColumn cantidad;
-        private DataGridViewTextBoxColumn width;
-        private DataGridViewTextBoxColumn lenght;
-        private DataGridViewTextBoxColumn msi;
-        private DataGridViewTextBoxColumn ratio;
-        private DataGridViewTextBoxColumn pielin;
-        private DataGridViewTextBoxColumn kilo_rollo;
-        private DataGridViewTextBoxColumn kilos_total;
-        private DataGridViewTextBoxColumn precio;
-        private DataGridViewTextBoxColumn total_renglon;
-        private DataGridViewTextBoxColumn code_person;
     }
 }

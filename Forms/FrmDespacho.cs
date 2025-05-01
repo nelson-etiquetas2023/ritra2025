@@ -7,10 +7,10 @@ namespace Ritrama2025.Forms
     public partial class FrmDespacho : Form
     {
         private readonly DespachoService Service = new();
-
         DataSet Ds = new();
         readonly BindingSource Bs = [];
         readonly BindingSource BsDetalleRC = [];
+        readonly BindingSource BsItems = [];
 
         public FrmDespacho()
         {
@@ -31,6 +31,9 @@ namespace Ritrama2025.Forms
             //Enlace Datos DetalleRC.
             BsDetalleRC.DataSource = Bs;
             BsDetalleRC.DataMember = "FK_DESPACHOS_DETALLERC";
+            //Enlace Datos Items.
+            BsItems.DataSource = Bs;
+            BsItems.DataMember = "FK_DESPACHOS_ITEMS";
             //Definicion de las columnas del grid de DetalleRC
             grid_rc.AutoGenerateColumns = false;
             AGREGAR_COLUMN_GRID("unique_code", 70, "Unique Code", "unique_code", grid_rc);
@@ -46,7 +49,27 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("tipo", 70, "Tipo", "cant_despacho", grid_rc);
             AGREGAR_COLUMN_GRID("paleta", 70, "Paleta", "no_paleta", grid_rc);
             grid_rc.DataSource = BsDetalleRC;
+            //Definicion de las columnas del grid de Items.
+            grid_items.AutoGenerateColumns = false;
+            AGREGAR_COLUMN_GRID("product_id", 70, "Product Id.", "product_id", grid_items);
+            AGREGAR_COLUMN_GRID("product_name", 200, "Product Name", "product_name", grid_items);
+            AGREGAR_COLUMN_GRID("unid_id", 65, "Unidad", "unid_id", grid_items);
+            AGREGAR_COLUMN_GRID("cant", 60, "Cant.", "cant", grid_items);
+            AGREGAR_COLUMN_GRID("width",65, "Width [Pulg]", "width", grid_items);
+            AGREGAR_COLUMN_GRID("lenght", 65, "Lenght [Pies]", "lenght", grid_items);
+            AGREGAR_COLUMN_GRID("msi", 70, "MSI", "msi", grid_items);
+            AGREGAR_COLUMN_GRID("total_pie_lin", 70, "Pie Lineales", "total_pie_lin", grid_items);
+            AGREGAR_COLUMN_GRID("ratio", 60, "Ratio", "ratio", grid_items);
+            AGREGAR_COLUMN_GRID("kilo_rollo", 70, "Kilo Rollo", "kilo_rollo", grid_items);
+            AGREGAR_COLUMN_GRID("kilo_total", 70, "Kilo Total", "kilo_total", grid_items);
+            AGREGAR_COLUMN_GRID("precio", 60, "Precio", "precio", grid_items);
+            AGREGAR_COLUMN_GRID("total_renglon", 70, "Total Renglon", "total_renglon", grid_items);
+            AGREGAR_COLUMN_GRID("code_person", 70, "Code Person", "code_person", grid_items);
+            AGREGAR_COLUMN_GRID("m2", 70, "Total M2", "m2", grid_items);
 
+
+            grid_items.DataSource = BsItems;
+            //Binding Forms
             txt_numero.DataBindings.Add("Text", Bs, "numero");
             txt_fecha_despacho.DataBindings.Add("Text", Bs, "fecha");
             txt_persondelivery.DataBindings.Add("Text", Bs, "person_contact");

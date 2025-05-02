@@ -20,6 +20,8 @@ namespace Ritrama2025.Services
         public SqlDataAdapter DaDetalleRC = new();
         public DataTable DtItems = new();
         public SqlDataAdapter DaItems = new();
+        public DataTable DtPalet = new();
+        public SqlDataAdapter DaPalet = new();
 
         public DespachoService()
         {
@@ -90,6 +92,18 @@ namespace Ritrama2025.Services
                 await readerItems.CloseAsync();
                 DaItems.SelectCommand = ComandoItems;
                 DaItems.Fill(Ds, "DtItems");
+                //6.- Carga de Detalle de Paleta.
+                SqlCommand ComandoPalet = new()
+                {
+                    Connection = conn,
+                    CommandType = CommandType.Text,
+                    CommandText = "SELECT numero,number_palet,medida,contenido,kilo_neto,kilo_bruto FROM paleta"
+                };
+                SqlDataReader readerPalet = await ComandoPalet.ExecuteReaderAsync();
+                await readerPalet.CloseAsync();
+                DaPalet.SelectCommand = ComandoPalet;
+                DaPalet.Fill(Ds, "DtPalet");
+
 
                 RelationDataset();
             }
@@ -100,8 +114,6 @@ namespace Ritrama2025.Services
             }
             return Ds;
         }
-
-
         public Boolean RelationDataset() 
         {
             try
@@ -129,8 +141,12 @@ namespace Ritrama2025.Services
                 DataRelation Despacho_Items = new("FK_DESPACHOS_ITEMS",
                     ParentCol3, ChildCol3);
                 Ds.Relations.Add(Despacho_Items);
-
-
+                //Relacion entre master y detalle de palet.
+                DataColumn ParentCol4 = Ds.Tables["DtMasterDespachos"]!.Columns["numero"]!;
+                DataColumn ChildCol4 = Ds.Tables["DtPalet"]!.Columns["numero"]!;
+                DataRelation Despacho_Palet = new("FK_DESPACHOS_PALET",
+                   ParentCol4, ChildCol4);
+                Ds.Relations.Add(Despacho_Palet);
 
                 return true;
             }

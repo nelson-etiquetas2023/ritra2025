@@ -1,6 +1,6 @@
 ﻿using Ritrama2025.Services;
-using Ritrama2025.Models;
 using System.Data;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace Ritrama2025.Forms
 {
@@ -11,6 +11,8 @@ namespace Ritrama2025.Forms
         readonly BindingSource Bs = [];
         readonly BindingSource BsDetalleRC = [];
         readonly BindingSource BsItems = [];
+        readonly BindingSource BsPalet = [];
+        DataRowView ParentRow = null!;
 
         public FrmDespacho()
         {
@@ -34,6 +36,9 @@ namespace Ritrama2025.Forms
             //Enlace Datos Items.
             BsItems.DataSource = Bs;
             BsItems.DataMember = "FK_DESPACHOS_ITEMS";
+            //Enlace Datos Grid Palet.
+            BsPalet.DataSource = Bs;
+            BsPalet.DataMember = "FK_DESPACHOS_PALET";
             //Definicion de las columnas del grid de DetalleRC
             grid_rc.AutoGenerateColumns = false;
             AGREGAR_COLUMN_GRID("unique_code", 70, "Unique Code", "unique_code", grid_rc);
@@ -55,7 +60,7 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("product_name", 200, "Product Name", "product_name", grid_items);
             AGREGAR_COLUMN_GRID("unid_id", 65, "Unidad", "unid_id", grid_items);
             AGREGAR_COLUMN_GRID("cant", 60, "Cant.", "cant", grid_items);
-            AGREGAR_COLUMN_GRID("width",65, "Width [Pulg]", "width", grid_items);
+            AGREGAR_COLUMN_GRID("width", 65, "Width [Pulg]", "width", grid_items);
             AGREGAR_COLUMN_GRID("lenght", 65, "Lenght [Pies]", "lenght", grid_items);
             AGREGAR_COLUMN_GRID("msi", 70, "MSI", "msi", grid_items);
             AGREGAR_COLUMN_GRID("total_pie_lin", 70, "Pie Lineales", "total_pie_lin", grid_items);
@@ -66,9 +71,18 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("total_renglon", 70, "Total Renglon", "total_renglon", grid_items);
             AGREGAR_COLUMN_GRID("code_person", 70, "Code Person", "code_person", grid_items);
             AGREGAR_COLUMN_GRID("m2", 70, "Total M2", "m2", grid_items);
-
-
             grid_items.DataSource = BsItems;
+            //Definicion de las columnas del grid de Detalle de paleta.
+            grid_detalle_paletas.AutoGenerateColumns = false;
+            AGREGAR_COLUMN_GRID("number_palet", 70, "# Palet.", "number_palet", grid_detalle_paletas);
+            AGREGAR_COLUMN_GRID("medida", 70, "Medida", "medida", grid_detalle_paletas);
+            AGREGAR_COLUMN_GRID("contenido", 200, "Contenido", "contenido", grid_detalle_paletas);
+            AGREGAR_COLUMN_GRID("kilo_neto", 70, "Kilo Neto", "kilo_neto", grid_detalle_paletas);
+            AGREGAR_COLUMN_GRID("kilo_bruto", 70, "Kilo Bruto", "kilo_bruto", grid_detalle_paletas);
+            grid_detalle_paletas.DataSource = BsPalet;
+
+
+
             //Binding Forms
             txt_numero.DataBindings.Add("Text", Bs, "numero");
             txt_fecha_despacho.DataBindings.Add("Text", Bs, "fecha");
@@ -89,44 +103,41 @@ namespace Ritrama2025.Forms
             txt_custname.DataBindings.Add("Text", Bs, "customer_name");
             txt_vendorname.DataBindings.Add("Text", Bs, "vendor_name");
 
-           
-        }
 
+        }
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         private void Txt_numero_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void Txt_tipoventa_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void bot_primero_Click(object sender, EventArgs e)
+        private void Bot_primero_Click(object sender, EventArgs e)
         {
             Bs.Position = 0;
         }
 
-        private void bot_siguiente_Click(object sender, EventArgs e)
+        private void Bot_siguiente_Click(object sender, EventArgs e)
         {
             Bs.Position += 1;
         }
 
-        private void bot_anterior_Click(object sender, EventArgs e)
+        private void Bot_anterior_Click(object sender, EventArgs e)
         {
             Bs.Position -= 1;
         }
 
-        private void bot_ultimo_Click(object sender, EventArgs e)
+        private void Bot_ultimo_Click(object sender, EventArgs e)
         {
-            Bs.Position = Bs.Count - 1; 
+            Bs.Position = Bs.Count - 1;
         }
-        private static void AGREGAR_COLUMN_GRID(string name, int size, string title, string field_bd, DataGridView grid) 
+        private static void AGREGAR_COLUMN_GRID(string name, int size, string title, string field_bd, DataGridView grid)
         {
             DataGridViewTextBoxColumn col = new()
             {
@@ -136,6 +147,24 @@ namespace Ritrama2025.Forms
                 DataPropertyName = field_bd,
             };
             grid.Columns.Add(col);
+        }
+
+        private void Bot_nuevo_Click(object sender, EventArgs e)
+        {
+            ParentRow = (DataRowView)Bs.AddNew()!;
+            ParentRow.BeginEdit();
+            ParentRow["numero"] = "5000";
+
+            txt_numero.ReadOnly = false;
+            txt_fecha_despacho.Enabled = true;
+
+            bot_picking.Enabled = true;
+        }
+
+        private void Bot_picking_Click(object sender, EventArgs e)
+        {
+            FrmPickingDespacho frm_picking = new();  
+            frm_picking.ShowDialog();
         }
     }
 }

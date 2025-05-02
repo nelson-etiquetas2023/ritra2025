@@ -12,6 +12,7 @@ namespace Ritrama2025.Models
         public int Splice { get; set; }
         public string Roll_Id { get; set; } = null!;
         public int Cantidad_despacho { get; set; }
+        public int Cantidad { get; set; }
         public string Tipo { get; set; } = null!;
         public string Paleta { get; set; } = null!;
     }

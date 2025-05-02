@@ -40,7 +40,6 @@
             bot_buscar = new ToolStripButton();
             bot_imprimir = new ToolStripButton();
             bot_anular = new ToolStripButton();
-            bot_sincro = new ToolStripButton();
             label1 = new Label();
             txt_numero = new TextBox();
             btn_buscar_customer = new Button();
@@ -81,12 +80,6 @@
             tabPage2 = new TabPage();
             grid_rc = new DataGridView();
             grid_detalle_paletas = new DataGridView();
-            num_paleta = new DataGridViewTextBoxColumn();
-            medida = new DataGridViewTextBoxColumn();
-            Contenido = new DataGridViewTextBoxColumn();
-            busca = new DataGridViewTextBoxColumn();
-            KilosNetos = new DataGridViewTextBoxColumn();
-            KilosBrutos = new DataGridViewTextBoxColumn();
             label15 = new Label();
             bot_add_palet = new Button();
             bot_delete_palet = new Button();
@@ -112,6 +105,7 @@
             label23 = new Label();
             label24 = new Label();
             label25 = new Label();
+            pictureBox1 = new PictureBox();
             toolStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -119,13 +113,14 @@
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grid_rc).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grid_detalle_paletas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // toolStrip1
             // 
             toolStrip1.Font = new Font("Segoe UI", 10.18868F);
             toolStrip1.ImageScalingSize = new Size(18, 18);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { bot_primero, bot_anterior, bot_siguiente, bot_ultimo, bot_nuevo, bot_grabar, bot_cancelar, bot_buscar, bot_imprimir, bot_anular, bot_sincro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { bot_primero, bot_anterior, bot_siguiente, bot_ultimo, bot_nuevo, bot_grabar, bot_cancelar, bot_buscar, bot_imprimir, bot_anular });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1238, 33);
@@ -143,7 +138,7 @@
             bot_primero.Size = new Size(100, 30);
             bot_primero.Text = "Primero";
             bot_primero.ToolTipText = "Primero";
-            bot_primero.Click += bot_primero_Click;
+            bot_primero.Click += Bot_primero_Click;
             // 
             // bot_anterior
             // 
@@ -153,7 +148,7 @@
             bot_anterior.Name = "bot_anterior";
             bot_anterior.Size = new Size(85, 30);
             bot_anterior.Text = "Anterior";
-            bot_anterior.Click += bot_anterior_Click;
+            bot_anterior.Click += Bot_anterior_Click;
             // 
             // bot_siguiente
             // 
@@ -163,7 +158,7 @@
             bot_siguiente.Name = "bot_siguiente";
             bot_siguiente.Size = new Size(93, 30);
             bot_siguiente.Text = "Siguiente";
-            bot_siguiente.Click += bot_siguiente_Click;
+            bot_siguiente.Click += Bot_siguiente_Click;
             // 
             // bot_ultimo
             // 
@@ -173,7 +168,7 @@
             bot_ultimo.Name = "bot_ultimo";
             bot_ultimo.Size = new Size(76, 30);
             bot_ultimo.Text = "Ultimo";
-            bot_ultimo.Click += bot_ultimo_Click;
+            bot_ultimo.Click += Bot_ultimo_Click;
             // 
             // bot_nuevo
             // 
@@ -183,9 +178,11 @@
             bot_nuevo.Name = "bot_nuevo";
             bot_nuevo.Size = new Size(74, 30);
             bot_nuevo.Text = "Nuevo";
+            bot_nuevo.Click += Bot_nuevo_Click;
             // 
             // bot_grabar
             // 
+            bot_grabar.Enabled = false;
             bot_grabar.Font = new Font("Segoe UI", 10.18868F);
             bot_grabar.Image = (Image)resources.GetObject("bot_grabar.Image");
             bot_grabar.ImageTransparentColor = Color.Magenta;
@@ -195,6 +192,7 @@
             // 
             // bot_cancelar
             // 
+            bot_cancelar.Enabled = false;
             bot_cancelar.Font = new Font("Segoe UI", 10.18868F);
             bot_cancelar.Image = (Image)resources.GetObject("bot_cancelar.Image");
             bot_cancelar.ImageTransparentColor = Color.Magenta;
@@ -229,15 +227,6 @@
             bot_anular.Size = new Size(74, 30);
             bot_anular.Text = "Anular";
             // 
-            // bot_sincro
-            // 
-            bot_sincro.Font = new Font("Segoe UI", 10.18868F);
-            bot_sincro.Image = (Image)resources.GetObject("bot_sincro.Image");
-            bot_sincro.ImageTransparentColor = Color.Magenta;
-            bot_sincro.Name = "bot_sincro";
-            bot_sincro.Size = new Size(72, 30);
-            bot_sincro.Text = "Sincro";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -261,6 +250,7 @@
             // 
             // btn_buscar_customer
             // 
+            btn_buscar_customer.Enabled = false;
             btn_buscar_customer.Location = new Point(1082, 62);
             btn_buscar_customer.Margin = new Padding(3, 4, 3, 4);
             btn_buscar_customer.Name = "btn_buscar_customer";
@@ -370,6 +360,7 @@
             // 
             // button2
             // 
+            button2.Enabled = false;
             button2.Location = new Point(358, 175);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
@@ -380,6 +371,7 @@
             // 
             // button3
             // 
+            button3.Enabled = false;
             button3.Location = new Point(358, 211);
             button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
@@ -410,6 +402,7 @@
             // 
             // button4
             // 
+            button4.Enabled = false;
             button4.Location = new Point(358, 248);
             button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
@@ -480,6 +473,7 @@
             // 
             // bot_buscar_vendor
             // 
+            bot_buscar_vendor.Enabled = false;
             bot_buscar_vendor.Location = new Point(551, 120);
             bot_buscar_vendor.Margin = new Padding(3, 4, 3, 4);
             bot_buscar_vendor.Name = "bot_buscar_vendor";
@@ -571,6 +565,7 @@
             // 
             // bot_picking
             // 
+            bot_picking.Enabled = false;
             bot_picking.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bot_picking.Image = (Image)resources.GetObject("bot_picking.Image");
             bot_picking.Location = new Point(418, 229);
@@ -581,6 +576,7 @@
             bot_picking.Text = "Picking";
             bot_picking.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_picking.UseVisualStyleBackColor = true;
+            bot_picking.Click += Bot_picking_Click;
             // 
             // tabControl1
             // 
@@ -610,11 +606,14 @@
             // grid_items
             // 
             grid_items.AllowUserToAddRows = false;
+            grid_items.AllowUserToDeleteRows = false;
+            grid_items.AllowUserToResizeRows = false;
             grid_items.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grid_items.Location = new Point(7, 7);
             grid_items.Margin = new Padding(3, 4, 3, 4);
             grid_items.Name = "grid_items";
-            grid_items.RowHeadersWidth = 45;
+            grid_items.ReadOnly = true;
+            grid_items.RowHeadersWidth = 38;
             grid_items.Size = new Size(1210, 288);
             grid_items.TabIndex = 0;
             // 
@@ -644,56 +643,15 @@
             // 
             // grid_detalle_paletas
             // 
+            grid_detalle_paletas.AllowUserToAddRows = false;
             grid_detalle_paletas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grid_detalle_paletas.Columns.AddRange(new DataGridViewColumn[] { num_paleta, medida, Contenido, busca, KilosNetos, KilosBrutos });
             grid_detalle_paletas.Location = new Point(32, 685);
             grid_detalle_paletas.Margin = new Padding(3, 4, 3, 4);
             grid_detalle_paletas.Name = "grid_detalle_paletas";
+            grid_detalle_paletas.ReadOnly = true;
             grid_detalle_paletas.RowHeadersWidth = 45;
             grid_detalle_paletas.Size = new Size(584, 152);
             grid_detalle_paletas.TabIndex = 36;
-            // 
-            // num_paleta
-            // 
-            num_paleta.HeaderText = "# Paleta";
-            num_paleta.MinimumWidth = 6;
-            num_paleta.Name = "num_paleta";
-            num_paleta.Width = 50;
-            // 
-            // medida
-            // 
-            medida.HeaderText = "Medida";
-            medida.MinimumWidth = 6;
-            medida.Name = "medida";
-            medida.Width = 110;
-            // 
-            // Contenido
-            // 
-            Contenido.HeaderText = "Contenido";
-            Contenido.MinimumWidth = 6;
-            Contenido.Name = "Contenido";
-            Contenido.Width = 150;
-            // 
-            // busca
-            // 
-            busca.HeaderText = "...";
-            busca.MinimumWidth = 6;
-            busca.Name = "busca";
-            busca.Width = 50;
-            // 
-            // KilosNetos
-            // 
-            KilosNetos.HeaderText = "Kilos Netos";
-            KilosNetos.MinimumWidth = 6;
-            KilosNetos.Name = "KilosNetos";
-            KilosNetos.Width = 50;
-            // 
-            // KilosBrutos
-            // 
-            KilosBrutos.HeaderText = "Kilos Brutos";
-            KilosBrutos.MinimumWidth = 6;
-            KilosBrutos.Name = "KilosBrutos";
-            KilosBrutos.Width = 50;
             // 
             // label15
             // 
@@ -707,6 +665,7 @@
             // 
             // bot_add_palet
             // 
+            bot_add_palet.Enabled = false;
             bot_add_palet.Image = (Image)resources.GetObject("bot_add_palet.Image");
             bot_add_palet.ImageAlign = ContentAlignment.MiddleLeft;
             bot_add_palet.Location = new Point(623, 685);
@@ -720,6 +679,7 @@
             // 
             // bot_delete_palet
             // 
+            bot_delete_palet.Enabled = false;
             bot_delete_palet.Image = Properties.Resources.multiply_32px;
             bot_delete_palet.Location = new Point(623, 721);
             bot_delete_palet.Margin = new Padding(3, 4, 3, 4);
@@ -732,6 +692,7 @@
             // 
             // bot_update_palet
             // 
+            bot_update_palet.Enabled = false;
             bot_update_palet.Image = Properties.Resources.registry_editor_32px;
             bot_update_palet.Location = new Point(623, 758);
             bot_update_palet.Margin = new Padding(3, 4, 3, 4);
@@ -754,29 +715,32 @@
             // 
             // txt_subtotal
             // 
+            txt_subtotal.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold);
             txt_subtotal.Location = new Point(894, 658);
             txt_subtotal.Margin = new Padding(3, 4, 3, 4);
             txt_subtotal.Name = "txt_subtotal";
             txt_subtotal.ReadOnly = true;
-            txt_subtotal.Size = new Size(231, 27);
+            txt_subtotal.Size = new Size(321, 27);
             txt_subtotal.TabIndex = 43;
             // 
             // txt_itbis
             // 
+            txt_itbis.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold);
             txt_itbis.Location = new Point(894, 694);
             txt_itbis.Margin = new Padding(3, 4, 3, 4);
             txt_itbis.Name = "txt_itbis";
             txt_itbis.ReadOnly = true;
-            txt_itbis.Size = new Size(231, 27);
+            txt_itbis.Size = new Size(321, 27);
             txt_itbis.TabIndex = 44;
             // 
             // txt_totalmonto
             // 
+            txt_totalmonto.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold);
             txt_totalmonto.Location = new Point(894, 731);
             txt_totalmonto.Margin = new Padding(3, 4, 3, 4);
             txt_totalmonto.Name = "txt_totalmonto";
             txt_totalmonto.ReadOnly = true;
-            txt_totalmonto.Size = new Size(231, 27);
+            txt_totalmonto.Size = new Size(321, 27);
             txt_totalmonto.TabIndex = 45;
             // 
             // label17
@@ -821,6 +785,7 @@
             // chk_impuesto
             // 
             chk_impuesto.AutoSize = true;
+            chk_impuesto.Enabled = false;
             chk_impuesto.Location = new Point(629, 813);
             chk_impuesto.Margin = new Padding(3, 4, 3, 4);
             chk_impuesto.Name = "chk_impuesto";
@@ -943,11 +908,21 @@
             label25.TabIndex = 62;
             label25.Text = "T. Bruto:";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.LOGO;
+            pictureBox1.Location = new Point(894, 771);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(321, 132);
+            pictureBox1.TabIndex = 63;
+            pictureBox1.TabStop = false;
+            // 
             // FrmDespacho
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1238, 915);
+            Controls.Add(pictureBox1);
             Controls.Add(label25);
             Controls.Add(label24);
             Controls.Add(label23);
@@ -1023,6 +998,7 @@
             tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)grid_rc).EndInit();
             ((System.ComponentModel.ISupportInitialize)grid_detalle_paletas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1034,7 +1010,6 @@
         private ToolStripButton bot_siguiente;
         private ToolStripButton bot_anterior;
         private ToolStripButton bot_ultimo;
-        private ToolStripButton bot_sincro;
         private ToolStripButton bot_cancelar;
         private ToolStripButton bot_grabar;
         private ToolStripButton bot_buscar;
@@ -1079,12 +1054,6 @@
         private TabPage tabPage2;
         private DataGridView grid_detalle_paletas;
         private Label label15;
-        private DataGridViewTextBoxColumn num_paleta;
-        private DataGridViewTextBoxColumn medida;
-        private DataGridViewTextBoxColumn Contenido;
-        private DataGridViewTextBoxColumn busca;
-        private DataGridViewTextBoxColumn KilosNetos;
-        private DataGridViewTextBoxColumn KilosBrutos;
         private Button bot_add_palet;
         private Button bot_delete_palet;
         private Button bot_update_palet;
@@ -1112,5 +1081,6 @@
         private Label label24;
         private Label label25;
         private ToolStripButton bot_nuevo;
+        private PictureBox pictureBox1;
     }
 }

@@ -63,6 +63,26 @@ namespace Ritrama2025.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_to_clipboard_48px {
+            get {
+                object obj = ResourceManager.GetObject("add_to_clipboard_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap administrative_tools_48px {
+            get {
+                object obj = ResourceManager.GetObject("administrative_tools_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DATA_DOWNLOAD48 {
             get {
                 object obj = ResourceManager.GetObject("DATA_DOWNLOAD48", resourceCulture);
@@ -113,9 +133,39 @@ namespace Ritrama2025.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap procurement_48px {
+            get {
+                object obj = ResourceManager.GetObject("procurement_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap product_48px {
+            get {
+                object obj = ResourceManager.GetObject("product_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap registry_editor_32px {
             get {
                 object obj = ResourceManager.GetObject("registry_editor_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rolls_32px {
+            get {
+                object obj = ResourceManager.GetObject("rolls_32px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

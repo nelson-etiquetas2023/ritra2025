@@ -165,6 +165,9 @@ namespace Ritrama2025.Forms
         {
             FrmPickingDespacho frm_picking = new();  
             frm_picking.ShowDialog();
+            grid_rc.DataSource = frm_picking.Lista_Rollos;
+
+
         }
     }
 }

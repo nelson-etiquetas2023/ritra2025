@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             panel1 = new Panel();
             bot_products = new Button();
             bot_recepciones = new Button();
@@ -54,62 +55,77 @@
             // bot_products
             // 
             bot_products.Dock = DockStyle.Top;
+            bot_products.FlatAppearance.BorderSize = 0;
             bot_products.FlatStyle = FlatStyle.Flat;
             bot_products.Font = new Font("Segoe UI", 12.2264156F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bot_products.Location = new Point(0, 168);
+            bot_products.Image = (Image)resources.GetObject("bot_products.Image");
+            bot_products.Location = new Point(0, 280);
             bot_products.Name = "bot_products";
-            bot_products.Size = new Size(221, 42);
+            bot_products.Size = new Size(221, 70);
             bot_products.TabIndex = 5;
             bot_products.Text = "Productos";
+            bot_products.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_products.UseVisualStyleBackColor = true;
             // 
             // bot_recepciones
             // 
             bot_recepciones.Dock = DockStyle.Top;
+            bot_recepciones.FlatAppearance.BorderSize = 0;
             bot_recepciones.FlatStyle = FlatStyle.Flat;
             bot_recepciones.Font = new Font("Segoe UI", 12.2264156F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bot_recepciones.Location = new Point(0, 126);
+            bot_recepciones.Image = Properties.Resources.add_to_clipboard_48px;
+            bot_recepciones.Location = new Point(0, 210);
             bot_recepciones.Name = "bot_recepciones";
-            bot_recepciones.Size = new Size(221, 42);
+            bot_recepciones.Size = new Size(221, 70);
             bot_recepciones.TabIndex = 4;
             bot_recepciones.Text = "Recepciones";
+            bot_recepciones.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_recepciones.UseVisualStyleBackColor = true;
             // 
             // bot_inventario
             // 
             bot_inventario.Dock = DockStyle.Top;
+            bot_inventario.FlatAppearance.BorderSize = 0;
             bot_inventario.FlatStyle = FlatStyle.Flat;
             bot_inventario.Font = new Font("Segoe UI", 12.2264156F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bot_inventario.Location = new Point(0, 84);
+            bot_inventario.Image = Properties.Resources.procurement_48px;
+            bot_inventario.Location = new Point(0, 140);
             bot_inventario.Name = "bot_inventario";
-            bot_inventario.Size = new Size(221, 42);
+            bot_inventario.Size = new Size(221, 70);
             bot_inventario.TabIndex = 3;
             bot_inventario.Text = "Inventario";
+            bot_inventario.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_inventario.UseVisualStyleBackColor = true;
             // 
             // bot_despacho
             // 
             bot_despacho.Dock = DockStyle.Top;
+            bot_despacho.FlatAppearance.BorderSize = 0;
             bot_despacho.FlatStyle = FlatStyle.Flat;
             bot_despacho.Font = new Font("Segoe UI", 12.2264156F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bot_despacho.Location = new Point(0, 42);
+            bot_despacho.Image = Properties.Resources.product_48px;
+            bot_despacho.Location = new Point(0, 70);
             bot_despacho.Name = "bot_despacho";
-            bot_despacho.Size = new Size(221, 42);
+            bot_despacho.Size = new Size(221, 70);
             bot_despacho.TabIndex = 2;
             bot_despacho.Text = "Despacho";
+            bot_despacho.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_despacho.UseVisualStyleBackColor = true;
             bot_despacho.Click += bot_despacho_Click;
             // 
             // bot_ordencorte
             // 
             bot_ordencorte.Dock = DockStyle.Top;
+            bot_ordencorte.FlatAppearance.BorderSize = 0;
             bot_ordencorte.FlatStyle = FlatStyle.Flat;
             bot_ordencorte.Font = new Font("Segoe UI", 12.2264156F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bot_ordencorte.Image = (Image)resources.GetObject("bot_ordencorte.Image");
             bot_ordencorte.Location = new Point(0, 0);
             bot_ordencorte.Name = "bot_ordencorte";
-            bot_ordencorte.Size = new Size(221, 42);
+            bot_ordencorte.Size = new Size(221, 70);
             bot_ordencorte.TabIndex = 1;
             bot_ordencorte.Text = "Orden Corte";
+            bot_ordencorte.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_ordencorte.UseVisualStyleBackColor = true;
             // 
             // Main
@@ -122,6 +138,7 @@
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Main";
+            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

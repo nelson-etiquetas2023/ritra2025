@@ -1,22 +1,26 @@
 ﻿using Ritrama2025.Services;
 using Ritrama2025.Models;
 using System.Transactions;
+using System.ComponentModel;
 
 namespace Ritrama2025.Forms
 {
     public partial class FrmPickingDespacho : Form
     {
-        readonly List<RolloCortado> Lista_Rollos = [];
-        List<RolloCortado> Lista_Rollos_f = [];
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public List<RolloCortado> Lista_Rollos { get; set; } = [];
         readonly List<Recepcion> Lista_Hojas = [];
         readonly List<Recepcion> Lista_Graphics = [];
         readonly List<Recepcion> Lista_Master = [];
         public CommonService servicio = null!;
+        
 
         public FrmPickingDespacho()
         {
             InitializeComponent();
         }
+
 
         private void FrmPickingDespacho_Load(object sender, EventArgs e)
         {
@@ -25,7 +29,7 @@ namespace Ritrama2025.Forms
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            
+
             Lista_Rollos.RemoveAll((RolloCortado r) => r.Cantidad >= 0);
             Lista_Graphics.RemoveAll((Recepcion r) => r.Palet_cant >= 0m);
             Lista_Hojas.RemoveAll((Recepcion r) => r.Palet_cant >= 0m);
@@ -51,15 +55,16 @@ namespace Ritrama2025.Forms
             if (RA_CORTADO.Checked)
             {
                 //crea la lista de rollo cortado solamente cwon el dato del unique code
-                var task = Task.Run(async () => { 
-                
+                var task = Task.Run(async () =>
+                {
+
                     return await ExtraerDataAppMovil(openFileDialog.FileName);
                 });
 
-                Lista_Rollos_f = task.Result;
+                Lista_Rollos = task.Result;
                 //aplicar estilos a los grid.
                 EstilosGrid();
-                var QueryItem = from p in Lista_Rollos_f
+                var QueryItem = from p in Lista_Rollos
                                 orderby p.Product_Id descending
                                 orderby p.Width
                                 group p by new { p.Product_Id, p.Width, p.Length } into g
@@ -88,7 +93,7 @@ namespace Ritrama2025.Forms
             }
         }
 
-        private void EstilosGrid() 
+        private void EstilosGrid()
         {
             grid_detallerc.AutoGenerateColumns = false;
             //grid de rollo detalle rc
@@ -102,7 +107,7 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("Splice", 50, "Splice", "Splice", grid_detallerc);
             AGREGAR_COLUMN_GRID("roll_id", 72, "Roll Id.", "roll_id", grid_detallerc);
             AGREGAR_COLUMN_GRID("code_person", 74, "Codigo Perso.", "code_person", grid_detallerc);
-           
+
             grid_detallerc.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             grid_detallerc.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grid_detallerc.Columns[4].DefaultCellStyle.Format = "###,##0.00";
@@ -113,8 +118,8 @@ namespace Ritrama2025.Forms
             grid_detallerc.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             grid_detallerc.Columns[7].DefaultCellStyle.Format = "##";
             grid_detallerc.Columns[8].DefaultCellStyle.Format = "##";
-            
-            grid_detallerc.DataSource = Lista_Rollos_f;
+
+            grid_detallerc.DataSource = Lista_Rollos;
         }
 
         public async Task<List<RolloCortado>> ExtraerDataAppMovil(string file)
@@ -155,7 +160,7 @@ namespace Ritrama2025.Forms
             await servicio.GetDataRolloCortado(rollos);
             return rollos;
         }
-        private static void  AGREGAR_COLUMN_GRID(string name, int size, string title, string field_bd, DataGridView grid)
+        private static void AGREGAR_COLUMN_GRID(string name, int size, string title, string field_bd, DataGridView grid)
         {
             DataGridViewTextBoxColumn dataGridViewColumn = new()
             {
@@ -165,6 +170,11 @@ namespace Ritrama2025.Forms
                 DataPropertyName = field_bd
             };
             grid.Columns.Add(dataGridViewColumn);
+        }
+
+        private void BOT_DESPACHAR_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -68,14 +68,14 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(739, 142);
+            groupBox1.Size = new Size(597, 142);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Informacion del Picking-List";
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(299, 36);
+            textBox2.Location = new Point(160, 36);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(158, 25);
             textBox2.TabIndex = 6;
@@ -83,7 +83,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(232, 39);
+            label3.Location = new Point(93, 39);
             label3.Name = "label3";
             label3.Size = new Size(61, 17);
             label3.TabIndex = 4;
@@ -101,7 +101,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(324, 88);
+            checkBox1.Location = new Point(433, 91);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(121, 21);
             checkBox1.TabIndex = 2;
@@ -130,9 +130,9 @@
             groupBox2.Controls.Add(radioButton3);
             groupBox2.Controls.Add(radioButton2);
             groupBox2.Controls.Add(RA_CORTADO);
-            groupBox2.Location = new Point(757, 12);
+            groupBox2.Location = new Point(615, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(221, 142);
+            groupBox2.Size = new Size(159, 142);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Categoria de Producto";
@@ -189,7 +189,7 @@
             tabControl1.Location = new Point(12, 160);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(970, 278);
+            tabControl1.Size = new Size(862, 278);
             tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -198,7 +198,7 @@
             tabPage1.Location = new Point(4, 26);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(962, 248);
+            tabPage1.Size = new Size(854, 248);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Unique Code";
             tabPage1.UseVisualStyleBackColor = true;
@@ -210,7 +210,7 @@
             grid_detallerc.Name = "grid_detallerc";
             grid_detallerc.ReadOnly = true;
             grid_detallerc.RowHeadersWidth = 38;
-            grid_detallerc.Size = new Size(953, 236);
+            grid_detallerc.Size = new Size(843, 236);
             grid_detallerc.TabIndex = 0;
             // 
             // tabPage2
@@ -236,18 +236,19 @@
             // BOT_DESPACHAR
             // 
             BOT_DESPACHAR.Image = Properties.Resources.DATA_DOWNLOAD48;
-            BOT_DESPACHAR.Location = new Point(1026, 10);
+            BOT_DESPACHAR.Location = new Point(892, 12);
             BOT_DESPACHAR.Name = "BOT_DESPACHAR";
             BOT_DESPACHAR.Size = new Size(160, 63);
             BOT_DESPACHAR.TabIndex = 3;
             BOT_DESPACHAR.Text = "Despachar";
             BOT_DESPACHAR.TextImageRelation = TextImageRelation.ImageBeforeText;
             BOT_DESPACHAR.UseVisualStyleBackColor = true;
+            BOT_DESPACHAR.Click += BOT_DESPACHAR_Click;
             // 
             // BOT_LEER_TXT
             // 
             BOT_LEER_TXT.Image = Properties.Resources.DATA_READ48;
-            BOT_LEER_TXT.Location = new Point(1026, 79);
+            BOT_LEER_TXT.Location = new Point(892, 81);
             BOT_LEER_TXT.Name = "BOT_LEER_TXT";
             BOT_LEER_TXT.Size = new Size(160, 63);
             BOT_LEER_TXT.TabIndex = 4;
@@ -259,7 +260,7 @@
             // BOT_ELIMINAR_RENGLON
             // 
             BOT_ELIMINAR_RENGLON.Image = Properties.Resources.ROWDELETE48;
-            BOT_ELIMINAR_RENGLON.Location = new Point(1026, 217);
+            BOT_ELIMINAR_RENGLON.Location = new Point(892, 219);
             BOT_ELIMINAR_RENGLON.Name = "BOT_ELIMINAR_RENGLON";
             BOT_ELIMINAR_RENGLON.Size = new Size(160, 63);
             BOT_ELIMINAR_RENGLON.TabIndex = 5;
@@ -270,7 +271,7 @@
             // BOT_CARGAR_RESERVA
             // 
             BOT_CARGAR_RESERVA.Image = Properties.Resources.DATA_RESERVA48;
-            BOT_CARGAR_RESERVA.Location = new Point(1026, 148);
+            BOT_CARGAR_RESERVA.Location = new Point(892, 150);
             BOT_CARGAR_RESERVA.Name = "BOT_CARGAR_RESERVA";
             BOT_CARGAR_RESERVA.Size = new Size(160, 63);
             BOT_CARGAR_RESERVA.TabIndex = 6;
@@ -282,7 +283,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1198, 450);
+            ClientSize = new Size(1066, 450);
             Controls.Add(BOT_ELIMINAR_RENGLON);
             Controls.Add(BOT_CARGAR_RESERVA);
             Controls.Add(BOT_DESPACHAR);
@@ -290,7 +291,9 @@
             Controls.Add(tabControl1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "FrmPickingDespacho";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Picking Despacho";
             Load += FrmPickingDespacho_Load;
             groupBox1.ResumeLayout(false);

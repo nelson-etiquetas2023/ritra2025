@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Ritrama2025.Models;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace Ritrama2025.Services
 {
@@ -13,35 +14,46 @@ namespace Ritrama2025.Services
         {
             StringConnex = @"Data Source=DATABASE-CENTER\RITRAMASRV01; Initial Catalog=RITRAMA2;User Id=Npino;Password=123;TrustServerCertificate=True;";
         }
-        public RolloCortado GetDataRolloCortado(string rc) 
+        public async Task<List<RolloCortado>> GetDataRolloCortado(List<RolloCortado> lista)
         {
-            RolloCortado rollo = new();
-            try
+            // recorrer la lista para llenarla.
+            foreach (var item in lista)
             {
-                using SqlConnection conn = new(StringConnex);
-                SqlCommand comando = new()
+                try
                 {
-                    Connection = conn,
-                    CommandType = CommandType.Text,
-                    CommandText = "SELECT numero, product_id, product_name, roll_number, width, large, msi, splice, roll_id, code_person, status, unique_code, 'M' AS tipo_mov FROM rolls_details WHERE unique_code = @p1 AND disponible = 1 UNION SELECT numero, product_id, product_name, roll_number, width, large, msi, splice, roll_id, code_person, status, unique_code, 'M' AS tipo_mov  FROM RollsInic WHERE unique_code = @p1 AND disponible = 1"
-                };
-                SqlParameter p1 = new("@p1", rc);
-                comando.Parameters.Add(p1);
-                SqlDataReader reader = comando.ExecuteReader();
-                while (reader.Read())
-                {
-                    rollo = new()
+                    using SqlConnection conn = new(StringConnex);
+                    SqlCommand comando = new()
                     {
-                        Product_Id = reader.GetString("product_id"),
-                        UniqueCode = rc
+                        Connection = conn,
+                        CommandType = CommandType.Text,
+                        CommandText = "SELECT numero, product_id, product_name, roll_number, width, large, msi, splice, roll_id, code_person, status, unique_code, 'M' AS tipo_mov FROM rolls_details WHERE unique_code = @p1 AND disponible = 1 UNION SELECT numero, product_id, product_name, roll_number, width, large, msi, splice, roll_id, code_person, status, unique_code, 'M' AS tipo_mov  FROM RollsInic WHERE unique_code = @p1 AND disponible = 1"
                     };
+                    SqlParameter p1 = new("@p1", item.UniqueCode);
+                    comando.Parameters.Add(p1);
+                    await conn.OpenAsync();
+                    SqlDataReader reader = await comando.ExecuteReaderAsync();
+                    while (await reader.ReadAsync())
+                    {
+                        item.Product_Id = reader.GetString("product_id");
+                        item.RollNumber = reader.GetInt32("roll_number");
+                        item.Width = reader.GetDecimal("width");
+                        item.Length = reader.GetDecimal("large");
+                        item.Msi = reader.GetDecimal("msi");
+                        item.Splice = reader.GetInt32("splice");
+                        item.Roll_Id = reader.GetString("roll_id");
+                        item.Cantidad_despacho = 0;
+                        item.Cantidad = 0;
+                        item.Tipo = reader.GetString("tipo_mov");
+                        item.Paleta = reader.GetString("unique_code");
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ErrorMsg = ex.Message;
+                    MessageBox.Show("error al cargar los datos del rc en el picking: "+ErrorMsg); 
                 }
             }
-            catch (Exception ex)
-            {
-                ErrorMsg = ex.Message;
-            }
-            return rollo;
-        }
+            return lista;
+        }   
     }
 }

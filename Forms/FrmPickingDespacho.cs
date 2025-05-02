@@ -1,5 +1,6 @@
-﻿
+﻿using Ritrama2025.Services;
 using Ritrama2025.Models;
+using System.Transactions;
 
 namespace Ritrama2025.Forms
 {
@@ -10,13 +11,21 @@ namespace Ritrama2025.Forms
         readonly List<Recepcion> Lista_Hojas = [];
         readonly List<Recepcion> Lista_Graphics = [];
         readonly List<Recepcion> Lista_Master = [];
+        public CommonService servicio = null!;
+
         public FrmPickingDespacho()
         {
             InitializeComponent();
         }
 
+        private void FrmPickingDespacho_Load(object sender, EventArgs e)
+        {
+            servicio = new CommonService();
+        }
+
         private void Button2_Click(object sender, EventArgs e)
         {
+            
             Lista_Rollos.RemoveAll((RolloCortado r) => r.Cantidad >= 0);
             Lista_Graphics.RemoveAll((Recepcion r) => r.Palet_cant >= 0m);
             Lista_Hojas.RemoveAll((Recepcion r) => r.Palet_cant >= 0m);
@@ -39,23 +48,22 @@ namespace Ritrama2025.Forms
             {
                 return;
             }
-            if (RA_CORTADO.Checked) 
+            if (RA_CORTADO.Checked)
             {
                 //crea la lista de rollo cortado solamente cwon el dato del unique code
-                Lista_Rollos_f = ExtraerDataAppMovil(openFileDialog.FileName);
-                foreach (RolloCortado item in Lista_Rollos_f) 
-                {
-                }
+                var task = Task.Run(async () => { 
+                
+                    return await ExtraerDataAppMovil(openFileDialog.FileName);
+                });
+
+                Lista_Rollos_f = task.Result;
             }
-          
-
-
-
         }
-        private static List<RolloCortado> ExtraerDataAppMovil(string file) 
+        public async Task<List<RolloCortado>> ExtraerDataAppMovil(string file)
         {
+            //leer txt de picking
             List<RolloCortado> rollos = [];
-            if (File.Exists(file)) 
+            if (File.Exists(file))
             {
                 try
                 {
@@ -85,6 +93,8 @@ namespace Ritrama2025.Forms
                     MessageBox.Show("error al tratar de crear el txt de despacho" + ex2);
                 }
             }
+            //llenar la lista de rollo cortado.
+            await servicio.GetDataRolloCortado(rollos);
             return rollos;
         }
     }

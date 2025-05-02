@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             panel1 = new Panel();
+            button2 = new Button();
+            button1 = new Button();
             bot_products = new Button();
             bot_recepciones = new Button();
             bot_inventario = new Button();
@@ -41,6 +43,8 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.WindowFrame;
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(bot_products);
             panel1.Controls.Add(bot_recepciones);
             panel1.Controls.Add(bot_inventario);
@@ -51,6 +55,36 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(221, 536);
             panel1.TabIndex = 0;
+            // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Top;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12.2264156F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.Location = new Point(0, 420);
+            button2.Name = "button2";
+            button2.Size = new Size(221, 70);
+            button2.TabIndex = 7;
+            button2.Text = "Usuarios";
+            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Dock = DockStyle.Top;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12.2264156F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(0, 350);
+            button1.Name = "button1";
+            button1.Size = new Size(221, 70);
+            button1.TabIndex = 6;
+            button1.Text = "Clientes";
+            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button1.UseVisualStyleBackColor = true;
             // 
             // bot_products
             // 
@@ -151,5 +185,7 @@
         private Button bot_recepciones;
         private Button bot_inventario;
         private Button bot_despacho;
+        private Button button2;
+        private Button button1;
     }
 }

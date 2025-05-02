@@ -165,8 +165,20 @@ namespace Ritrama2025.Forms
         {
             FrmPickingDespacho frm_picking = new();  
             frm_picking.ShowDialog();
+            //actualizar el grid de detalle de rc (packing list)
+            grid_rc.Columns.Clear();
+            grid_rc.AutoGenerateColumns = false;
+            AGREGAR_COLUMN_GRID("uniquecode", 70, "Unique Code", "uniquecode", grid_rc);
+            AGREGAR_COLUMN_GRID("product_id", 80, "Product Id.", "product_id", grid_rc);
+            AGREGAR_COLUMN_GRID("product_name", 180, "Nombre del Producto", "product_name", grid_rc);
+            AGREGAR_COLUMN_GRID("RollNumber", 70, "Roll Number", "RollNumber", grid_rc);
+            AGREGAR_COLUMN_GRID("width", 80, "Width", "width", grid_rc);
+            AGREGAR_COLUMN_GRID("Length", 80, "Largo", "Length", grid_rc);
+            AGREGAR_COLUMN_GRID("msi", 80, "Msi", "msi", grid_rc);
+            AGREGAR_COLUMN_GRID("Splice", 70, "Splice", "Splice", grid_rc);
+            AGREGAR_COLUMN_GRID("roll_id", 72, "Roll Id.", "roll_id", grid_rc);
+            AGREGAR_COLUMN_GRID("code_person", 74, "Codigo Perso.", "code_person",grid_rc);
             grid_rc.DataSource = frm_picking.Lista_Rollos;
-
 
         }
     }

@@ -42,7 +42,9 @@
             RA_CORTADO = new RadioButton();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            grid_detallerc = new DataGridView();
             tabPage2 = new TabPage();
+            grid_renglones = new DataGridView();
             BOT_DESPACHAR = new Button();
             BOT_LEER_TXT = new Button();
             BOT_ELIMINAR_RENGLON = new Button();
@@ -50,6 +52,10 @@
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)grid_detallerc).BeginInit();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)grid_renglones).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -62,7 +68,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(463, 142);
+            groupBox1.Size = new Size(739, 142);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Informacion del Picking-List";
@@ -124,12 +130,12 @@
             groupBox2.Controls.Add(radioButton3);
             groupBox2.Controls.Add(radioButton2);
             groupBox2.Controls.Add(RA_CORTADO);
-            groupBox2.Location = new Point(481, 12);
+            groupBox2.Location = new Point(757, 12);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(221, 142);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
+            groupBox2.Text = "Categoria de Producto";
             // 
             // radioButton4
             // 
@@ -183,75 +189,104 @@
             tabControl1.Location = new Point(12, 160);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(865, 278);
+            tabControl1.Size = new Size(970, 278);
             tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(grid_detallerc);
             tabPage1.Location = new Point(4, 26);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(857, 248);
+            tabPage1.Size = new Size(962, 248);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Unique Code";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // grid_detallerc
+            // 
+            grid_detallerc.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid_detallerc.Location = new Point(6, 9);
+            grid_detallerc.Name = "grid_detallerc";
+            grid_detallerc.ReadOnly = true;
+            grid_detallerc.RowHeadersWidth = 38;
+            grid_detallerc.Size = new Size(953, 236);
+            grid_detallerc.TabIndex = 0;
+            // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(grid_renglones);
             tabPage2.Location = new Point(4, 26);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(857, 248);
+            tabPage2.Size = new Size(962, 248);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "Productos";
+            tabPage2.Text = "Renglones";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // grid_renglones
+            // 
+            grid_renglones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid_renglones.Location = new Point(6, 6);
+            grid_renglones.Name = "grid_renglones";
+            grid_renglones.RowHeadersWidth = 45;
+            grid_renglones.Size = new Size(845, 236);
+            grid_renglones.TabIndex = 0;
             // 
             // BOT_DESPACHAR
             // 
-            BOT_DESPACHAR.Location = new Point(717, 12);
+            BOT_DESPACHAR.Image = Properties.Resources.DATA_DOWNLOAD48;
+            BOT_DESPACHAR.Location = new Point(1026, 10);
             BOT_DESPACHAR.Name = "BOT_DESPACHAR";
-            BOT_DESPACHAR.Size = new Size(160, 25);
+            BOT_DESPACHAR.Size = new Size(160, 63);
             BOT_DESPACHAR.TabIndex = 3;
             BOT_DESPACHAR.Text = "Despachar";
+            BOT_DESPACHAR.TextImageRelation = TextImageRelation.ImageBeforeText;
             BOT_DESPACHAR.UseVisualStyleBackColor = true;
             // 
             // BOT_LEER_TXT
             // 
-            BOT_LEER_TXT.Location = new Point(717, 43);
+            BOT_LEER_TXT.Image = Properties.Resources.DATA_READ48;
+            BOT_LEER_TXT.Location = new Point(1026, 79);
             BOT_LEER_TXT.Name = "BOT_LEER_TXT";
-            BOT_LEER_TXT.Size = new Size(160, 25);
+            BOT_LEER_TXT.Size = new Size(160, 63);
             BOT_LEER_TXT.TabIndex = 4;
             BOT_LEER_TXT.Text = "Leer Data TXT";
+            BOT_LEER_TXT.TextImageRelation = TextImageRelation.ImageBeforeText;
             BOT_LEER_TXT.UseVisualStyleBackColor = true;
             BOT_LEER_TXT.Click += Button2_Click;
             // 
             // BOT_ELIMINAR_RENGLON
             // 
-            BOT_ELIMINAR_RENGLON.Location = new Point(717, 74);
+            BOT_ELIMINAR_RENGLON.Image = Properties.Resources.ROWDELETE48;
+            BOT_ELIMINAR_RENGLON.Location = new Point(1026, 217);
             BOT_ELIMINAR_RENGLON.Name = "BOT_ELIMINAR_RENGLON";
-            BOT_ELIMINAR_RENGLON.Size = new Size(160, 25);
+            BOT_ELIMINAR_RENGLON.Size = new Size(160, 63);
             BOT_ELIMINAR_RENGLON.TabIndex = 5;
             BOT_ELIMINAR_RENGLON.Text = "Borrar Renglon";
+            BOT_ELIMINAR_RENGLON.TextImageRelation = TextImageRelation.ImageBeforeText;
             BOT_ELIMINAR_RENGLON.UseVisualStyleBackColor = true;
             // 
             // BOT_CARGAR_RESERVA
             // 
-            BOT_CARGAR_RESERVA.Location = new Point(717, 105);
+            BOT_CARGAR_RESERVA.Image = Properties.Resources.DATA_RESERVA48;
+            BOT_CARGAR_RESERVA.Location = new Point(1026, 148);
             BOT_CARGAR_RESERVA.Name = "BOT_CARGAR_RESERVA";
-            BOT_CARGAR_RESERVA.Size = new Size(160, 25);
+            BOT_CARGAR_RESERVA.Size = new Size(160, 63);
             BOT_CARGAR_RESERVA.TabIndex = 6;
             BOT_CARGAR_RESERVA.Text = "Reserva";
+            BOT_CARGAR_RESERVA.TextImageRelation = TextImageRelation.ImageBeforeText;
             BOT_CARGAR_RESERVA.UseVisualStyleBackColor = true;
             // 
             // FrmPickingDespacho
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(983, 450);
-            Controls.Add(BOT_CARGAR_RESERVA);
+            ClientSize = new Size(1198, 450);
             Controls.Add(BOT_ELIMINAR_RENGLON);
-            Controls.Add(BOT_LEER_TXT);
+            Controls.Add(BOT_CARGAR_RESERVA);
             Controls.Add(BOT_DESPACHAR);
+            Controls.Add(BOT_LEER_TXT);
             Controls.Add(tabControl1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -263,6 +298,10 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)grid_detallerc).EndInit();
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)grid_renglones).EndInit();
             ResumeLayout(false);
         }
 
@@ -287,5 +326,7 @@
         private Button BOT_LEER_TXT;
         private Button BOT_ELIMINAR_RENGLON;
         private Button BOT_CARGAR_RESERVA;
+        private DataGridView grid_detallerc;
+        private DataGridView grid_renglones;
     }
 }

@@ -63,6 +63,36 @@ namespace Ritrama2025.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DATA_DOWNLOAD48 {
+            get {
+                object obj = ResourceManager.GetObject("DATA_DOWNLOAD48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DATA_READ48 {
+            get {
+                object obj = ResourceManager.GetObject("DATA_READ48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DATA_RESERVA48 {
+            get {
+                object obj = ResourceManager.GetObject("DATA_RESERVA48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LOGO {
             get {
                 object obj = ResourceManager.GetObject("LOGO", resourceCulture);
@@ -86,6 +116,16 @@ namespace Ritrama2025.Properties {
         internal static System.Drawing.Bitmap registry_editor_32px {
             get {
                 object obj = ResourceManager.GetObject("registry_editor_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ROWDELETE48 {
+            get {
+                object obj = ResourceManager.GetObject("ROWDELETE48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

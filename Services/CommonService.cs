@@ -1,7 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Ritrama2025.Models;
 using System.Data;
-using System.Threading.Tasks;
 
 namespace Ritrama2025.Services
 {
@@ -35,6 +34,7 @@ namespace Ritrama2025.Services
                     while (await reader.ReadAsync())
                     {
                         item.Product_Id = reader.GetString("product_id");
+                        item.Product_Name = reader.GetString("product_name");
                         item.RollNumber = reader.GetInt32("roll_number");
                         item.Width = reader.GetDecimal("width");
                         item.Length = reader.GetDecimal("large");
@@ -44,7 +44,8 @@ namespace Ritrama2025.Services
                         item.Cantidad_despacho = 0;
                         item.Cantidad = 0;
                         item.Tipo = reader.GetString("tipo_mov");
-                        item.Paleta = reader.GetString("unique_code");
+                        item.Code_Person = reader.GetString("code_person");
+                        
                     }
                 }
                 catch (SqlException ex)

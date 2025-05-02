@@ -57,8 +57,41 @@ namespace Ritrama2025.Forms
                 });
 
                 Lista_Rollos_f = task.Result;
+                //aplicar estilos a los grid.
+                EstilosGrid();
+
             }
         }
+
+        private void EstilosGrid() 
+        {
+            grid_detallerc.AutoGenerateColumns = false;
+            //grid de rollo detalle rc
+            AGREGAR_COLUMN_GRID("UniqueCode", 65, "Codigo Unico", "UniqueCode", grid_detallerc);
+            AGREGAR_COLUMN_GRID("product_id", 60, "Product Id.", "product_id", grid_detallerc);
+            AGREGAR_COLUMN_GRID("product_name", 180, "Nombre del Producto", "product_name", grid_detallerc);
+            AGREGAR_COLUMN_GRID("RollNumber", 60, "Roll Number", "RollNumber", grid_detallerc);
+            AGREGAR_COLUMN_GRID("width", 50, "Width", "width", grid_detallerc);
+            AGREGAR_COLUMN_GRID("Length", 58, "Largo", "Length", grid_detallerc);
+            AGREGAR_COLUMN_GRID("msi", 54, "Msi", "msi", grid_detallerc);
+            AGREGAR_COLUMN_GRID("Splice", 50, "Splice", "Splice", grid_detallerc);
+            AGREGAR_COLUMN_GRID("roll_id", 72, "Roll Id.", "roll_id", grid_detallerc);
+            AGREGAR_COLUMN_GRID("code_person", 74, "Codigo Perso.", "code_person", grid_detallerc);
+           
+            grid_detallerc.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grid_detallerc.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grid_detallerc.Columns[4].DefaultCellStyle.Format = "###,##0.00";
+            grid_detallerc.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grid_detallerc.Columns[5].DefaultCellStyle.Format = "###,##0.00";
+            grid_detallerc.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grid_detallerc.Columns[6].DefaultCellStyle.Format = "###,##0.00";
+            grid_detallerc.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grid_detallerc.Columns[7].DefaultCellStyle.Format = "##";
+            grid_detallerc.Columns[8].DefaultCellStyle.Format = "##";
+            
+            grid_detallerc.DataSource = Lista_Rollos_f;
+        }
+
         public async Task<List<RolloCortado>> ExtraerDataAppMovil(string file)
         {
             //leer txt de picking
@@ -96,6 +129,17 @@ namespace Ritrama2025.Forms
             //llenar la lista de rollo cortado.
             await servicio.GetDataRolloCortado(rollos);
             return rollos;
+        }
+        private static void  AGREGAR_COLUMN_GRID(string name, int size, string title, string field_bd, DataGridView grid)
+        {
+            DataGridViewTextBoxColumn dataGridViewColumn = new()
+            {
+                Name = name,
+                Width = size,
+                HeaderText = title,
+                DataPropertyName = field_bd
+            };
+            grid.Columns.Add(dataGridViewColumn);
         }
     }
 }

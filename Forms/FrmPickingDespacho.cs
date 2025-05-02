@@ -59,6 +59,31 @@ namespace Ritrama2025.Forms
                 Lista_Rollos_f = task.Result;
                 //aplicar estilos a los grid.
                 EstilosGrid();
+                var QueryItem = from p in Lista_Rollos_f
+                                orderby p.Product_Id descending
+                                orderby p.Width
+                                group p by new { p.Product_Id, p.Width, p.Length } into g
+                                select new ItemsDespacho
+                                {
+                                    Product_id = g.First().Product_Id,
+                                    Product_name = g.First().Product_Name,
+                                    Cantidad = g.Count(),
+                                    Width = g.First().Width,
+                                    Lenght = g.First().Length,
+                                    Msi = g.First().Msi,
+                                    Code_Person = g.First().Code_Person
+                                };
+
+
+                grid_renglones.AutoGenerateColumns = false;
+                AGREGAR_COLUMN_GRID("product_id", 60, "Product Id.", "product_id", grid_renglones);
+                AGREGAR_COLUMN_GRID("product_name", 180, "Nombre del Producto", "product_name", grid_renglones);
+                AGREGAR_COLUMN_GRID("cantidad", 80, "Cantidad", "cantidad", grid_renglones);
+                AGREGAR_COLUMN_GRID("width", 80, "Width", "width", grid_renglones);
+                AGREGAR_COLUMN_GRID("Lenght", 80, "Largo", "Lenght", grid_renglones);
+                AGREGAR_COLUMN_GRID("msi", 80, "Msi", "msi", grid_renglones);
+                AGREGAR_COLUMN_GRID("Code_Person", 80, "Msi", "Code_Person", grid_renglones);
+                grid_renglones.DataSource = QueryItem.ToList();
 
             }
         }

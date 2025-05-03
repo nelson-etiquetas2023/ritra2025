@@ -52,13 +52,13 @@
             txt_persondelivery = new TextBox();
             label5 = new Label();
             label6 = new Label();
-            txt_transport = new TextBox();
+            txt_transport_id = new TextBox();
             bot_transporte = new Button();
             bot_chofer = new Button();
-            txt_chofer = new TextBox();
+            txt_chofer_id = new TextBox();
             label7 = new Label();
             bot_camion = new Button();
-            txt_camion = new TextBox();
+            txt_camion_id = new TextBox();
             label8 = new Label();
             txt_vend_id = new TextBox();
             label9 = new Label();
@@ -106,6 +106,9 @@
             label24 = new Label();
             label25 = new Label();
             pictureBox1 = new PictureBox();
+            txt_chofer_name = new TextBox();
+            txt_transport_name = new TextBox();
+            txt_camion_name = new TextBox();
             toolStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -343,59 +346,61 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
-            label6.Location = new Point(27, 176);
+            label6.Location = new Point(8, 176);
             label6.Name = "label6";
             label6.Size = new Size(93, 17);
             label6.TabIndex = 12;
             label6.Text = "Transportista:";
             // 
-            // txt_transport
+            // txt_transport_id
             // 
-            txt_transport.Font = new Font("Segoe UI", 10.18868F);
-            txt_transport.Location = new Point(134, 173);
-            txt_transport.Margin = new Padding(3, 4, 3, 4);
-            txt_transport.Name = "txt_transport";
-            txt_transport.ReadOnly = true;
-            txt_transport.Size = new Size(217, 27);
-            txt_transport.TabIndex = 13;
+            txt_transport_id.Font = new Font("Segoe UI", 10.18868F);
+            txt_transport_id.Location = new Point(100, 173);
+            txt_transport_id.Margin = new Padding(3, 4, 3, 4);
+            txt_transport_id.Name = "txt_transport_id";
+            txt_transport_id.ReadOnly = true;
+            txt_transport_id.Size = new Size(38, 27);
+            txt_transport_id.TabIndex = 13;
             // 
             // bot_transporte
             // 
             bot_transporte.Enabled = false;
-            bot_transporte.Location = new Point(358, 175);
+            bot_transporte.Location = new Point(358, 170);
             bot_transporte.Margin = new Padding(3, 4, 3, 4);
             bot_transporte.Name = "bot_transporte";
             bot_transporte.Size = new Size(45, 29);
             bot_transporte.TabIndex = 14;
             bot_transporte.Text = "...";
             bot_transporte.UseVisualStyleBackColor = true;
+            bot_transporte.Click += bot_transporte_Click;
             // 
             // bot_chofer
             // 
             bot_chofer.Enabled = false;
-            bot_chofer.Location = new Point(358, 211);
+            bot_chofer.Location = new Point(357, 207);
             bot_chofer.Margin = new Padding(3, 4, 3, 4);
             bot_chofer.Name = "bot_chofer";
             bot_chofer.Size = new Size(45, 29);
             bot_chofer.TabIndex = 17;
             bot_chofer.Text = "...";
             bot_chofer.UseVisualStyleBackColor = true;
+            bot_chofer.Click += bot_chofer_Click;
             // 
-            // txt_chofer
+            // txt_chofer_id
             // 
-            txt_chofer.Font = new Font("Segoe UI", 10.18868F);
-            txt_chofer.Location = new Point(134, 209);
-            txt_chofer.Margin = new Padding(3, 4, 3, 4);
-            txt_chofer.Name = "txt_chofer";
-            txt_chofer.ReadOnly = true;
-            txt_chofer.Size = new Size(217, 27);
-            txt_chofer.TabIndex = 16;
+            txt_chofer_id.Font = new Font("Segoe UI", 10.18868F);
+            txt_chofer_id.Location = new Point(100, 209);
+            txt_chofer_id.Margin = new Padding(3, 4, 3, 4);
+            txt_chofer_id.Name = "txt_chofer_id";
+            txt_chofer_id.ReadOnly = true;
+            txt_chofer_id.Size = new Size(38, 27);
+            txt_chofer_id.TabIndex = 16;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
-            label7.Location = new Point(27, 213);
+            label7.Location = new Point(8, 213);
             label7.Name = "label7";
             label7.Size = new Size(54, 17);
             label7.TabIndex = 15;
@@ -404,29 +409,30 @@
             // bot_camion
             // 
             bot_camion.Enabled = false;
-            bot_camion.Location = new Point(358, 248);
+            bot_camion.Location = new Point(358, 243);
             bot_camion.Margin = new Padding(3, 4, 3, 4);
             bot_camion.Name = "bot_camion";
             bot_camion.Size = new Size(45, 29);
             bot_camion.TabIndex = 20;
             bot_camion.Text = "...";
             bot_camion.UseVisualStyleBackColor = true;
+            bot_camion.Click += bot_camion_Click;
             // 
-            // txt_camion
+            // txt_camion_id
             // 
-            txt_camion.Font = new Font("Segoe UI", 10.18868F);
-            txt_camion.Location = new Point(134, 245);
-            txt_camion.Margin = new Padding(3, 4, 3, 4);
-            txt_camion.Name = "txt_camion";
-            txt_camion.ReadOnly = true;
-            txt_camion.Size = new Size(217, 27);
-            txt_camion.TabIndex = 19;
+            txt_camion_id.Font = new Font("Segoe UI", 10.18868F);
+            txt_camion_id.Location = new Point(100, 245);
+            txt_camion_id.Margin = new Padding(3, 4, 3, 4);
+            txt_camion_id.Name = "txt_camion_id";
+            txt_camion_id.ReadOnly = true;
+            txt_camion_id.Size = new Size(38, 27);
+            txt_camion_id.TabIndex = 19;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
-            label8.Location = new Point(27, 249);
+            label8.Location = new Point(8, 249);
             label8.Name = "label8";
             label8.Size = new Size(59, 17);
             label8.TabIndex = 18;
@@ -919,11 +925,44 @@
             pictureBox1.TabIndex = 63;
             pictureBox1.TabStop = false;
             // 
+            // txt_chofer_name
+            // 
+            txt_chofer_name.Font = new Font("Segoe UI", 10.18868F);
+            txt_chofer_name.Location = new Point(144, 209);
+            txt_chofer_name.Margin = new Padding(3, 4, 3, 4);
+            txt_chofer_name.Name = "txt_chofer_name";
+            txt_chofer_name.ReadOnly = true;
+            txt_chofer_name.Size = new Size(208, 27);
+            txt_chofer_name.TabIndex = 64;
+            // 
+            // txt_transport_name
+            // 
+            txt_transport_name.Font = new Font("Segoe UI", 10.18868F);
+            txt_transport_name.Location = new Point(144, 174);
+            txt_transport_name.Margin = new Padding(3, 4, 3, 4);
+            txt_transport_name.Name = "txt_transport_name";
+            txt_transport_name.ReadOnly = true;
+            txt_transport_name.Size = new Size(208, 27);
+            txt_transport_name.TabIndex = 65;
+            // 
+            // txt_camion_name
+            // 
+            txt_camion_name.Font = new Font("Segoe UI", 10.18868F);
+            txt_camion_name.Location = new Point(144, 245);
+            txt_camion_name.Margin = new Padding(3, 4, 3, 4);
+            txt_camion_name.Name = "txt_camion_name";
+            txt_camion_name.ReadOnly = true;
+            txt_camion_name.Size = new Size(208, 27);
+            txt_camion_name.TabIndex = 66;
+            // 
             // FrmDespacho
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1238, 915);
+            Controls.Add(txt_camion_name);
+            Controls.Add(txt_transport_name);
+            Controls.Add(txt_chofer_name);
             Controls.Add(pictureBox1);
             Controls.Add(label25);
             Controls.Add(label24);
@@ -967,13 +1006,13 @@
             Controls.Add(txt_vend_id);
             Controls.Add(label9);
             Controls.Add(bot_camion);
-            Controls.Add(txt_camion);
+            Controls.Add(txt_camion_id);
             Controls.Add(label8);
             Controls.Add(bot_chofer);
-            Controls.Add(txt_chofer);
+            Controls.Add(txt_chofer_id);
             Controls.Add(label7);
             Controls.Add(bot_transporte);
-            Controls.Add(txt_transport);
+            Controls.Add(txt_transport_id);
             Controls.Add(label6);
             Controls.Add(txt_persondelivery);
             Controls.Add(label5);
@@ -1029,13 +1068,13 @@
         private TextBox txt_persondelivery;
         private Label label5;
         private Label label6;
-        private TextBox txt_transport;
+        private TextBox txt_transport_id;
         private Button bot_transporte;
         private Button bot_chofer;
-        private TextBox txt_chofer;
+        private TextBox txt_chofer_id;
         private Label label7;
         private Button bot_camion;
-        private TextBox txt_camion;
+        private TextBox txt_camion_id;
         private Label label8;
         private TextBox txt_vend_id;
         private Label label9;
@@ -1084,5 +1123,8 @@
         private Label label25;
         private ToolStripButton bot_nuevo;
         private PictureBox pictureBox1;
+        private TextBox txt_chofer_name;
+        private TextBox txt_transport_name;
+        private TextBox txt_camion_name;
     }
 }

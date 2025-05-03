@@ -51,6 +51,21 @@ namespace Ritrama2025.Forms.Seleccion
                 colname1 = "vendor_id";
                 colname2 = "vendor_name";
             }
+            if (Titulo == "Transporte")
+            {
+                colname1 = "transport_id";
+                colname2 = "transport_name";
+            }
+            if (Titulo == "Chofer")
+            {
+                colname1 = "chofer_id";
+                colname2 = "chofer_name";
+            }
+            if (Titulo == "Camion")
+            {
+                colname1 = "placas_id";
+                colname2 = "camion_name";
+            }
             EstilosGrid();
         }
         private void BuscarItems()
@@ -71,7 +86,7 @@ namespace Ritrama2025.Forms.Seleccion
             {
                 Name = colname1,
                 Width = 80,
-                HeaderText = "Codigo",
+                HeaderText = "Código",
                 DataPropertyName = colname1
             };
             Grid_Items.Columns.Add(col1);
@@ -79,7 +94,7 @@ namespace Ritrama2025.Forms.Seleccion
             {
                 Name = colname2,
                 Width = 320,
-                HeaderText = "Nombre del Clinete",
+                HeaderText = "Descripción",
                 DataPropertyName = colname2
             };
             Grid_Items.Columns.Add(col2);

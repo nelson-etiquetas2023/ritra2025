@@ -22,6 +22,14 @@ namespace Ritrama2025.Services
         public SqlDataAdapter DaItems = new();
         public DataTable DtPalet = new();
         public SqlDataAdapter DaPalet = new();
+        public DataTable DtTransport = new();
+        public SqlDataAdapter DaTransport = new();
+        public DataTable DtChofer = new();
+        public SqlDataAdapter DaChofer = new();
+        public DataTable DtCamion = new();
+        public SqlDataAdapter DaCamion = new();
+
+
 
         public DespachoService()
         {
@@ -41,7 +49,7 @@ namespace Ritrama2025.Services
                 {
                     Connection = conn,
                     CommandType = CommandType.Text,
-                    CommandText = "SELECT numero,fecha,customer_id,person_contact,transporte,chofer,camion,vendor_id,packing,orden_trabajo,orden_compra,tipo_venta,subtotal,porc_itbis,itbis,total$rd FROM despacho"
+                    CommandText = "SELECT numero,fecha,customer_id,person_contact,transporte,chofer,camion,vendor_id,packing,orden_trabajo,orden_compra,tipo_venta,subtotal,porc_itbis,itbis,total$rd,transport_id FROM despacho"
                 };
                 await conn.OpenAsync();
                 SqlDataReader readerMaster = await ComandoMaster.ExecuteReaderAsync();
@@ -103,6 +111,39 @@ namespace Ritrama2025.Services
                 await readerPalet.CloseAsync();
                 DaPalet.SelectCommand = ComandoPalet;
                 DaPalet.Fill(Ds, "DtPalet");
+                //7.- Carga de la tabla de transportista
+                SqlCommand ComandoTransport = new()
+                {
+                    Connection = conn,
+                    CommandType = CommandType.Text,
+                    CommandText = "SELECT transport_id,transport_name FROM transporte"
+                };
+                SqlDataReader readerTranspor = await ComandoTransport.ExecuteReaderAsync();
+                await readerTranspor.CloseAsync();
+                DaTransport.SelectCommand = ComandoTransport;
+                DaTransport.Fill(Ds, "DtTransport");
+                //7.- Carga de la tabla de chofer.
+                SqlCommand ComandoChofer = new()
+                {
+                    Connection = conn,
+                    CommandType = CommandType.Text,
+                    CommandText = "SELECT chofer_id,chofer_name FROM chofer"
+                };
+                SqlDataReader readerChofer = await ComandoChofer.ExecuteReaderAsync();
+                await readerChofer.CloseAsync();
+                DaChofer.SelectCommand = ComandoChofer;
+                DaChofer.Fill(Ds, "DtChofer");
+                //8.- Carga de la tabla de Camion.
+                SqlCommand ComandoCamion = new()
+                {
+                    Connection = conn,
+                    CommandType = CommandType.Text,
+                    CommandText = "SELECT placas_id,camion_name FROM camion"
+                };
+                SqlDataReader readerCamion = await ComandoCamion.ExecuteReaderAsync();
+                await readerCamion.CloseAsync();
+                DaCamion.SelectCommand = ComandoCamion;
+                DaCamion.Fill(Ds, "DtCamion");
 
 
                 RelationDataset();
@@ -147,6 +188,13 @@ namespace Ritrama2025.Services
                 DataRelation Despacho_Palet = new("FK_DESPACHOS_PALET",
                    ParentCol4, ChildCol4);
                 Ds.Relations.Add(Despacho_Palet);
+                // Relacion entre Despachos y transportista
+                DataColumn ParentCol5 = Ds.Tables["DtTransport"]!.Columns["transport_id"]!;
+                DataColumn ChildCol5 = Ds.Tables["DtMasterDespachos"]!.Columns["transport_id"]!;
+                DataRelation Despacho_Transport = new("FK_DESPACHOS_TRANSPORT", ParentCol5, ChildCol5);
+                Ds.Relations.Add(Despacho_Transport);
+                Ds.Tables["DtMasterDespachos"]!.Columns.Add("transport_name", Type.GetType("System.String")!, "parent(FK_DESPACHOS_TRANSPORT).transport_name");
+
 
                 return true;
             }

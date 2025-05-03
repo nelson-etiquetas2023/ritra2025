@@ -88,9 +88,9 @@ namespace Ritrama2025.Forms
             txt_fecha_despacho.DataBindings.Add("Text", Bs, "fecha");
             txt_persondelivery.DataBindings.Add("Text", Bs, "person_contact");
             txt_custid.DataBindings.Add("Text", Bs, "customer_id");
-            txt_transport.DataBindings.Add("Text", Bs, "transporte");
-            txt_chofer.DataBindings.Add("Text", Bs, "chofer");
-            txt_camion.DataBindings.Add("Text", Bs, "camion");
+            txt_transport_id.DataBindings.Add("Text", Bs, "transporte");
+            txt_chofer_id.DataBindings.Add("Text", Bs, "chofer");
+            txt_camion_id.DataBindings.Add("Text", Bs, "camion");
             txt_vend_id.DataBindings.Add("Text", Bs, "vendor_id");
             txt_tipo_embalaje.DataBindings.Add("Text", Bs, "packing");
             txt_orden_trabajo.DataBindings.Add("Text", Bs, "orden_trabajo");
@@ -226,6 +226,42 @@ namespace Ritrama2025.Forms
             SelVendors.ShowDialog();
             txt_vend_id.Text = SelVendors.Id;
             txt_vendorname.Text = SelVendors.Description;
+        }
+
+        private void bot_transporte_Click(object sender, EventArgs e)
+        {
+            FrmSeleccion SelTransport = new()
+            {
+                DtItems = Ds.Tables["DtTransport"]!,
+                Titulo = "Transporte",
+            };
+            SelTransport.ShowDialog();
+            txt_transport_id.Text = SelTransport.Id;
+            txt_transport_name.Text = SelTransport.Description;
+        }
+
+        private void bot_chofer_Click(object sender, EventArgs e)
+        {
+            FrmSeleccion SelChofer = new()
+            {
+                DtItems = Ds.Tables["DtChofer"]!,
+                Titulo = "Chofer",
+            };
+            SelChofer.ShowDialog();
+            txt_chofer_id.Text = SelChofer.Id;
+            txt_chofer_name.Text = SelChofer.Description;
+        }
+
+        private void bot_camion_Click(object sender, EventArgs e)
+        {
+            FrmSeleccion SelCamion = new()
+            {
+                DtItems = Ds.Tables["DtCamion"]!,
+                Titulo = "Camion",
+            };
+            SelCamion.ShowDialog();
+            txt_camion_id.Text = SelCamion.Id;
+            txt_camion_name.Text = SelCamion.Description;
         }
     }
 }

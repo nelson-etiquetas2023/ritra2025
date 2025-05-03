@@ -91,7 +91,7 @@ namespace Ritrama2025.Forms
             txt_transport.DataBindings.Add("Text", Bs, "transporte");
             txt_chofer.DataBindings.Add("Text", Bs, "chofer");
             txt_camion.DataBindings.Add("Text", Bs, "camion");
-            txt_venid.DataBindings.Add("Text", Bs, "vendor_id");
+            txt_vend_id.DataBindings.Add("Text", Bs, "vendor_id");
             txt_tipo_embalaje.DataBindings.Add("Text", Bs, "packing");
             txt_orden_trabajo.DataBindings.Add("Text", Bs, "orden_trabajo");
             txt_orden_compra.DataBindings.Add("Text", Bs, "orden_compra");
@@ -214,6 +214,18 @@ namespace Ritrama2025.Forms
             SelClientes.ShowDialog();
             txt_custid.Text = SelClientes.Id;
             txt_custname.Text = SelClientes.Description;
+        }
+
+        private void bot_buscar_vendor_Click(object sender, EventArgs e)
+        {
+            FrmSeleccion SelVendors = new()
+            {
+                DtItems = Ds.Tables["DtVendors"]!,
+                Titulo = "Vendedores",
+            };
+            SelVendors.ShowDialog();
+            txt_vend_id.Text = SelVendors.Id;
+            txt_vendorname.Text = SelVendors.Description;
         }
     }
 }

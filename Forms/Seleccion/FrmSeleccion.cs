@@ -29,26 +29,39 @@ namespace Ritrama2025.Forms.Seleccion
         public string Titulo { get; set; } = null!;
 
         DataView Dv = new();
+        string colname1 = null!;
+        string colname2 = null!;
+
         private void Seleccion_Load(object sender, EventArgs e)
         {
             Dv = DtItems.DefaultView;
             Grid_Items.AutoGenerateColumns = false;
-            EstilosGrid();
             Dv.RowFilter = "";
             Grid_Items.DataSource = Dv;
             Numero_reg.Text = Convert.ToString(Dv.Count) + " Registro Encontrados";
             titleform.Text = Titulo;
             bot_buscar.Focus();
+            if (Titulo == "Clientes")
+            {
+                colname1 = "customer_id";
+                colname2 = "customer_name";
+            }
+            if (Titulo == "Vendedores")
+            {
+                colname1 = "vendor_id";
+                colname2 = "vendor_name";
+            }
+            EstilosGrid();
         }
         private void BuscarItems()
         {
             if (ra_id.Checked)
             {
-                Dv.RowFilter = "customer_id like '%" + txt_buscar.Text + "%'";
+                Dv.RowFilter = colname1 + " like '%" + txt_buscar.Text + "%'";
             }
             if (ra_description.Checked)
             {
-                Dv.RowFilter = "customer_name like '%" + txt_buscar.Text + "%'";
+                Dv.RowFilter = colname2 + " like '%" + txt_buscar.Text + "%'";
             }
 
         }
@@ -56,18 +69,18 @@ namespace Ritrama2025.Forms.Seleccion
         {
             DataGridViewTextBoxColumn col1 = new()
             {
-                Name = "customer_id",
+                Name = colname1,
                 Width = 80,
                 HeaderText = "Codigo",
-                DataPropertyName = "customer_id"
+                DataPropertyName = colname1
             };
             Grid_Items.Columns.Add(col1);
             DataGridViewTextBoxColumn col2 = new()
             {
-                Name = "customer_name",
-                Width = 280,
+                Name = colname2,
+                Width = 320,
                 HeaderText = "Nombre del Clinete",
-                DataPropertyName = "customer_name"
+                DataPropertyName = colname2
             };
             Grid_Items.Columns.Add(col2);
         }

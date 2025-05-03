@@ -60,7 +60,7 @@
             bot_camion = new Button();
             txt_camion = new TextBox();
             label8 = new Label();
-            txt_venid = new TextBox();
+            txt_vend_id = new TextBox();
             label9 = new Label();
             txt_vendorname = new TextBox();
             label10 = new Label();
@@ -432,15 +432,15 @@
             label8.TabIndex = 18;
             label8.Text = "Camion:";
             // 
-            // txt_venid
+            // txt_vend_id
             // 
-            txt_venid.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txt_venid.Location = new Point(418, 119);
-            txt_venid.Margin = new Padding(3, 4, 3, 4);
-            txt_venid.Name = "txt_venid";
-            txt_venid.ReadOnly = true;
-            txt_venid.Size = new Size(125, 27);
-            txt_venid.TabIndex = 22;
+            txt_vend_id.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txt_vend_id.Location = new Point(418, 119);
+            txt_vend_id.Margin = new Padding(3, 4, 3, 4);
+            txt_vend_id.Name = "txt_vend_id";
+            txt_vend_id.ReadOnly = true;
+            txt_vend_id.Size = new Size(125, 27);
+            txt_vend_id.TabIndex = 22;
             // 
             // label9
             // 
@@ -482,6 +482,7 @@
             bot_buscar_vendor.TabIndex = 25;
             bot_buscar_vendor.Text = "...";
             bot_buscar_vendor.UseVisualStyleBackColor = true;
+            bot_buscar_vendor.Click += bot_buscar_vendor_Click;
             // 
             // txt_tipo_embalaje
             // 
@@ -963,7 +964,7 @@
             Controls.Add(bot_buscar_vendor);
             Controls.Add(txt_vendorname);
             Controls.Add(label10);
-            Controls.Add(txt_venid);
+            Controls.Add(txt_vend_id);
             Controls.Add(label9);
             Controls.Add(bot_camion);
             Controls.Add(txt_camion);
@@ -1036,7 +1037,7 @@
         private Button bot_camion;
         private TextBox txt_camion;
         private Label label8;
-        private TextBox txt_venid;
+        private TextBox txt_vend_id;
         private Label label9;
         private TextBox txt_vendorname;
         private Label label10;

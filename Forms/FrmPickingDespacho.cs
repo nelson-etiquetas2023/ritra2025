@@ -10,6 +10,10 @@ namespace Ritrama2025.Forms
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public List<RolloCortado> Lista_Rollos { get; set; } = [];
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public List<ItemsDespacho> Lista_Items { get; set; } = [];
+
         readonly List<Recepcion> Lista_Hojas = [];
         readonly List<Recepcion> Lista_Graphics = [];
         readonly List<Recepcion> Lista_Master = [];
@@ -89,7 +93,7 @@ namespace Ritrama2025.Forms
                 AGREGAR_COLUMN_GRID("msi", 80, "Msi", "msi", grid_renglones);
                 AGREGAR_COLUMN_GRID("Code_Person", 80, "Msi", "Code_Person", grid_renglones);
                 grid_renglones.DataSource = QueryItem.ToList();
-
+                Lista_Items = [.. QueryItem];
             }
         }
 

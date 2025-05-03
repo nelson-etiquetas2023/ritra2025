@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ritrama2025")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96a124fce3f49033fb482f01cb4e000e004c2398")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+914d556552597938d62196851486ed972445b146")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ritrama2025")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ritrama2025")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

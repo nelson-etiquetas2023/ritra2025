@@ -1,6 +1,6 @@
 ﻿using Ritrama2025.Services;
 using System.Data;
-using System.DirectoryServices.ActiveDirectory;
+using Ritrama2025.Forms.Seleccion;
 
 namespace Ritrama2025.Forms
 {
@@ -159,11 +159,16 @@ namespace Ritrama2025.Forms
             txt_fecha_despacho.Enabled = true;
 
             bot_picking.Enabled = true;
+            btn_buscar_customer.Enabled = true;
+            bot_buscar_vendor.Enabled = true;
+            bot_camion.Enabled = true;
+            bot_transporte.Enabled = true;
+            bot_chofer.Enabled = true;
         }
 
         private void Bot_picking_Click(object sender, EventArgs e)
         {
-            FrmPickingDespacho frm_picking = new();  
+            FrmPickingDespacho frm_picking = new();
             frm_picking.ShowDialog();
             //actualizar el grid de detalle de rc (packing list)
             grid_rc.Columns.Clear();
@@ -177,9 +182,38 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("msi", 80, "Msi", "msi", grid_rc);
             AGREGAR_COLUMN_GRID("Splice", 70, "Splice", "Splice", grid_rc);
             AGREGAR_COLUMN_GRID("roll_id", 72, "Roll Id.", "roll_id", grid_rc);
-            AGREGAR_COLUMN_GRID("code_person", 74, "Codigo Perso.", "code_person",grid_rc);
+            AGREGAR_COLUMN_GRID("code_person", 74, "Codigo Perso.", "code_person", grid_rc);
             grid_rc.DataSource = frm_picking.Lista_Rollos;
+            //actualizar el grid de renglones a despachar.
+            grid_items.Columns.Clear();
+            grid_items.AutoGenerateColumns = false;
+            AGREGAR_COLUMN_GRID("product_id", 80, "Product Id.", "product_id", grid_items);
+            AGREGAR_COLUMN_GRID("product_name", 200, "Product Name", "product_name", grid_items);
+            AGREGAR_COLUMN_GRID("unid_id", 70, "Unidad", "unid_id", grid_items);
+            AGREGAR_COLUMN_GRID("cantidad", 70, "Cant.", "cantidad", grid_items);
+            AGREGAR_COLUMN_GRID("width", 70, "Width [Pulg]", "width", grid_items);
+            AGREGAR_COLUMN_GRID("width", 70, "Lenght [Pies]", "lenght", grid_items);
+            AGREGAR_COLUMN_GRID("msi", 70, "Msi", "msi", grid_items);
+            AGREGAR_COLUMN_GRID("pie_lin", 70, "Pie Lineales", "pie_lin", grid_items);
+            AGREGAR_COLUMN_GRID("ratio", 70, "Ratio", "ratio", grid_items);
+            AGREGAR_COLUMN_GRID("kilo_rollo", 70, "Kilo Rollo", "kilo_rollo", grid_items);
+            AGREGAR_COLUMN_GRID("kilo_total", 70, "Kilo Total", "kilo_total", grid_items);
+            AGREGAR_COLUMN_GRID("precio", 70, "Precio", "precio", grid_items);
+            AGREGAR_COLUMN_GRID("total_renglon", 70, "Total Renglon", "total_renglon", grid_items);
+            grid_items.DataSource = frm_picking.Lista_Items;
 
+        }
+
+        private void Btn_buscar_customer_Click(object sender, EventArgs e)
+        {
+            FrmSeleccion SelClientes = new()
+            {
+                DtItems = Ds.Tables["DtClientes"]!,
+                Titulo = "Clientes",
+            };
+            SelClientes.ShowDialog();
+            txt_custid.Text = SelClientes.Id;
+            txt_custname.Text = SelClientes.Description;
         }
     }
 }

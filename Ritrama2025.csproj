@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Forms\Otros\" />
-    <Folder Include="Forms\Seleccion\" />
     <Folder Include="Reports\" />
   </ItemGroup>
 

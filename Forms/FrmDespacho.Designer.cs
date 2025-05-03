@@ -53,11 +53,11 @@
             label5 = new Label();
             label6 = new Label();
             txt_transport = new TextBox();
-            button2 = new Button();
-            button3 = new Button();
+            bot_transporte = new Button();
+            bot_chofer = new Button();
             txt_chofer = new TextBox();
             label7 = new Label();
-            button4 = new Button();
+            bot_camion = new Button();
             txt_camion = new TextBox();
             label8 = new Label();
             txt_venid = new TextBox();
@@ -258,6 +258,7 @@
             btn_buscar_customer.TabIndex = 3;
             btn_buscar_customer.Text = "...";
             btn_buscar_customer.UseVisualStyleBackColor = true;
+            btn_buscar_customer.Click += Btn_buscar_customer_Click;
             // 
             // txt_custid
             // 
@@ -358,27 +359,27 @@
             txt_transport.Size = new Size(217, 27);
             txt_transport.TabIndex = 13;
             // 
-            // button2
+            // bot_transporte
             // 
-            button2.Enabled = false;
-            button2.Location = new Point(358, 175);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(45, 29);
-            button2.TabIndex = 14;
-            button2.Text = "...";
-            button2.UseVisualStyleBackColor = true;
+            bot_transporte.Enabled = false;
+            bot_transporte.Location = new Point(358, 175);
+            bot_transporte.Margin = new Padding(3, 4, 3, 4);
+            bot_transporte.Name = "bot_transporte";
+            bot_transporte.Size = new Size(45, 29);
+            bot_transporte.TabIndex = 14;
+            bot_transporte.Text = "...";
+            bot_transporte.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // bot_chofer
             // 
-            button3.Enabled = false;
-            button3.Location = new Point(358, 211);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(45, 29);
-            button3.TabIndex = 17;
-            button3.Text = "...";
-            button3.UseVisualStyleBackColor = true;
+            bot_chofer.Enabled = false;
+            bot_chofer.Location = new Point(358, 211);
+            bot_chofer.Margin = new Padding(3, 4, 3, 4);
+            bot_chofer.Name = "bot_chofer";
+            bot_chofer.Size = new Size(45, 29);
+            bot_chofer.TabIndex = 17;
+            bot_chofer.Text = "...";
+            bot_chofer.UseVisualStyleBackColor = true;
             // 
             // txt_chofer
             // 
@@ -400,16 +401,16 @@
             label7.TabIndex = 15;
             label7.Text = "Chofer:";
             // 
-            // button4
+            // bot_camion
             // 
-            button4.Enabled = false;
-            button4.Location = new Point(358, 248);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(45, 29);
-            button4.TabIndex = 20;
-            button4.Text = "...";
-            button4.UseVisualStyleBackColor = true;
+            bot_camion.Enabled = false;
+            bot_camion.Location = new Point(358, 248);
+            bot_camion.Margin = new Padding(3, 4, 3, 4);
+            bot_camion.Name = "bot_camion";
+            bot_camion.Size = new Size(45, 29);
+            bot_camion.TabIndex = 20;
+            bot_camion.Text = "...";
+            bot_camion.UseVisualStyleBackColor = true;
             // 
             // txt_camion
             // 
@@ -964,13 +965,13 @@
             Controls.Add(label10);
             Controls.Add(txt_venid);
             Controls.Add(label9);
-            Controls.Add(button4);
+            Controls.Add(bot_camion);
             Controls.Add(txt_camion);
             Controls.Add(label8);
-            Controls.Add(button3);
+            Controls.Add(bot_chofer);
             Controls.Add(txt_chofer);
             Controls.Add(label7);
-            Controls.Add(button2);
+            Controls.Add(bot_transporte);
             Controls.Add(txt_transport);
             Controls.Add(label6);
             Controls.Add(txt_persondelivery);
@@ -1028,11 +1029,11 @@
         private Label label5;
         private Label label6;
         private TextBox txt_transport;
-        private Button button2;
-        private Button button3;
+        private Button bot_transporte;
+        private Button bot_chofer;
         private TextBox txt_chofer;
         private Label label7;
-        private Button button4;
+        private Button bot_camion;
         private TextBox txt_camion;
         private Label label8;
         private TextBox txt_venid;

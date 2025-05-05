@@ -35,6 +35,28 @@ namespace Ritrama2025.Services
         {
             StringConnex = @"Data Source=DATABASE-CENTER\RITRAMASRV01; Initial Catalog=RITRAMA2;User Id=Npino;Password=123;TrustServerCertificate=True;";
         }
+
+        public string GetNumberConsec() 
+        {
+            string consec = string.Empty;
+            try
+            {
+                using SqlConnection conn = new(StringConnex);
+                SqlCommand Comando = new()
+                {
+                    Connection = conn,
+                    CommandType = CommandType.Text,
+                    CommandText = "SELECT MAX(numero)+1 as numero FROM despacho"
+                };
+                conn.OpenAsync();
+                consec = Convert.ToString(Comando.ExecuteScalar())!;
+            }
+            catch (Exception ex)
+            {
+                ErrorMsg = ex.Message;
+            }
+            return consec;
+        }
         public Despacho GetDespachoById(int id)
         {
             throw new NotImplementedException();

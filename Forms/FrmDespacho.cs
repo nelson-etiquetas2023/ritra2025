@@ -137,9 +137,9 @@ namespace Ritrama2025.Forms
         {
             ParentRow = (DataRowView)Bs.AddNew()!;
             ParentRow.BeginEdit();
-            ParentRow["numero"] = "5000";
+            
 
-            txt_numero.ReadOnly = false;
+            txt_numero.Text = Service.GetNumberConsec();
             txt_fecha_despacho.Enabled = true;
             txt_persondelivery.ReadOnly = false;
             txt_tipo_embalaje.ReadOnly = false;
@@ -205,7 +205,7 @@ namespace Ritrama2025.Forms
             txt_custname.Text = SelClientes.Description;
         }
 
-        private void bot_buscar_vendor_Click(object sender, EventArgs e)
+        private void Bot_buscar_vendor_Click(object sender, EventArgs e)
         {
             FrmSeleccion SelVendors = new()
             {
@@ -217,7 +217,7 @@ namespace Ritrama2025.Forms
             txt_vendorname.Text = SelVendors.Description;
         }
 
-        private void bot_transporte_Click(object sender, EventArgs e)
+        private void Bot_transporte_Click(object sender, EventArgs e)
         {
             FrmSeleccion SelTransport = new()
             {
@@ -229,7 +229,7 @@ namespace Ritrama2025.Forms
             txt_transport_name.Text = SelTransport.Description;
         }
 
-        private void bot_chofer_Click(object sender, EventArgs e)
+        private void Bot_chofer_Click(object sender, EventArgs e)
         {
             FrmSeleccion SelChofer = new()
             {
@@ -241,7 +241,7 @@ namespace Ritrama2025.Forms
             txt_chofer_name.Text = SelChofer.Description;
         }
 
-        private void bot_camion_Click(object sender, EventArgs e)
+        private void Bot_camion_Click(object sender, EventArgs e)
         {
             FrmSeleccion SelCamion = new()
             {
@@ -284,12 +284,12 @@ namespace Ritrama2025.Forms
             txt_msi_total.Refresh();
             txt_kilos_total.Refresh();
         }
-        private string CalcularImpuestoRenglon(decimal subtotal,decimal monto_itbis) 
+        private static string CalcularImpuestoRenglon(decimal subtotal,decimal monto_itbis) 
         {
             decimal renglonImpuesto = subtotal + monto_itbis;
             return $"{renglonImpuesto,12:N2}";
         }
-        private string CalcularImpuestoDocument(decimal porc_itbis, decimal subtotal) 
+        private static string CalcularImpuestoDocument(decimal porc_itbis, decimal subtotal) 
         {
             decimal impuesto = (porc_itbis * subtotal)/100;
             return $"{impuesto,12:N2}";
@@ -303,7 +303,7 @@ namespace Ritrama2025.Forms
             }
             return $"{SubTotalDoc,12:N2}";
         }
-        private string CalcularTotalesDocument(decimal subtotal, decimal impuesto)
+        private static string CalcularTotalesDocument(decimal subtotal, decimal impuesto)
         {
             decimal total = subtotal + impuesto;
             return $"{total,12:N2}";

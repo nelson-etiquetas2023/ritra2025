@@ -7,5 +7,7 @@ namespace Ritrama2025.Services
     {
         Task<DataSet> LoadDataDespachos();
         Despacho GetDespachoById(int id);
+        string GetNumberConsec();
+
     }
 }

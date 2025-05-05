@@ -242,7 +242,7 @@
             // 
             // txt_numero
             // 
-            txt_numero.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txt_numero.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txt_numero.Location = new Point(31, 59);
             txt_numero.Margin = new Padding(3, 4, 3, 4);
             txt_numero.Name = "txt_numero";
@@ -371,7 +371,7 @@
             bot_transporte.TabIndex = 14;
             bot_transporte.Text = "...";
             bot_transporte.UseVisualStyleBackColor = true;
-            bot_transporte.Click += bot_transporte_Click;
+            bot_transporte.Click += Bot_transporte_Click;
             // 
             // bot_chofer
             // 
@@ -383,7 +383,7 @@
             bot_chofer.TabIndex = 17;
             bot_chofer.Text = "...";
             bot_chofer.UseVisualStyleBackColor = true;
-            bot_chofer.Click += bot_chofer_Click;
+            bot_chofer.Click += Bot_chofer_Click;
             // 
             // txt_chofer_id
             // 
@@ -415,7 +415,7 @@
             bot_camion.TabIndex = 20;
             bot_camion.Text = "...";
             bot_camion.UseVisualStyleBackColor = true;
-            bot_camion.Click += bot_camion_Click;
+            bot_camion.Click += Bot_camion_Click;
             // 
             // txt_camion_id
             // 
@@ -487,7 +487,7 @@
             bot_buscar_vendor.TabIndex = 25;
             bot_buscar_vendor.Text = "...";
             bot_buscar_vendor.UseVisualStyleBackColor = true;
-            bot_buscar_vendor.Click += bot_buscar_vendor_Click;
+            bot_buscar_vendor.Click += Bot_buscar_vendor_Click;
             // 
             // txt_tipo_embalaje
             // 

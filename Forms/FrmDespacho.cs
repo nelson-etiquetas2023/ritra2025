@@ -14,7 +14,7 @@ namespace Ritrama2025.Forms
         readonly BindingSource BsPalet = [];
         DataRowView ParentRow = null!;
         private readonly decimal porc_itbis = 18.00m;
-
+        const decimal CONST_PIE_LINEALES = 0.012m;
         public FrmDespacho()
         {
             InitializeComponent();
@@ -182,7 +182,7 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("unidad", 70, "Unidad", "unidad", grid_items);
             AGREGAR_COLUMN_GRID("cantidad", 70, "Cant.", "cantidad", grid_items);
             AGREGAR_COLUMN_GRID("width", 70, "Width [Pulg]", "width", grid_items);
-            AGREGAR_COLUMN_GRID("width", 70, "Lenght [Pies]", "lenght", grid_items);
+            AGREGAR_COLUMN_GRID("lenght", 70, "Lenght [Pies]", "lenght", grid_items);
             AGREGAR_COLUMN_GRID("msi", 70, "Msi", "msi", grid_items);
             AGREGAR_COLUMN_GRID("pie_lin", 70, "Pie Lineales", "pie_lin", grid_items);
             AGREGAR_COLUMN_GRID("ratio", 70, "Ratio", "ratio", grid_items);
@@ -191,6 +191,16 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("precio", 70, "Precio", "precio", grid_items);
             AGREGAR_COLUMN_GRID("total_renglon", 70, "Total Renglon", "total_renglon", grid_items);
             grid_items.DataSource = frm_picking.Lista_Items;
+
+            //Calculo de los pies lineales.
+            for (int i = 0; i <= grid_items.Rows.Count - 1; i++)
+            { 
+                //pie lineales
+                grid_items.Rows[i].Cells["pie_lin"].Value = Convert.ToDecimal(grid_items.Rows[i].Cells["lenght"].Value) * CONST_PIE_LINEALES;
+                //Busqueda del ratio por producto.
+                grid_items.Rows[i].Cells["ratio"].Value = Service.GetRatioProductById(grid_items.Rows[i].Cells["product_id"].Value!.ToString()!);
+            }
+
 
         }
 

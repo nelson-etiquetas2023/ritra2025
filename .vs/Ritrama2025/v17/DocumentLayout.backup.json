@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Programacion\\Ritrama2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|c:\\programacion\\ritrama2025\\forms\\frmdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|solutionrelative:forms\\frmdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|c:\\programacion\\ritrama2025\\forms\\frmdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|solutionrelative:forms\\frmdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|c:\\programacion\\ritrama2025\\forms\\frmpickingdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|solutionrelative:forms\\frmpickingdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|c:\\programacion\\ritrama2025\\services\\despachoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|solutionrelative:services\\despachoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|c:\\programacion\\ritrama2025\\models\\itemsdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|solutionrelative:models\\itemsdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|c:\\programacion\\ritrama2025\\forms\\frmdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|solutionrelative:forms\\frmdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|c:\\programacion\\ritrama2025\\forms\\frmpickingdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|solutionrelative:forms\\frmpickingdespacho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|c:\\programacion\\ritrama2025\\services\\idespachoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|solutionrelative:services\\idespachoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,66 +42,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "FrmDespacho.cs",
               "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Forms\\FrmDespacho.cs",
               "RelativeDocumentMoniker": "Forms\\FrmDespacho.cs",
               "ToolTip": "C:\\Programacion\\Ritrama2025\\Forms\\FrmDespacho.cs",
               "RelativeToolTip": "Forms\\FrmDespacho.cs",
-              "ViewState": "AgIAAMQAAAAAAAAAAAA4wM0AAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAkwMYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T16:49:25.098Z",
+              "WhenOpened": "2025-05-05T18:29:43.263Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ItemsDespacho.cs",
-              "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Models\\ItemsDespacho.cs",
-              "RelativeDocumentMoniker": "Models\\ItemsDespacho.cs",
-              "ToolTip": "C:\\Programacion\\Ritrama2025\\Models\\ItemsDespacho.cs",
-              "RelativeToolTip": "Models\\ItemsDespacho.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T16:38:07.917Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmPickingDespacho.cs",
-              "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Forms\\FrmPickingDespacho.cs",
-              "RelativeDocumentMoniker": "Forms\\FrmPickingDespacho.cs",
-              "ToolTip": "C:\\Programacion\\Ritrama2025\\Forms\\FrmPickingDespacho.cs",
-              "RelativeToolTip": "Forms\\FrmPickingDespacho.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAkwFoAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T16:37:02.376Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrmPickingDespacho.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Forms\\FrmPickingDespacho.cs",
-              "RelativeDocumentMoniker": "Forms\\FrmPickingDespacho.cs",
-              "ToolTip": "C:\\Programacion\\Ritrama2025\\Forms\\FrmPickingDespacho.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Forms\\FrmPickingDespacho.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T16:36:58.721Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FrmDespacho.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Forms\\FrmDespacho.cs",
               "RelativeDocumentMoniker": "Forms\\FrmDespacho.cs",
               "ToolTip": "C:\\Programacion\\Ritrama2025\\Forms\\FrmDespacho.cs [Dise\u00F1o]",
               "RelativeToolTip": "Forms\\FrmDespacho.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T16:36:41.35Z",
+              "WhenOpened": "2025-05-05T18:27:28.71Z",
               "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DespachoService.cs",
+              "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Services\\DespachoService.cs",
+              "RelativeDocumentMoniker": "Services\\DespachoService.cs",
+              "ToolTip": "C:\\Programacion\\Ritrama2025\\Services\\DespachoService.cs",
+              "RelativeToolTip": "Services\\DespachoService.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAAAOgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T18:17:34.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IDespachoService.cs",
+              "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Services\\IDespachoService.cs",
+              "RelativeDocumentMoniker": "Services\\IDespachoService.cs",
+              "ToolTip": "C:\\Programacion\\Ritrama2025\\Services\\IDespachoService.cs",
+              "RelativeToolTip": "Services\\IDespachoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T18:16:10.832Z",
+              "EditorCaption": ""
             }
           ]
         },

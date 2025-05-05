@@ -228,5 +228,29 @@ namespace Ritrama2025.Services
 
             
         }
+
+        public decimal GetRatioProductById(string product_id)
+        {
+            decimal ratio = 0;
+            try
+            {
+                using SqlConnection conn = new(StringConnex);
+                SqlCommand Comando = new()
+                {
+                    Connection = conn,
+                    CommandType = CommandType.Text,
+                    CommandText = "SELECT ratio FROM producto WHERE product_id = @p1"
+                };
+                SqlParameter p1 = new("@p1", product_id);
+                Comando.Parameters.Add(p1);
+                conn.Open();
+                ratio = Convert.ToDecimal(Comando.ExecuteScalar())!;
+            }
+            catch (Exception ex)
+            {
+                ErrorMsg = ex.Message;
+            }
+            return ratio;
+        }
     }
 }

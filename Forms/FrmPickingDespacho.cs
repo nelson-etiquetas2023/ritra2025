@@ -146,6 +146,7 @@ namespace Ritrama2025.Forms
                             {
                                 UniqueCode = data[0],
                                 Paleta = data[1],
+                                
                             };
                             rollos.Add(rollo);
                         }

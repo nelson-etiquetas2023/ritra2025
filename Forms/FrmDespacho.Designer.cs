@@ -249,7 +249,6 @@
             txt_numero.ReadOnly = true;
             txt_numero.Size = new Size(125, 27);
             txt_numero.TabIndex = 2;
-            txt_numero.TextChanged += Txt_numero_TextChanged;
             // 
             // btn_buscar_customer
             // 
@@ -559,7 +558,6 @@
             txt_tipoventa.ReadOnly = true;
             txt_tipoventa.Size = new Size(268, 27);
             txt_tipoventa.TabIndex = 33;
-            txt_tipoventa.TextChanged += Txt_tipoventa_TextChanged;
             // 
             // label14
             // 
@@ -597,7 +595,6 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1233, 338);
             tabControl1.TabIndex = 35;
-            tabControl1.SelectedIndexChanged += TabControl1_SelectedIndexChanged;
             // 
             // tabPage1
             // 

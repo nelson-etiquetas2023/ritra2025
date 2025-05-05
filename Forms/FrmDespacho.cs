@@ -13,6 +13,7 @@ namespace Ritrama2025.Forms
         readonly BindingSource BsItems = [];
         readonly BindingSource BsPalet = [];
         DataRowView ParentRow = null!;
+        private readonly decimal porc_itbis = 18.00m;
 
         public FrmDespacho()
         {
@@ -80,9 +81,6 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("kilo_neto", 70, "Kilo Neto", "kilo_neto", grid_detalle_paletas);
             AGREGAR_COLUMN_GRID("kilo_bruto", 70, "Kilo Bruto", "kilo_bruto", grid_detalle_paletas);
             grid_detalle_paletas.DataSource = BsPalet;
-
-
-
             //Binding Forms
             txt_numero.DataBindings.Add("Text", Bs, "numero");
             txt_fecha_despacho.DataBindings.Add("Text", Bs, "fecha");
@@ -102,20 +100,6 @@ namespace Ritrama2025.Forms
             txt_totalmonto.DataBindings.Add("Text", Bs, "total$rd");
             txt_custname.DataBindings.Add("Text", Bs, "customer_name");
             txt_vendorname.DataBindings.Add("Text", Bs, "vendor_name");
-
-
-        }
-        private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void Txt_numero_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void Txt_tipoventa_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Bot_primero_Click(object sender, EventArgs e)
@@ -157,6 +141,11 @@ namespace Ritrama2025.Forms
 
             txt_numero.ReadOnly = false;
             txt_fecha_despacho.Enabled = true;
+            txt_persondelivery.ReadOnly = false;
+            txt_tipo_embalaje.ReadOnly = false;
+            txt_orden_trabajo.ReadOnly = false;
+            txt_orden_compra.ReadOnly = false;
+            txt_tipoventa.ReadOnly = false;
 
             bot_picking.Enabled = true;
             btn_buscar_customer.Enabled = true;
@@ -262,6 +251,68 @@ namespace Ritrama2025.Forms
             SelCamion.ShowDialog();
             txt_camion_id.Text = SelCamion.Id;
             txt_camion_name.Text = SelCamion.Description;
+        }
+        private void CalcularTotalesColumns() 
+        {
+            int TotalCantitdad = 0;
+            decimal TotalMsi = 0;
+            decimal TotalPieLin = 0;
+            decimal TotalKilosRollo = 0;
+            decimal TotalKilosTotal = 0;
+            for (int i=0; i <= grid_items.Rows.Count - 1; i++) 
+            {
+                TotalCantitdad += Convert.ToInt32(grid_items.Rows[i].Cells["cant"].Value);
+                TotalMsi += Convert.ToDecimal(grid_items.Rows[i].Cells["m2"].Value);
+                if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["pie_lin"].Value!.ToString())) 
+                {
+                    TotalPieLin += Convert.ToDecimal(grid_items.Rows[i].Cells["pie_lin"].Value);
+                }
+                if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["kilo_rollo"].Value!.ToString())) 
+                {
+                    TotalKilosRollo += Convert.ToDecimal(grid_items.Rows[i].Cells["kilo_rollo"].Value);
+                }
+                if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["kilo_total"].Value!.ToString())) 
+                {
+                    TotalKilosTotal += Convert.ToDecimal(grid_items.Rows[i].Cells["kilo_total"].Value);
+                }
+            }
+            txt_cant_total.Text = TotalCantitdad.ToString();
+            txt_msi_total.Text = $"{ TotalMsi:0.##}";
+            txt_pie_total.Text = $"{ TotalPieLin:###.###.##}";
+            txt_kilos_total.Text = $"{TotalKilosTotal:###.###.##}";
+            txt_cant_total.Refresh();
+            txt_msi_total.Refresh();
+            txt_kilos_total.Refresh();
+        }
+        private string CalcularImpuestoRenglon(decimal subtotal,decimal monto_itbis) 
+        {
+            decimal renglonImpuesto = subtotal + monto_itbis;
+            return $"{renglonImpuesto,12:N2}";
+        }
+        private string CalcularImpuestoDocument(decimal porc_itbis, decimal subtotal) 
+        {
+            decimal impuesto = (porc_itbis * subtotal)/100;
+            return $"{impuesto,12:N2}";
+        }
+        private string CalcularSubtotalDocument() 
+        {
+            decimal SubTotalDoc = 0;
+            for(int i = 0; i <= grid_items.Rows.Count - 1; i++)
+            {
+                SubTotalDoc += Convert.ToDecimal(grid_items.Rows[i].Cells["total_renglon"].Value);
+            }
+            return $"{SubTotalDoc,12:N2}";
+        }
+        private string CalcularTotalesDocument(decimal subtotal, decimal impuesto)
+        {
+            decimal total = subtotal + impuesto;
+            return $"{total,12:N2}";
+        }
+        private void CalcularTotalesDocument() 
+        {
+            txt_subtotal.Text = CalcularSubtotalDocument();
+            txt_itbis.Text = (chk_impuesto.Checked ? "0" : CalcularImpuestoDocument(porc_itbis, Convert.ToDecimal(txt_itbis.Text)));
+            txt_totalmonto.Text = CalcularTotalesDocument(Convert.ToDecimal(txt_subtotal.Text), Convert.ToDecimal(txt_itbis.Text));
         }
     }
 }

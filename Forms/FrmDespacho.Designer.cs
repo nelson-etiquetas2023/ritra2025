@@ -621,6 +621,7 @@
             grid_items.RowHeadersWidth = 38;
             grid_items.Size = new Size(1210, 288);
             grid_items.TabIndex = 0;
+            grid_items.CellEndEdit += grid_items_CellEndEdit;
             // 
             // tabPage2
             // 

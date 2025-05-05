@@ -137,7 +137,7 @@ namespace Ritrama2025.Forms
         {
             ParentRow = (DataRowView)Bs.AddNew()!;
             ParentRow.BeginEdit();
-            
+
 
             txt_numero.Text = Service.GetNumberConsec();
             txt_fecha_despacho.Enabled = true;
@@ -165,7 +165,7 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("uniquecode", 70, "Unique Code", "uniquecode", grid_rc);
             AGREGAR_COLUMN_GRID("product_id", 80, "Product Id.", "product_id", grid_rc);
             AGREGAR_COLUMN_GRID("product_name", 180, "Nombre del Producto", "product_name", grid_rc);
-           
+
             AGREGAR_COLUMN_GRID("RollNumber", 70, "Roll Number", "RollNumber", grid_rc);
             AGREGAR_COLUMN_GRID("width", 80, "Width", "width", grid_rc);
             AGREGAR_COLUMN_GRID("Length", 80, "Largo", "Length", grid_rc);
@@ -189,21 +189,29 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("kilo_rollo", 70, "Kilo Rollo", "kilo_rollo", grid_items);
             AGREGAR_COLUMN_GRID("kilo_total", 70, "Kilo Total", "kilo_total", grid_items);
             AGREGAR_COLUMN_GRID("precio", 70, "Precio", "precio", grid_items);
-            AGREGAR_COLUMN_GRID("total_renglon", 70, "Total Renglon", "total_renglon", grid_items);
+            AGREGAR_COLUMN_GRID("total_renglon", 150, "Total Renglon", "total_renglon", grid_items);
             grid_items.DataSource = frm_picking.Lista_Items;
 
             //Calculo de los pies lineales.
             for (int i = 0; i <= grid_items.Rows.Count - 1; i++)
-            { 
+            {
                 //pie lineales
                 grid_items.Rows[i].Cells["pie_lin"].Value = Convert.ToDecimal(grid_items.Rows[i].Cells["lenght"].Value) * CONST_PIE_LINEALES;
                 //Busqueda del ratio por producto.
                 grid_items.Rows[i].Cells["ratio"].Value = Service.GetRatioProductById(grid_items.Rows[i].Cells["product_id"].Value!.ToString()!);
+                //Calculo de la Columna Kilo-Rollo.
+                grid_items.Rows[i].Cells["kilo_rollo"].Value = (Convert.ToDecimal(grid_items.Rows[i].Cells["width"].Value) * Convert.ToDecimal(grid_items.Rows[i].Cells["lenght"].Value) * Convert.ToDecimal(grid_items.Rows[i].Cells["msi"].Value)) / 1000;
+                grid_items.Rows[i].Cells["kilo_total"].Value = Convert.ToDecimal(grid_items.Rows[i].Cells["kilo_rollo"].Value) * Convert.ToDecimal(grid_items.Rows[i].Cells["cantidad"].Value);
+
+                grid_items.Rows[i].Cells["precio"].Value = "0";
+                grid_items.Rows[i].Cells["total_renglon"].Value = "0";
             }
 
 
-        }
+            //abrir la columna de precio para hacer el calculo de total renglon.
+            grid_items.ReadOnly = false;
 
+        }
         private void Btn_buscar_customer_Click(object sender, EventArgs e)
         {
             FrmSeleccion SelClientes = new()
@@ -263,52 +271,52 @@ namespace Ritrama2025.Forms
             txt_camion_id.Text = SelCamion.Id;
             txt_camion_name.Text = SelCamion.Description;
         }
-        private void CalcularTotalesColumns() 
+        private void CalcularTotalesColumns()
         {
             int TotalCantitdad = 0;
             decimal TotalMsi = 0;
             decimal TotalPieLin = 0;
             decimal TotalKilosRollo = 0;
             decimal TotalKilosTotal = 0;
-            for (int i=0; i <= grid_items.Rows.Count - 1; i++) 
+            for (int i = 0; i <= grid_items.Rows.Count - 1; i++)
             {
                 TotalCantitdad += Convert.ToInt32(grid_items.Rows[i].Cells["cant"].Value);
                 TotalMsi += Convert.ToDecimal(grid_items.Rows[i].Cells["m2"].Value);
-                if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["pie_lin"].Value!.ToString())) 
+                if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["pie_lin"].Value!.ToString()))
                 {
                     TotalPieLin += Convert.ToDecimal(grid_items.Rows[i].Cells["pie_lin"].Value);
                 }
-                if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["kilo_rollo"].Value!.ToString())) 
+                if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["kilo_rollo"].Value!.ToString()))
                 {
                     TotalKilosRollo += Convert.ToDecimal(grid_items.Rows[i].Cells["kilo_rollo"].Value);
                 }
-                if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["kilo_total"].Value!.ToString())) 
+                if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["kilo_total"].Value!.ToString()))
                 {
                     TotalKilosTotal += Convert.ToDecimal(grid_items.Rows[i].Cells["kilo_total"].Value);
                 }
             }
             txt_cant_total.Text = TotalCantitdad.ToString();
-            txt_msi_total.Text = $"{ TotalMsi:0.##}";
-            txt_pie_total.Text = $"{ TotalPieLin:###.###.##}";
+            txt_msi_total.Text = $"{TotalMsi:0.##}";
+            txt_pie_total.Text = $"{TotalPieLin:###.###.##}";
             txt_kilos_total.Text = $"{TotalKilosTotal:###.###.##}";
             txt_cant_total.Refresh();
             txt_msi_total.Refresh();
             txt_kilos_total.Refresh();
         }
-        private static string CalcularImpuestoRenglon(decimal subtotal,decimal monto_itbis) 
+        private static string CalcularImpuestoRenglon(decimal subtotal, decimal monto_itbis)
         {
             decimal renglonImpuesto = subtotal + monto_itbis;
             return $"{renglonImpuesto,12:N2}";
         }
-        private static string CalcularImpuestoDocument(decimal porc_itbis, decimal subtotal) 
+        private static string CalcularImpuestoDocument(decimal porc_itbis, decimal subtotal)
         {
-            decimal impuesto = (porc_itbis * subtotal)/100;
+            decimal impuesto = (porc_itbis * subtotal) / 100;
             return $"{impuesto,12:N2}";
         }
-        private string CalcularSubtotalDocument() 
+        private string CalcularSubtotalDocument()
         {
             decimal SubTotalDoc = 0;
-            for(int i = 0; i <= grid_items.Rows.Count - 1; i++)
+            for (int i = 0; i <= grid_items.Rows.Count - 1; i++)
             {
                 SubTotalDoc += Convert.ToDecimal(grid_items.Rows[i].Cells["total_renglon"].Value);
             }
@@ -319,11 +327,18 @@ namespace Ritrama2025.Forms
             decimal total = subtotal + impuesto;
             return $"{total,12:N2}";
         }
-        private void CalcularTotalesDocument() 
+        private void CalcularTotalesDocument()
         {
             txt_subtotal.Text = CalcularSubtotalDocument();
             txt_itbis.Text = (chk_impuesto.Checked ? "0" : CalcularImpuestoDocument(porc_itbis, Convert.ToDecimal(txt_itbis.Text)));
             txt_totalmonto.Text = CalcularTotalesDocument(Convert.ToDecimal(txt_subtotal.Text), Convert.ToDecimal(txt_itbis.Text));
+        }
+
+        private void grid_items_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+          
+                grid_items.Rows[e.RowIndex].Cells["total_renglon"].Value = Convert.ToDecimal(grid_items.Rows[e.RowIndex].Cells["precio"].Value) * Convert.ToDecimal(grid_items.Rows[e.RowIndex].Cells["kilo_total"].Value);
+          
         }
     }
 }

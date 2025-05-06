@@ -1,6 +1,6 @@
-﻿using Ritrama2025.Services;
+﻿using Ritrama2025.Forms.Seleccion;
+using Ritrama2025.Services;
 using System.Data;
-using Ritrama2025.Forms.Seleccion;
 
 namespace Ritrama2025.Forms
 {
@@ -208,6 +208,9 @@ namespace Ritrama2025.Forms
             }
 
 
+            CalcularTotalesColumns();
+
+
             //abrir la columna de precio para hacer el calculo de total renglon.
             grid_items.ReadOnly = false;
 
@@ -280,8 +283,8 @@ namespace Ritrama2025.Forms
             decimal TotalKilosTotal = 0;
             for (int i = 0; i <= grid_items.Rows.Count - 1; i++)
             {
-                TotalCantitdad += Convert.ToInt32(grid_items.Rows[i].Cells["cant"].Value);
-                TotalMsi += Convert.ToDecimal(grid_items.Rows[i].Cells["m2"].Value);
+                TotalCantitdad += Convert.ToInt32(grid_items.Rows[i].Cells["cantidad"].Value);
+                //TotalMsi += Convert.ToDecimal(grid_items.Rows[i].Cells["m2"].Value);
                 if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["pie_lin"].Value!.ToString()))
                 {
                     TotalPieLin += Convert.ToDecimal(grid_items.Rows[i].Cells["pie_lin"].Value);
@@ -294,6 +297,10 @@ namespace Ritrama2025.Forms
                 {
                     TotalKilosTotal += Convert.ToDecimal(grid_items.Rows[i].Cells["kilo_total"].Value);
                 }
+                if (!string.IsNullOrEmpty(grid_items.Rows[i].Cells["msi"].Value!.ToString()))
+                {
+                    TotalMsi += Convert.ToDecimal(grid_items.Rows[i].Cells["msi"].Value);
+                }
             }
             txt_cant_total.Text = TotalCantitdad.ToString();
             txt_msi_total.Text = $"{TotalMsi:0.##}";
@@ -301,7 +308,8 @@ namespace Ritrama2025.Forms
             txt_kilos_total.Text = $"{TotalKilosTotal:###.###.##}";
             txt_cant_total.Refresh();
             txt_msi_total.Refresh();
-            txt_kilos_total.Refresh();
+            txt_pie_total.Refresh();
+            txt_kilos_total.Refresh( );
         }
         private static string CalcularImpuestoRenglon(decimal subtotal, decimal monto_itbis)
         {

@@ -820,7 +820,8 @@
             // 
             // txt_cant_total
             // 
-            txt_cant_total.Location = new Point(318, 616);
+            txt_cant_total.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold);
+            txt_cant_total.Location = new Point(369, 616);
             txt_cant_total.Margin = new Padding(3, 4, 3, 4);
             txt_cant_total.Name = "txt_cant_total";
             txt_cant_total.ReadOnly = true;
@@ -829,6 +830,7 @@
             // 
             // txt_msi_total
             // 
+            txt_msi_total.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold);
             txt_msi_total.Location = new Point(592, 616);
             txt_msi_total.Margin = new Padding(3, 4, 3, 4);
             txt_msi_total.Name = "txt_msi_total";
@@ -838,6 +840,7 @@
             // 
             // txt_pie_total
             // 
+            txt_pie_total.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold);
             txt_pie_total.Location = new Point(767, 616);
             txt_pie_total.Margin = new Padding(3, 4, 3, 4);
             txt_pie_total.Name = "txt_pie_total";
@@ -847,6 +850,7 @@
             // 
             // txt_kilos_total
             // 
+            txt_kilos_total.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold);
             txt_kilos_total.Location = new Point(950, 616);
             txt_kilos_total.Margin = new Padding(3, 4, 3, 4);
             txt_kilos_total.Name = "txt_kilos_total";
@@ -858,7 +862,7 @@
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
-            label20.Location = new Point(243, 619);
+            label20.Location = new Point(294, 619);
             label20.Name = "label20";
             label20.Size = new Size(55, 17);
             label20.TabIndex = 57;

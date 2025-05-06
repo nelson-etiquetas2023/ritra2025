@@ -83,7 +83,6 @@
             label15 = new Label();
             bot_add_palet = new Button();
             bot_delete_palet = new Button();
-            bot_update_palet = new Button();
             label16 = new Label();
             txt_subtotal = new TextBox();
             txt_itbis = new TextBox();
@@ -93,8 +92,8 @@
             label18 = new Label();
             label19 = new Label();
             chk_impuesto = new CheckBox();
-            txt_total_kilnet = new TextBox();
-            txt_kilbru = new TextBox();
+            txt_palet_kilo_neto = new TextBox();
+            txt_palet_kilo_bruto = new TextBox();
             txt_cant_total = new TextBox();
             txt_msi_total = new TextBox();
             txt_pie_total = new TextBox();
@@ -650,20 +649,24 @@
             // grid_detalle_paletas
             // 
             grid_detalle_paletas.AllowUserToAddRows = false;
+            grid_detalle_paletas.AllowUserToResizeRows = false;
+            grid_detalle_paletas.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             grid_detalle_paletas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grid_detalle_paletas.Location = new Point(32, 685);
+            grid_detalle_paletas.Location = new Point(5, 685);
             grid_detalle_paletas.Margin = new Padding(3, 4, 3, 4);
             grid_detalle_paletas.Name = "grid_detalle_paletas";
             grid_detalle_paletas.ReadOnly = true;
             grid_detalle_paletas.RowHeadersWidth = 45;
-            grid_detalle_paletas.Size = new Size(584, 152);
+            grid_detalle_paletas.Size = new Size(612, 152);
             grid_detalle_paletas.TabIndex = 36;
+            grid_detalle_paletas.CellClick += Grid_detalle_paletas_CellClick;
+            grid_detalle_paletas.CellEndEdit += Grid_detalle_paletas_CellEndEdit;
             // 
             // label15
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
-            label15.Location = new Point(32, 664);
+            label15.Location = new Point(5, 664);
             label15.Name = "label15";
             label15.Size = new Size(117, 17);
             label15.TabIndex = 37;
@@ -677,37 +680,25 @@
             bot_add_palet.Location = new Point(623, 685);
             bot_add_palet.Margin = new Padding(3, 4, 3, 4);
             bot_add_palet.Name = "bot_add_palet";
-            bot_add_palet.Size = new Size(98, 29);
+            bot_add_palet.Size = new Size(98, 46);
             bot_add_palet.TabIndex = 38;
             bot_add_palet.Text = "Add";
             bot_add_palet.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_add_palet.UseVisualStyleBackColor = true;
+            bot_add_palet.Click += Bot_add_palet_Click;
             // 
             // bot_delete_palet
             // 
             bot_delete_palet.Enabled = false;
             bot_delete_palet.Image = Properties.Resources.multiply_32px;
-            bot_delete_palet.Location = new Point(623, 721);
+            bot_delete_palet.Location = new Point(623, 739);
             bot_delete_palet.Margin = new Padding(3, 4, 3, 4);
             bot_delete_palet.Name = "bot_delete_palet";
-            bot_delete_palet.Size = new Size(98, 29);
+            bot_delete_palet.Size = new Size(98, 46);
             bot_delete_palet.TabIndex = 39;
             bot_delete_palet.Text = "Delete";
             bot_delete_palet.TextImageRelation = TextImageRelation.ImageBeforeText;
             bot_delete_palet.UseVisualStyleBackColor = true;
-            // 
-            // bot_update_palet
-            // 
-            bot_update_palet.Enabled = false;
-            bot_update_palet.Image = Properties.Resources.registry_editor_32px;
-            bot_update_palet.Location = new Point(623, 758);
-            bot_update_palet.Margin = new Padding(3, 4, 3, 4);
-            bot_update_palet.Name = "bot_update_palet";
-            bot_update_palet.Size = new Size(98, 29);
-            bot_update_palet.TabIndex = 40;
-            bot_update_palet.Text = "Update";
-            bot_update_palet.TextImageRelation = TextImageRelation.ImageBeforeText;
-            bot_update_palet.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -800,23 +791,23 @@
             chk_impuesto.Text = "Sin Impuesto";
             chk_impuesto.UseVisualStyleBackColor = true;
             // 
-            // txt_total_kilnet
+            // txt_palet_kilo_neto
             // 
-            txt_total_kilnet.Location = new Point(481, 842);
-            txt_total_kilnet.Margin = new Padding(3, 4, 3, 4);
-            txt_total_kilnet.Name = "txt_total_kilnet";
-            txt_total_kilnet.ReadOnly = true;
-            txt_total_kilnet.Size = new Size(63, 27);
-            txt_total_kilnet.TabIndex = 51;
+            txt_palet_kilo_neto.Location = new Point(481, 842);
+            txt_palet_kilo_neto.Margin = new Padding(3, 4, 3, 4);
+            txt_palet_kilo_neto.Name = "txt_palet_kilo_neto";
+            txt_palet_kilo_neto.ReadOnly = true;
+            txt_palet_kilo_neto.Size = new Size(63, 27);
+            txt_palet_kilo_neto.TabIndex = 51;
             // 
-            // txt_kilbru
+            // txt_palet_kilo_bruto
             // 
-            txt_kilbru.Location = new Point(552, 842);
-            txt_kilbru.Margin = new Padding(3, 4, 3, 4);
-            txt_kilbru.Name = "txt_kilbru";
-            txt_kilbru.ReadOnly = true;
-            txt_kilbru.Size = new Size(63, 27);
-            txt_kilbru.TabIndex = 52;
+            txt_palet_kilo_bruto.Location = new Point(552, 842);
+            txt_palet_kilo_bruto.Margin = new Padding(3, 4, 3, 4);
+            txt_palet_kilo_bruto.Name = "txt_palet_kilo_bruto";
+            txt_palet_kilo_bruto.ReadOnly = true;
+            txt_palet_kilo_bruto.Size = new Size(63, 27);
+            txt_palet_kilo_bruto.TabIndex = 52;
             // 
             // txt_cant_total
             // 
@@ -976,8 +967,8 @@
             Controls.Add(txt_pie_total);
             Controls.Add(txt_msi_total);
             Controls.Add(txt_cant_total);
-            Controls.Add(txt_kilbru);
-            Controls.Add(txt_total_kilnet);
+            Controls.Add(txt_palet_kilo_bruto);
+            Controls.Add(txt_palet_kilo_neto);
             Controls.Add(chk_impuesto);
             Controls.Add(label19);
             Controls.Add(label18);
@@ -987,7 +978,6 @@
             Controls.Add(txt_itbis);
             Controls.Add(txt_subtotal);
             Controls.Add(label16);
-            Controls.Add(bot_update_palet);
             Controls.Add(bot_delete_palet);
             Controls.Add(bot_add_palet);
             Controls.Add(label15);
@@ -1099,7 +1089,6 @@
         private Label label15;
         private Button bot_add_palet;
         private Button bot_delete_palet;
-        private Button bot_update_palet;
         private Label label16;
         private TextBox txt_subtotal;
         private TextBox txt_itbis;
@@ -1110,8 +1099,8 @@
         private Label label19;
         private DataGridView grid_items;
         private CheckBox chk_impuesto;
-        private TextBox txt_total_kilnet;
-        private TextBox txt_kilbru;
+        private TextBox txt_palet_kilo_neto;
+        private TextBox txt_palet_kilo_bruto;
         private TextBox txt_cant_total;
         private TextBox txt_msi_total;
         private TextBox txt_pie_total;

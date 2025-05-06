@@ -1,4 +1,5 @@
-﻿using Ritrama2025.Forms.Seleccion;
+﻿using Ritrama2025.Forms.Otros;
+using Ritrama2025.Forms.Seleccion;
 using Ritrama2025.Services;
 using System.Data;
 
@@ -13,6 +14,7 @@ namespace Ritrama2025.Forms
         readonly BindingSource BsItems = [];
         readonly BindingSource BsPalet = [];
         DataRowView ParentRow = null!;
+        DataRowView ParentRowPalet = null!;
         public readonly decimal porc_itbis = 18.00m;
         const decimal CONST_PIE_LINEALES = 0.012m;
         public FrmDespacho()
@@ -100,6 +102,19 @@ namespace Ritrama2025.Forms
             txt_totalmonto.DataBindings.Add("Text", Bs, "total$rd");
             txt_custname.DataBindings.Add("Text", Bs, "customer_name");
             txt_vendorname.DataBindings.Add("Text", Bs, "vendor_name");
+            //agregar la columna.
+            DataGridViewButtonColumn ColumnButton = new()
+            {
+                Name = "btn_description",
+                HeaderText = "Accion",
+                Text = "...",
+                UseColumnTextForButtonValue = true,
+                Width = 60,
+            };
+            grid_detalle_paletas.Columns.Add(ColumnButton);
+            grid_detalle_paletas.Columns["btn_description"]!.DisplayIndex = 3;
+
+
         }
 
         private void Bot_primero_Click(object sender, EventArgs e)
@@ -146,6 +161,10 @@ namespace Ritrama2025.Forms
             txt_orden_trabajo.ReadOnly = false;
             txt_orden_compra.ReadOnly = false;
             txt_tipoventa.ReadOnly = false;
+            bot_add_palet.Enabled = true;
+            bot_delete_palet.Enabled = true;
+           
+
 
             bot_picking.Enabled = true;
             btn_buscar_customer.Enabled = true;
@@ -153,6 +172,8 @@ namespace Ritrama2025.Forms
             bot_camion.Enabled = true;
             bot_transporte.Enabled = true;
             bot_chofer.Enabled = true;
+
+            grid_detalle_paletas.ReadOnly = false;
         }
 
         private void Bot_picking_Click(object sender, EventArgs e)
@@ -310,7 +331,7 @@ namespace Ritrama2025.Forms
             txt_cant_total.Refresh();
             txt_msi_total.Refresh();
             txt_pie_total.Refresh();
-            txt_kilos_total.Refresh( );
+            txt_kilos_total.Refresh();
         }
         private static string CalcularImpuestoRenglon(decimal subtotal, decimal monto_itbis)
         {
@@ -352,6 +373,56 @@ namespace Ritrama2025.Forms
             //Calculo de los totales del documento.
             CalcularTotalesDocument();
 
+        }
+
+        private void Bot_add_palet_Click(object sender, EventArgs e)
+        {
+            ParentRowPalet = (DataRowView)BsPalet.AddNew()!;
+            ParentRowPalet.BeginEdit();
+            ParentRowPalet["contenido"] = "";
+            ParentRowPalet[4] = "0";
+            ParentRowPalet[5] = "0";
+
+        }
+
+        private void CalcularTotalPalet() 
+        {
+            decimal PaletPesoNeto = 0;
+            decimal PaletPesoBruto = 0;
+
+            for (int i = 0; i <= grid_detalle_paletas.Rows.Count - 1; i++) 
+            {
+                PaletPesoNeto += Convert.ToDecimal(grid_detalle_paletas.Rows[i].Cells["kilo_neto"].Value);
+                PaletPesoBruto += Convert.ToDecimal(grid_detalle_paletas.Rows[i].Cells["kilo_bruto"].Value);
+            }
+
+            txt_palet_kilo_neto.Text = Convert.ToString(PaletPesoNeto);
+            txt_palet_kilo_bruto.Text = Convert.ToString(PaletPesoBruto);
+        }
+
+
+
+        private void Grid_detalle_paletas_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grid_detalle_paletas.Columns["kilo_neto"]!.Index == e.ColumnIndex || grid_detalle_paletas.Columns["kilo_bruto"]!.Index == e.ColumnIndex) 
+            {
+                CalcularTotalPalet();
+            }
+}
+
+        private void Grid_detalle_paletas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grid_detalle_paletas.Columns["btn_description"]!.Index == e.ColumnIndex)
+            {
+                Frm_descriptionPalet DescriptionPalet = new()
+                {
+                    ContentTextDescription = Convert.ToString(grid_detalle_paletas.Rows[e.RowIndex].Cells["contenido"].Value) ?? string.Empty
+                };
+
+                DescriptionPalet.ShowDialog();
+
+                grid_detalle_paletas.Rows[e.RowIndex].Cells["contenido"].Value = DescriptionPalet.ContentTextDescription;
+            }
         }
     }
 }

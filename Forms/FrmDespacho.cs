@@ -13,7 +13,7 @@ namespace Ritrama2025.Forms
         readonly BindingSource BsItems = [];
         readonly BindingSource BsPalet = [];
         DataRowView ParentRow = null!;
-        private readonly decimal porc_itbis = 18.00m;
+        public readonly decimal porc_itbis = 18.00m;
         const decimal CONST_PIE_LINEALES = 0.012m;
         public FrmDespacho()
         {
@@ -209,6 +209,7 @@ namespace Ritrama2025.Forms
 
 
             CalcularTotalesColumns();
+            txt_porc_itbis.Text = $"{porc_itbis:0.##}";
 
 
             //abrir la columna de precio para hacer el calculo de total renglon.
@@ -316,9 +317,9 @@ namespace Ritrama2025.Forms
             decimal renglonImpuesto = subtotal + monto_itbis;
             return $"{renglonImpuesto,12:N2}";
         }
-        private static string CalcularImpuestoDocument(decimal porc_itbis, decimal subtotal)
+        private static string CalcularImpuestoDocument(decimal subtotal)
         {
-            decimal impuesto = (porc_itbis * subtotal) / 100;
+            decimal impuesto = (18 * subtotal) / 100;
             return $"{impuesto,12:N2}";
         }
         private string CalcularSubtotalDocument()
@@ -338,15 +339,19 @@ namespace Ritrama2025.Forms
         private void CalcularTotalesDocument()
         {
             txt_subtotal.Text = CalcularSubtotalDocument();
-            txt_itbis.Text = (chk_impuesto.Checked ? "0" : CalcularImpuestoDocument(porc_itbis, Convert.ToDecimal(txt_itbis.Text)));
+
+            txt_itbis.Text = CalcularImpuestoDocument(Convert.ToDecimal(txt_subtotal.Text));
+
             txt_totalmonto.Text = CalcularTotalesDocument(Convert.ToDecimal(txt_subtotal.Text), Convert.ToDecimal(txt_itbis.Text));
         }
 
-        private void grid_items_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void Grid_items_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-          
-                grid_items.Rows[e.RowIndex].Cells["total_renglon"].Value = Convert.ToDecimal(grid_items.Rows[e.RowIndex].Cells["precio"].Value) * Convert.ToDecimal(grid_items.Rows[e.RowIndex].Cells["kilo_total"].Value);
-          
+            //Calculo del total renglon.
+            grid_items.Rows[e.RowIndex].Cells["total_renglon"].Value = Convert.ToDecimal(grid_items.Rows[e.RowIndex].Cells["precio"].Value) * Convert.ToDecimal(grid_items.Rows[e.RowIndex].Cells["kilo_total"].Value);
+            //Calculo de los totales del documento.
+            CalcularTotalesDocument();
+
         }
     }
 }

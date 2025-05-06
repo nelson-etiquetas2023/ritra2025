@@ -191,6 +191,7 @@
             bot_grabar.Name = "bot_grabar";
             bot_grabar.Size = new Size(76, 30);
             bot_grabar.Text = "Grabar";
+            bot_grabar.Click += Bot_grabar_Click;
             // 
             // bot_cancelar
             // 

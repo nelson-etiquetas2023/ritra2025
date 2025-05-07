@@ -234,7 +234,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
-            label1.Location = new Point(31, 36);
+            label1.Location = new Point(31, 39);
             label1.Name = "label1";
             label1.Size = new Size(62, 17);
             label1.TabIndex = 1;
@@ -253,7 +253,7 @@
             // btn_buscar_customer
             // 
             btn_buscar_customer.Enabled = false;
-            btn_buscar_customer.Location = new Point(1082, 62);
+            btn_buscar_customer.Location = new Point(1082, 59);
             btn_buscar_customer.Margin = new Padding(3, 4, 3, 4);
             btn_buscar_customer.Name = "btn_buscar_customer";
             btn_buscar_customer.Size = new Size(45, 29);
@@ -265,7 +265,7 @@
             // txt_custid
             // 
             txt_custid.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txt_custid.Location = new Point(593, 62);
+            txt_custid.Location = new Point(593, 59);
             txt_custid.Margin = new Padding(3, 4, 3, 4);
             txt_custid.Name = "txt_custid";
             txt_custid.ReadOnly = true;
@@ -275,7 +275,7 @@
             // txt_custname
             // 
             txt_custname.Font = new Font("Segoe UI", 10.18868F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txt_custname.Location = new Point(659, 63);
+            txt_custname.Location = new Point(659, 59);
             txt_custname.Margin = new Padding(3, 4, 3, 4);
             txt_custname.Name = "txt_custname";
             txt_custname.ReadOnly = true;
@@ -316,7 +316,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
-            label4.Location = new Point(163, 36);
+            label4.Location = new Point(163, 39);
             label4.Name = "label4";
             label4.Size = new Size(114, 17);
             label4.TabIndex = 9;
@@ -420,11 +420,11 @@
             // txt_camion_id
             // 
             txt_camion_id.Font = new Font("Segoe UI", 10.18868F);
-            txt_camion_id.Location = new Point(100, 245);
+            txt_camion_id.Location = new Point(73, 245);
             txt_camion_id.Margin = new Padding(3, 4, 3, 4);
             txt_camion_id.Name = "txt_camion_id";
             txt_camion_id.ReadOnly = true;
-            txt_camion_id.Size = new Size(38, 27);
+            txt_camion_id.Size = new Size(65, 27);
             txt_camion_id.TabIndex = 19;
             // 
             // label8

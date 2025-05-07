@@ -89,9 +89,12 @@ namespace Ritrama2025.Forms
             txt_fecha_despacho.DataBindings.Add("Text", Bs, "fecha");
             txt_persondelivery.DataBindings.Add("Text", Bs, "person_contact");
             txt_custid.DataBindings.Add("Text", Bs, "customer_id");
-            txt_transport_id.DataBindings.Add("Text", Bs, "transporte");
-            txt_chofer_id.DataBindings.Add("Text", Bs, "chofer");
-            txt_camion_id.DataBindings.Add("Text", Bs, "camion");
+            txt_transport_id.DataBindings.Add("Text", Bs, "transport_id");
+            txt_transport_name.DataBindings.Add("Text", Bs, "transporte");
+            txt_chofer_id.DataBindings.Add("Text", Bs, "chofer_id");
+            txt_chofer_name.DataBindings.Add("Text", Bs, "chofer");
+            txt_camion_id.DataBindings.Add("Text", Bs, "placas_id");
+            txt_camion_name.DataBindings.Add("Text", Bs, "camion");
             txt_vend_id.DataBindings.Add("Text", Bs, "vendor_id");
             txt_tipo_embalaje.DataBindings.Add("Text", Bs, "packing");
             txt_orden_trabajo.DataBindings.Add("Text", Bs, "orden_trabajo");
@@ -471,7 +474,10 @@ namespace Ritrama2025.Forms
                     Msi = Convert.ToDecimal(grid_rc.Rows[i].Cells["msi"].Value),
                     Splice = Convert.ToInt16(grid_rc.Rows[i].Cells["splice"].Value),
                     Roll_Id = Convert.ToString(grid_rc.Rows[i].Cells["roll_id"].Value) ?? string.Empty,
-                    Code_Person = Convert.ToString(grid_rc.Rows[i].Cells["code_person"].Value) ?? string.Empty
+                    Code_Person = Convert.ToString(grid_rc.Rows[i].Cells["code_person"].Value) ?? string.Empty,
+                    Cantidad_despacho = 0,
+                    Tipo="n/a",
+                    Paleta = "0"
                 };
                 DocumentDespacho.Detalle_RC.Add(Rollo);
             }
@@ -496,6 +502,8 @@ namespace Ritrama2025.Forms
                     Total_Renglon = Convert.ToDecimal(grid_items.Rows[i].Cells["total_renglon"].Value)
                 };
                 DocumentDespacho.Items_Despacho.Add(itemsDespacho);
+                //Guardar en base de datos el encxabezado del despacho.
+               
             }
             //detalle paleta.
             for (int i = 0; i <= grid_detalle_paletas.Rows.Count - 1; i++) 
@@ -511,6 +519,8 @@ namespace Ritrama2025.Forms
                 };
                 DocumentDespacho.Detalle_Paleta.Add(palet);
             }
+            Service.AddDocumentDespacho(DocumentDespacho);
+            Service.AddPickingListDespacho(DocumentDespacho.Detalle_RC);
         }
     }
 }

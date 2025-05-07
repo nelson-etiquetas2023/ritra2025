@@ -9,6 +9,7 @@ namespace Ritrama2025.Services
         Despacho GetDespachoById(int id);
         string GetNumberConsec();
         decimal GetRatioProductById(string product_id);
-
+        void AddDocumentDespacho(Despacho document);
+        void AddPickingListDespacho(List<RolloCortado> PickingList);
     }
 }

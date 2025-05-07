@@ -1,6 +1,8 @@
 ﻿using Microsoft.Data.SqlClient;
 using Ritrama2025.Models;
 using System.Data;
+using System.Reflection.Metadata;
+using System.Windows.Forms;
 
 namespace Ritrama2025.Services
 {
@@ -29,13 +31,123 @@ namespace Ritrama2025.Services
         public DataTable DtCamion = new();
         public SqlDataAdapter DaCamion = new();
 
-
-
         public DespachoService()
         {
             StringConnex = @"Data Source=DATABASE-CENTER\RITRAMASRV01; Initial Catalog=RITRAMA2;User Id=Npino;Password=123;TrustServerCertificate=True;";
         }
 
+        public void AddPickingListDespacho(List<RolloCortado> rollos)
+        {
+            try
+            {
+                foreach (var item in rollos) 
+                {
+                    using SqlConnection conn = new(StringConnex);
+                    SqlCommand Comando = new()
+                    {
+                        Connection = conn,
+                        CommandType = CommandType.Text,
+                        CommandText = "INSERT INTO rcdespacho (conduce,unique_code,product_id,roll_number,width,lenght,msi,splice,roll_id,cant_despacho,tipo,no_paleta) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12)"
+                    };
+                    conn.Open();
+                    SqlParameter p1 = new("@p1", item.Numero);
+                    SqlParameter p2 = new("@p2", item.UniqueCode);
+                    SqlParameter p3 = new("@p3", item.Product_Id);
+                    SqlParameter p4 = new("@p4", item.RollNumber);
+                    SqlParameter p5 = new("@p5", item.Width);
+                    SqlParameter p6 = new("@p6", item.Length);
+                    SqlParameter p7 = new("@p7", item.Msi);
+                    SqlParameter p8 = new("@p8", item.Splice);
+                    SqlParameter p9 = new("@p9", item.Roll_Id);
+                    SqlParameter p10 = new("@p10", item.Cantidad_despacho);
+                    SqlParameter p11 = new("@p11", item.Tipo);
+                    SqlParameter p12 = new("@p12", item.Paleta);
+                    Comando.Parameters.Add(p1);
+                    Comando.Parameters.Add(p2);
+                    Comando.Parameters.Add(p3);
+                    Comando.Parameters.Add(p4);
+                    Comando.Parameters.Add(p5);
+                    Comando.Parameters.Add(p6);
+                    Comando.Parameters.Add(p7);
+                    Comando.Parameters.Add(p8);
+                    Comando.Parameters.Add(p9);
+                    Comando.Parameters.Add(p10);
+                    Comando.Parameters.Add(p11);
+                    Comando.Parameters.Add(p12);
+                    Comando.ExecuteNonQuery();
+                    conn.Close();
+                    conn.Dispose();
+                    Comando.Dispose();
+                }
+                MessageBox.Show("El despacho fue grabado con exito...");
+            }
+            catch (Exception ex)
+            {
+                ErrorMsg = ex.Message;
+                MessageBox.Show("error al grabar los rollos cortados...");
+            }
+        }
+
+
+        public void AddDocumentDespacho(Despacho document)
+        {
+            //Grabar el encabezado del despacho.
+            try
+            {
+                using SqlConnection conn = new(StringConnex);
+                SqlCommand Comando = new()
+                {
+                    Connection = conn,
+                    CommandType = CommandType.Text,
+                    CommandText = "INSERT INTO despacho (numero,fecha,person_contact,vendor_id,packing,orden_trabajo,orden_compra,subtotal,itbis,total$rd,transporte,chofer,camion,customer_id,tipo_venta,transport_id,chofer_id,placas_id) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15,@p16,@p17,@p18)"
+                };
+                conn.Open();
+                SqlParameter p1 = new("@p1", document.Numero);
+                SqlParameter p2 = new("@p2", document.Fecha_despacho);
+                SqlParameter p3 = new("@p3", document.Persona_Contact);
+                SqlParameter p4 = new("@p4", document.Vendor_Id);
+                SqlParameter p5 = new("@p5", document.Tipo_Embalaje);
+                SqlParameter p6 = new("@p6", document.Orden_Trabajo);
+                SqlParameter p7 = new("@p7", document.Orden_Compra);
+                SqlParameter p8 = new("@p8", document.SubTotal);
+                SqlParameter p9 = new("@p9", document.Monto_Itbis);
+                SqlParameter p10 = new("@p10", document.Total_Despacho);
+                SqlParameter p11 = new("@p11", document.Transport_Name);
+                SqlParameter p12 = new("@p12", document.Chofer_Name);
+                SqlParameter p13 = new("@p13", document.Camion_Name);
+                SqlParameter p14 = new("@p14", document.Customer_Id);
+                SqlParameter p15 = new("@p15", document.Tipo_venta);
+                SqlParameter p16 = new("@p16", document.Transport_Id);
+                SqlParameter p17 = new("@p17", document.Chofer_Id);
+                SqlParameter p18 = new("@p18", document.Camion_Id);
+                Comando.Parameters.Add(p1);
+                Comando.Parameters.Add(p2);
+                Comando.Parameters.Add(p3);
+                Comando.Parameters.Add(p4);
+                Comando.Parameters.Add(p5);
+                Comando.Parameters.Add(p6);
+                Comando.Parameters.Add(p7);
+                Comando.Parameters.Add(p8);
+                Comando.Parameters.Add(p9);
+                Comando.Parameters.Add(p10);
+                Comando.Parameters.Add(p11);
+                Comando.Parameters.Add(p12);
+                Comando.Parameters.Add(p13);
+                Comando.Parameters.Add(p14);
+                Comando.Parameters.Add(p15);
+                Comando.Parameters.Add(p16);
+                Comando.Parameters.Add(p17);
+                Comando.Parameters.Add(p18);
+                Comando.ExecuteNonQuery();
+                conn.Close();
+                conn.Dispose();
+                Comando.Dispose();
+             }
+            catch (Exception ex)
+            {
+                ErrorMsg = ex.Message;
+            }
+        }
         public string GetNumberConsec() 
         {
             string consec = string.Empty;
@@ -71,7 +183,7 @@ namespace Ritrama2025.Services
                 {
                     Connection = conn,
                     CommandType = CommandType.Text,
-                    CommandText = "SELECT numero,fecha,customer_id,person_contact,transporte,chofer,camion,vendor_id,packing,orden_trabajo,orden_compra,tipo_venta,subtotal,porc_itbis,itbis,total$rd,transport_id FROM despacho"
+                    CommandText = "SELECT numero,fecha,customer_id,person_contact,transporte,chofer,camion,vendor_id,packing,orden_trabajo,orden_compra,tipo_venta,subtotal,porc_itbis,itbis,total$rd,transport_id,chofer_id,placas_id FROM despacho"
                 };
                 await conn.OpenAsync();
                 SqlDataReader readerMaster = await ComandoMaster.ExecuteReaderAsync();
@@ -228,7 +340,6 @@ namespace Ritrama2025.Services
 
             
         }
-
         public decimal GetRatioProductById(string product_id)
         {
             decimal ratio = 0;

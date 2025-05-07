@@ -143,8 +143,6 @@ namespace Ritrama2025.Services
                 MessageBox.Show("error al grabar los rollos cortados...");
             }
         }
-
-
         public void AddDocumentDespacho(Despacho document)
         {
             //Grabar el encabezado del despacho.
@@ -155,7 +153,7 @@ namespace Ritrama2025.Services
                 {
                     Connection = conn,
                     CommandType = CommandType.Text,
-                    CommandText = "INSERT INTO despacho (numero,fecha,person_contact,vendor_id,packing,orden_trabajo,orden_compra,subtotal,itbis,total$rd,transporte,chofer,camion,customer_id,tipo_venta,transport_id,chofer_id,placas_id) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15,@p16,@p17,@p18)"
+                    CommandText = "INSERT INTO despacho (numero,fecha,person_contact,vendor_id,packing,orden_trabajo,orden_compra,subtotal,itbis,total$rd,transporte,chofer,camion,customer_id,tipo_venta,transport_id,chofer_id,placas_id,total_cantidad,total_msi,total_pie,total_kilos) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15,@p16,@p17,@p18,@p19,@p20,@p21,@p22)"
                 };
                 conn.Open();
                 SqlParameter p1 = new("@p1", document.Numero);
@@ -176,6 +174,10 @@ namespace Ritrama2025.Services
                 SqlParameter p16 = new("@p16", document.Transport_Id);
                 SqlParameter p17 = new("@p17", document.Chofer_Id);
                 SqlParameter p18 = new("@p18", document.Camion_Id);
+                SqlParameter p19 = new("@p19", document.Total_Cantidad);
+                SqlParameter p20 = new("@p20", document.Total_Msi);
+                SqlParameter p21 = new("@p21", document.Total_Pie);
+                SqlParameter p22 = new("@p22", document.Total_Kilos);
                 Comando.Parameters.Add(p1);
                 Comando.Parameters.Add(p2);
                 Comando.Parameters.Add(p3);
@@ -194,6 +196,10 @@ namespace Ritrama2025.Services
                 Comando.Parameters.Add(p16);
                 Comando.Parameters.Add(p17);
                 Comando.Parameters.Add(p18);
+                Comando.Parameters.Add(p19);
+                Comando.Parameters.Add(p20);
+                Comando.Parameters.Add(p21);
+                Comando.Parameters.Add(p22);
                 Comando.ExecuteNonQuery();
                 conn.Close();
                 conn.Dispose();
@@ -214,7 +220,7 @@ namespace Ritrama2025.Services
                 {
                     Connection = conn,
                     CommandType = CommandType.Text,
-                    CommandText = "SELECT MAX(numero)+1 as numero FROM despacho"
+                    CommandText = "SELECT ISNULL(MAX(numero)+1,1) as numero FROM despacho"
                 };
                 conn.OpenAsync();
                 consec = Convert.ToString(Comando.ExecuteScalar())!;
@@ -239,7 +245,7 @@ namespace Ritrama2025.Services
                 {
                     Connection = conn,
                     CommandType = CommandType.Text,
-                    CommandText = "SELECT numero,fecha,customer_id,person_contact,transporte,chofer,camion,vendor_id,packing,orden_trabajo,orden_compra,tipo_venta,subtotal,porc_itbis,itbis,total$rd,transport_id,chofer_id,placas_id FROM despacho"
+                    CommandText = "SELECT numero,fecha,customer_id,person_contact,transporte,chofer,camion,vendor_id,packing,orden_trabajo,orden_compra,tipo_venta,subtotal,porc_itbis,itbis,total$rd,transport_id,chofer_id,placas_id,total_cantidad,total_msi,total_pie,total_kilos FROM despacho"
                 };
                 await conn.OpenAsync();
                 SqlDataReader readerMaster = await ComandoMaster.ExecuteReaderAsync();
@@ -364,7 +370,7 @@ namespace Ritrama2025.Services
                 //Relacion entre master y Detalle RC
                 DataColumn ParentCol2 = Ds.Tables["DtMasterDespachos"]!.Columns["numero"]!;
                 DataColumn ChildCol2 = Ds.Tables["DtDetalleRC"]!.Columns["conduce"]!;
-                DataRelation Despacho_DetalleRC = new("FK_DESPACHOS_DETALLERC", ParentCol2, ChildCol2);
+                DataRelation Despacho_DetalleRC = new("FK_DESPACHOS_DETALLERC", ParentCol2, ChildCol2,false);
                 Ds.Relations.Add(Despacho_DetalleRC);
                 //Relacion entre master y Renglones de Despacho.
                 DataColumn ParentCol3 = Ds.Tables["DtMasterDespachos"]!.Columns["numero"]!;

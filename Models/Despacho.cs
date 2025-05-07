@@ -26,5 +26,9 @@
         public List<ItemsDespacho> Items_Despacho { get; set; } = null!;
         public List<RolloCortado> Detalle_RC { get; set; } = null!;
         public List<Paleta> Detalle_Paleta { get; set; } = null!;
+        public decimal Total_Cantidad { get; set; }
+        public decimal Total_Msi { get; set; }
+        public decimal Total_Pie { get; set; }
+        public decimal Total_Kilos { get; set; }
     }
 }

@@ -106,6 +106,10 @@ namespace Ritrama2025.Forms
             txt_totalmonto.DataBindings.Add("Text", Bs, "total$rd");
             txt_custname.DataBindings.Add("Text", Bs, "customer_name");
             txt_vendorname.DataBindings.Add("Text", Bs, "vendor_name");
+            txt_cant_total.DataBindings.Add("Text", Bs, "total_cantidad");
+            txt_msi_total.DataBindings.Add("Text", Bs, "total_msi");
+            txt_pie_total.DataBindings.Add("Text", Bs, "total_pie");
+            txt_kilos_total.DataBindings.Add("Text", Bs, "total_kilos");
             //agregar la columna.
             DataGridViewButtonColumn ColumnButton = new()
             {
@@ -453,6 +457,10 @@ namespace Ritrama2025.Forms
                 Orden_Trabajo = txt_orden_trabajo.Text,
                 Orden_Compra = txt_orden_compra.Text,
                 Tipo_venta = txt_tipoventa.Text,
+                Total_Cantidad = Convert.ToInt32(txt_cant_total.Text),
+                Total_Msi = Convert.ToDecimal(txt_msi_total.Text),
+                Total_Pie = Convert.ToDecimal(txt_pie_total.Text),
+                Total_Kilos = Convert.ToDecimal(txt_kilos_total.Text),
                 //crear picking-list.
                 Detalle_RC = [],
                 //Items de despacho.

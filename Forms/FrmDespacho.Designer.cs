@@ -318,9 +318,9 @@
             label4.Font = new Font("Segoe UI", 8.830189F, FontStyle.Bold);
             label4.Location = new Point(163, 39);
             label4.Name = "label4";
-            label4.Size = new Size(114, 17);
+            label4.Size = new Size(111, 17);
             label4.TabIndex = 9;
-            label4.Text = "Decha Despacho:";
+            label4.Text = "Fecha Despacho:";
             // 
             // txt_persondelivery
             // 

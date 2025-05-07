@@ -216,6 +216,7 @@ namespace Ritrama2025.Forms
             AGREGAR_COLUMN_GRID("kilo_total", 70, "Kilo Total", "kilo_total", grid_items);
             AGREGAR_COLUMN_GRID("precio", 70, "Precio", "precio", grid_items);
             AGREGAR_COLUMN_GRID("total_renglon", 150, "Total Renglon", "total_renglon", grid_items);
+            AGREGAR_COLUMN_GRID("m2", 80, "M2", "m2", grid_items);
             grid_items.DataSource = frm_picking.Lista_Items;
 
             //Calculo de los pies lineales.
@@ -490,6 +491,7 @@ namespace Ritrama2025.Forms
                     Product_id = Convert.ToString(grid_items.Rows[i].Cells["product_id"].Value) ?? string.Empty,
                     Product_name = Convert.ToString(grid_items.Rows[i].Cells["product_name"].Value) ?? string.Empty,
                     Cantidad = Convert.ToDecimal(grid_items.Rows[i].Cells["cantidad"].Value),
+                    Unid_id ="1",
                     Unidad = Convert.ToString(grid_items.Rows[i].Cells["unidad"].Value) ?? string.Empty,
                     Width = Convert.ToDecimal(grid_items.Rows[i].Cells["width"].Value),
                     Lenght = Convert.ToDecimal(grid_items.Rows[i].Cells["lenght"].Value),
@@ -499,7 +501,9 @@ namespace Ritrama2025.Forms
                     Kilo_Rollo = Convert.ToDecimal(grid_items.Rows[i].Cells["kilo_rollo"].Value),
                     Kilo_Total = Convert.ToDecimal(grid_items.Rows[i].Cells["kilo_total"].Value),
                     Precio = Convert.ToDecimal(grid_items.Rows[i].Cells["precio"].Value),
-                    Total_Renglon = Convert.ToDecimal(grid_items.Rows[i].Cells["total_renglon"].Value)
+                    Total_Renglon = Convert.ToDecimal(grid_items.Rows[i].Cells["total_renglon"].Value),
+                    Code_Person = "N/A",
+                    M2 = Convert.ToDecimal(grid_items.Rows[i].Cells["m2"].Value)
                 };
                 DocumentDespacho.Items_Despacho.Add(itemsDespacho);
                 //Guardar en base de datos el encxabezado del despacho.
@@ -521,6 +525,7 @@ namespace Ritrama2025.Forms
             }
             Service.AddDocumentDespacho(DocumentDespacho);
             Service.AddPickingListDespacho(DocumentDespacho.Detalle_RC);
+            Service.AddItemsDespacho(DocumentDespacho.Items_Despacho);
         }
     }
 }

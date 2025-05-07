@@ -7,6 +7,7 @@ namespace Ritrama2025.Models
         public string Product_id { get; set; } = null!;
         public string Product_name { get; set; } = null!;
         public decimal Cantidad { get; set; }
+        public string Unid_id { get; set; } = null!;
         public string Unidad { get; set; } = null!;
         public decimal Width { get; set; }
         public decimal Lenght { get; set; }

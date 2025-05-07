@@ -36,6 +36,63 @@ namespace Ritrama2025.Services
             StringConnex = @"Data Source=DATABASE-CENTER\RITRAMASRV01; Initial Catalog=RITRAMA2;User Id=Npino;Password=123;TrustServerCertificate=True;";
         }
 
+        public void AddItemsDespacho(List<ItemsDespacho> items) 
+        {
+            try
+            {
+                foreach (var item in items) 
+                {
+                    using SqlConnection conn = new(StringConnex);
+                    SqlCommand Comando = new()
+                    {
+                        Connection = conn,
+                        CommandType = CommandType.Text,
+                        CommandText = "INSERT INTO item_despacho (numero,product_id,cant,unid_id,width,lenght,code_person,msi,total_pie_lin,ratio,kilo_rollo,kilo_total,precio,total_renglon,m2) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15)"
+                    };
+                    conn.Open();
+                    SqlParameter p1 = new("@p1", item.Numero);
+                    SqlParameter p2 = new("@p2", item.Product_id);
+                    SqlParameter p3 = new("@p3", item.Cantidad);
+                    SqlParameter p4 = new("@p4", item.Unid_id);
+                    SqlParameter p5 = new("@p5", item.Width);
+                    SqlParameter p6 = new("@p6", item.Lenght);
+                    SqlParameter p7 = new("@p7", item.Code_Person);
+                    SqlParameter p8 = new("@p8", item.Msi);
+                    SqlParameter p9 = new("@p9", item.Total_PieLineal);
+                    SqlParameter p10 = new("@p10", item.Ratio);
+                    SqlParameter p11 = new("@p11", item.Kilo_Rollo);
+                    SqlParameter p12 = new("@p12", item.Kilo_Total);
+                    SqlParameter p13 = new("@p13", item.Precio);
+                    SqlParameter p14 = new("@p14", item.Total_Renglon);
+                    SqlParameter p15 = new("@p15", item.M2);
+                    Comando.Parameters.Add(p1);
+                    Comando.Parameters.Add(p2);
+                    Comando.Parameters.Add(p3);
+                    Comando.Parameters.Add(p4);
+                    Comando.Parameters.Add(p5);
+                    Comando.Parameters.Add(p6);
+                    Comando.Parameters.Add(p7);
+                    Comando.Parameters.Add(p8);
+                    Comando.Parameters.Add(p9);
+                    Comando.Parameters.Add(p10);
+                    Comando.Parameters.Add(p11);
+                    Comando.Parameters.Add(p12);
+                    Comando.Parameters.Add(p13);
+                    Comando.Parameters.Add(p14);
+                    Comando.Parameters.Add(p15);
+                    Comando.ExecuteNonQuery();
+                    conn.Close();
+                    conn.Dispose();
+                    Comando.Dispose();
+                }
+                MessageBox.Show("Los items fueron grabados con exito...");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al grabar los items del despacho");
+                ErrorMsg = ex.Message;
+            }
+        }
         public void AddPickingListDespacho(List<RolloCortado> rollos)
         {
             try
@@ -79,7 +136,6 @@ namespace Ritrama2025.Services
                     conn.Dispose();
                     Comando.Dispose();
                 }
-                MessageBox.Show("El despacho fue grabado con exito...");
             }
             catch (Exception ex)
             {

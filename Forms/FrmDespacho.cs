@@ -392,6 +392,9 @@ namespace Ritrama2025.Forms
             ParentRowPalet["contenido"] = "";
             ParentRowPalet[4] = "0";
             ParentRowPalet[5] = "0";
+            grid_detalle_paletas.Focus();
+            grid_detalle_paletas.CurrentCell = grid_detalle_paletas.Rows[0].Cells[0];
+            grid_detalle_paletas.BeginEdit(true); // Opcional: inicia edición en la celda
 
         }
 
@@ -461,6 +464,10 @@ namespace Ritrama2025.Forms
                 Total_Msi = Convert.ToDecimal(txt_msi_total.Text),
                 Total_Pie = Convert.ToDecimal(txt_pie_total.Text),
                 Total_Kilos = Convert.ToDecimal(txt_kilos_total.Text),
+                SubTotal = Convert.ToDecimal(txt_subtotal.Text),
+                Porc_Itbis = Convert.ToDecimal(txt_porc_itbis.Text),
+                Monto_Itbis = Convert.ToDecimal(txt_itbis.Text),
+                Total_Despacho = Convert.ToDecimal(txt_totalmonto.Text),
                 //crear picking-list.
                 Detalle_RC = [],
                 //Items de despacho.

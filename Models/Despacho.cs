@@ -20,6 +20,8 @@
         public string Orden_Trabajo { get; set; } = null!;
         public string Orden_Compra { get; set; } = null!;
         public decimal SubTotal { get; set; }
+        public decimal Porc_Itbis { get; set; }
+
         public decimal Monto_Itbis { get; set; }
         public decimal Total_Despacho { get; set; }
         public string Tipo_venta { get; set; } = null!;

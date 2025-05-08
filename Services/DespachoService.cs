@@ -153,7 +153,7 @@ namespace Ritrama2025.Services
                 {
                     Connection = conn,
                     CommandType = CommandType.Text,
-                    CommandText = "INSERT INTO despacho (numero,fecha,person_contact,vendor_id,packing,orden_trabajo,orden_compra,subtotal,itbis,total$rd,transporte,chofer,camion,customer_id,tipo_venta,transport_id,chofer_id,placas_id,total_cantidad,total_msi,total_pie,total_kilos) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15,@p16,@p17,@p18,@p19,@p20,@p21,@p22)"
+                    CommandText = "INSERT INTO despacho (numero,fecha,person_contact,vendor_id,packing,orden_trabajo,orden_compra,subtotal,itbis,total$rd,transporte,chofer,camion,customer_id,tipo_venta,transport_id,chofer_id,placas_id,total_cantidad,total_msi,total_pie,total_kilos,porc_itbis) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15,@p16,@p17,@p18,@p19,@p20,@p21,@p22,@p23)"
                 };
                 conn.Open();
                 SqlParameter p1 = new("@p1", document.Numero);
@@ -178,6 +178,7 @@ namespace Ritrama2025.Services
                 SqlParameter p20 = new("@p20", document.Total_Msi);
                 SqlParameter p21 = new("@p21", document.Total_Pie);
                 SqlParameter p22 = new("@p22", document.Total_Kilos);
+                SqlParameter p23 = new("@p23", document.Porc_Itbis);
                 Comando.Parameters.Add(p1);
                 Comando.Parameters.Add(p2);
                 Comando.Parameters.Add(p3);
@@ -200,6 +201,7 @@ namespace Ritrama2025.Services
                 Comando.Parameters.Add(p20);
                 Comando.Parameters.Add(p21);
                 Comando.Parameters.Add(p22);
+                Comando.Parameters.Add(p23);
                 Comando.ExecuteNonQuery();
                 conn.Close();
                 conn.Dispose();
@@ -245,7 +247,7 @@ namespace Ritrama2025.Services
                 {
                     Connection = conn,
                     CommandType = CommandType.Text,
-                    CommandText = "SELECT numero,fecha,customer_id,person_contact,transporte,chofer,camion,vendor_id,packing,orden_trabajo,orden_compra,tipo_venta,subtotal,porc_itbis,itbis,total$rd,transport_id,chofer_id,placas_id,total_cantidad,total_msi,total_pie,total_kilos FROM despacho"
+                    CommandText = "SELECT numero,fecha,customer_id,person_contact,transporte,chofer,camion,vendor_id,packing,orden_trabajo,orden_compra,tipo_venta,subtotal,porc_itbis,itbis,total$rd,transport_id,chofer_id,placas_id,total_cantidad,total_msi,total_pie,total_kilos,subtotal FROM despacho"
                 };
                 await conn.OpenAsync();
                 SqlDataReader readerMaster = await ComandoMaster.ExecuteReaderAsync();

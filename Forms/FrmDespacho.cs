@@ -3,6 +3,8 @@ using Ritrama2025.Forms.Seleccion;
 using Ritrama2025.Models;
 using Ritrama2025.Services;
 using System.Data;
+using Microsoft.Reporting.WinForms;
+using Microsoft.Data.SqlClient;
 
 namespace Ritrama2025.Forms
 {
@@ -541,7 +543,40 @@ namespace Ritrama2025.Forms
 
         private void reporte_conduce_conprecio_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Reporte Conduce con precio");
+            string SqlConnect = @"Data Source=DATABASE-CENTER\RITRAMASRV01; Initial Catalog=RITRAMA2;User Id=Npino;Password=123;TrustServerCertificate=True;";
+            DataSet ds = new();
+            using (SqlConnection conn = new(SqlConnect))
+            {
+                SqlCommand comando = new()
+                {
+                    Connection = conn,
+                    CommandText = "SELECT * FROM despacho WHERE numero = @p1",
+                    CommandType = CommandType.Text
+                };
+                SqlParameter p1 = new SqlParameter("@p1", SqlDbType.VarChar)
+                {
+                    Value = txt_numero.Text
+                };
+                comando.Parameters.Add(p1);
+                conn.Open();
+                SqlDataAdapter da = new(comando);
+                da.Fill(ds, "dt");
+            }
+
+            ReportsViewer reports = new()
+            {
+                Text = "Reporte Conduce con Precio",
+                Width = 800,
+                Height = 600,
+                MdiParent = this.MdiParent,
+            };
+            reports.reportViewer1.ProcessingMode = ProcessingMode.Local;
+            reports.reportViewer1.LocalReport.ReportPath = @"c:\programacion\ritrama2025\Reports\RptConduceConPrecio.rdlc";
+            reports.reportViewer1.LocalReport.DataSources.Clear();
+            reports.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dt", ds.Tables["dt"]));
+
+            reports.reportViewer1.RefreshReport();
+            reports.Show();
         }
 
         private void reporte_conduce_sinprecio_Click(object sender, EventArgs e)

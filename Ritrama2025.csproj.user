@@ -10,6 +10,9 @@
     <Compile Update="Forms\Otros\Frm_descriptionPalet.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Otros\ReportsViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Seleccion\FrmSeleccion.cs">
       <SubType>Form</SubType>
     </Compile>

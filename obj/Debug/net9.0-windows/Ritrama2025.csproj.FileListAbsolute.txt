@@ -135,3 +135,4 @@ C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\ru\System.ServiceModel.Prim
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\tr\System.ServiceModel.Primitives.resources.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\zh-Hans\System.ServiceModel.Primitives.resources.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\zh-Hant\System.ServiceModel.Primitives.resources.dll
+C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\Ritrama2025.Forms.Otros.ReportsViewer.resources

@@ -11,5 +11,6 @@ namespace Ritrama2025.Services
         decimal GetRatioProductById(string product_id);
         void AddDocumentDespacho(Despacho document);
         void AddPickingListDespacho(List<RolloCortado> PickingList);
+        void AddPaletDetailsDespacho(List<Paleta> paleta);
     }
 }

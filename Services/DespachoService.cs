@@ -1,8 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Ritrama2025.Models;
 using System.Data;
-using System.Reflection.Metadata;
-using System.Windows.Forms;
 
 namespace Ritrama2025.Services
 {
@@ -34,6 +32,45 @@ namespace Ritrama2025.Services
         public DespachoService()
         {
             StringConnex = @"Data Source=DATABASE-CENTER\RITRAMASRV01; Initial Catalog=RITRAMA2;User Id=Npino;Password=123;TrustServerCertificate=True;";
+        }
+
+        public void AddPaletDetailsDespacho(List<Paleta> paleta)
+        {
+            try
+            {
+                foreach (var item in paleta) 
+                {
+                    using SqlConnection conn = new(StringConnex);
+                    SqlCommand Comando = new()
+                    {
+                        Connection = conn,
+                        CommandType = CommandType.Text,
+                        CommandText = "INSERT INTO paleta (numero,number_palet,medida,contenido,kilo_neto,kilo_bruto) VALUES (@p1,@p2,@p3,@p4,@p5,@p6)"
+                    };
+                    conn.Open();
+                    SqlParameter p1 = new("@p1", item.Numero);
+                    SqlParameter p2 = new("@p2", item.Number_Palet);
+                    SqlParameter p3 = new("@p3", item.Medida);
+                    SqlParameter p4 = new("@p4", item.Contenido);
+                    SqlParameter p5 = new("@p5", item.Kilo_Neto);
+                    SqlParameter p6 = new("@p6", item.Kilo_Bruto);
+                    Comando.Parameters.Add(p1);
+                    Comando.Parameters.Add(p2);
+                    Comando.Parameters.Add(p3);
+                    Comando.Parameters.Add(p4);
+                    Comando.Parameters.Add(p5);
+                    Comando.Parameters.Add(p6);
+                    Comando.ExecuteNonQuery();
+                    conn.Close();
+                    conn.Dispose();
+                    Comando.Dispose();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error al grabar los items del despacho");
+                ErrorMsg = ex.Message;
+            }
         }
 
         public void AddItemsDespacho(List<ItemsDespacho> items) 
@@ -153,7 +190,7 @@ namespace Ritrama2025.Services
                 {
                     Connection = conn,
                     CommandType = CommandType.Text,
-                    CommandText = "INSERT INTO despacho (numero,fecha,person_contact,vendor_id,packing,orden_trabajo,orden_compra,subtotal,itbis,total$rd,transporte,chofer,camion,customer_id,tipo_venta,transport_id,chofer_id,placas_id,total_cantidad,total_msi,total_pie,total_kilos,porc_itbis) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15,@p16,@p17,@p18,@p19,@p20,@p21,@p22,@p23)"
+                    CommandText = "INSERT INTO despacho (numero,fecha,person_contact,vendor_id,packing,orden_trabajo,orden_compra,subtotal,itbis,total$rd,transporte,chofer,camion,customer_id,tipo_venta,transport_id,chofer_id,placas_id,total_cantidad,total_msi,total_pie,total_kilos,porc_itbis,total_kilos_netos_palet,total_kilos_brutos_palet) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15,@p16,@p17,@p18,@p19,@p20,@p21,@p22,@p23,@p24,@p25)"
                 };
                 conn.Open();
                 SqlParameter p1 = new("@p1", document.Numero);
@@ -179,6 +216,8 @@ namespace Ritrama2025.Services
                 SqlParameter p21 = new("@p21", document.Total_Pie);
                 SqlParameter p22 = new("@p22", document.Total_Kilos);
                 SqlParameter p23 = new("@p23", document.Porc_Itbis);
+                SqlParameter p24 = new("@p24", document.Total_kilos_netos_palet);
+                SqlParameter p25  = new("@p25", document.Total_kilos_brutos_palet);
                 Comando.Parameters.Add(p1);
                 Comando.Parameters.Add(p2);
                 Comando.Parameters.Add(p3);
@@ -202,6 +241,8 @@ namespace Ritrama2025.Services
                 Comando.Parameters.Add(p21);
                 Comando.Parameters.Add(p22);
                 Comando.Parameters.Add(p23);
+                Comando.Parameters.Add(p24);
+                Comando.Parameters.Add(p25);
                 Comando.ExecuteNonQuery();
                 conn.Close();
                 conn.Dispose();
@@ -209,6 +250,7 @@ namespace Ritrama2025.Services
              }
             catch (Exception ex)
             {
+                MessageBox.Show("Error al grabar el encabezado del despacho...");
                 ErrorMsg = ex.Message;
             }
         }
@@ -247,7 +289,7 @@ namespace Ritrama2025.Services
                 {
                     Connection = conn,
                     CommandType = CommandType.Text,
-                    CommandText = "SELECT numero,fecha,customer_id,person_contact,transporte,chofer,camion,vendor_id,packing,orden_trabajo,orden_compra,tipo_venta,subtotal,porc_itbis,itbis,total$rd,transport_id,chofer_id,placas_id,total_cantidad,total_msi,total_pie,total_kilos,subtotal FROM despacho"
+                    CommandText = "SELECT numero,fecha,customer_id,person_contact,transporte,chofer,camion,vendor_id,packing,orden_trabajo,orden_compra,tipo_venta,subtotal,porc_itbis,itbis,total$rd,transport_id,chofer_id,placas_id,total_cantidad,total_msi,total_pie,total_kilos,subtotal,total_kilos_netos_palet,total_kilos_brutos_palet FROM despacho"
                 };
                 await conn.OpenAsync();
                 SqlDataReader readerMaster = await ComandoMaster.ExecuteReaderAsync();

@@ -110,6 +110,8 @@ namespace Ritrama2025.Forms
             txt_msi_total.DataBindings.Add("Text", Bs, "total_msi");
             txt_pie_total.DataBindings.Add("Text", Bs, "total_pie");
             txt_kilos_total.DataBindings.Add("Text", Bs, "total_kilos");
+            txt_palet_kilo_neto.DataBindings.Add("Text", Bs, "total_kilos_netos_palet");
+            txt_palet_kilo_bruto.DataBindings.Add("Text",Bs, "total_kilos_brutos_palet");
             //agregar la columna.
             DataGridViewButtonColumn ColumnButton = new()
             {
@@ -160,8 +162,6 @@ namespace Ritrama2025.Forms
         {
             ParentRow = (DataRowView)Bs.AddNew()!;
             ParentRow.BeginEdit();
-
-
             txt_numero.Text = Service.GetNumberConsec();
             txt_fecha_despacho.Enabled = true;
             txt_persondelivery.ReadOnly = false;
@@ -171,9 +171,6 @@ namespace Ritrama2025.Forms
             txt_tipoventa.ReadOnly = false;
             bot_add_palet.Enabled = true;
             bot_delete_palet.Enabled = true;
-
-
-
             bot_picking.Enabled = true;
             btn_buscar_customer.Enabled = true;
             bot_buscar_vendor.Enabled = true;
@@ -181,7 +178,6 @@ namespace Ritrama2025.Forms
             bot_transporte.Enabled = true;
             bot_chofer.Enabled = true;
             bot_grabar.Enabled = true;
-
             grid_detalle_paletas.ReadOnly = false;
         }
 
@@ -412,9 +408,6 @@ namespace Ritrama2025.Forms
             txt_palet_kilo_neto.Text = Convert.ToString(PaletPesoNeto);
             txt_palet_kilo_bruto.Text = Convert.ToString(PaletPesoBruto);
         }
-
-
-
         private void Grid_detalle_paletas_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (grid_detalle_paletas.Columns["kilo_neto"]!.Index == e.ColumnIndex || grid_detalle_paletas.Columns["kilo_bruto"]!.Index == e.ColumnIndex)
@@ -468,6 +461,8 @@ namespace Ritrama2025.Forms
                 Porc_Itbis = Convert.ToDecimal(txt_porc_itbis.Text),
                 Monto_Itbis = Convert.ToDecimal(txt_itbis.Text),
                 Total_Despacho = Convert.ToDecimal(txt_totalmonto.Text),
+                Total_kilos_netos_palet = Convert.ToDecimal(txt_palet_kilo_neto.Text),
+                Total_kilos_brutos_palet = Convert.ToDecimal(txt_palet_kilo_bruto.Text),
                 //crear picking-list.
                 Detalle_RC = [],
                 //Items de despacho.
@@ -541,6 +536,7 @@ namespace Ritrama2025.Forms
             Service.AddDocumentDespacho(DocumentDespacho);
             Service.AddPickingListDespacho(DocumentDespacho.Detalle_RC);
             Service.AddItemsDespacho(DocumentDespacho.Items_Despacho);
+            Service.AddPaletDetailsDespacho(DocumentDespacho.Detalle_Paleta);
         }
     }
 }

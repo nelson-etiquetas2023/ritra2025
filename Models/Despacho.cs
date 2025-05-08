@@ -21,7 +21,6 @@
         public string Orden_Compra { get; set; } = null!;
         public decimal SubTotal { get; set; }
         public decimal Porc_Itbis { get; set; }
-
         public decimal Monto_Itbis { get; set; }
         public decimal Total_Despacho { get; set; }
         public string Tipo_venta { get; set; } = null!;
@@ -32,5 +31,8 @@
         public decimal Total_Msi { get; set; }
         public decimal Total_Pie { get; set; }
         public decimal Total_Kilos { get; set; }
+        public decimal Total_kilos_netos_palet { get; set; }
+        public decimal Total_kilos_brutos_palet { get; set; }
+
     }
 }

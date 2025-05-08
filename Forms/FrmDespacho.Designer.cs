@@ -39,13 +39,13 @@
             bot_cancelar = new ToolStripButton();
             bot_buscar = new ToolStripButton();
             btn_reports = new ToolStripSplitButton();
-            toolStripMenuItem1 = new ToolStripMenuItem();
-            toolStripMenuItem2 = new ToolStripMenuItem();
-            toolStripMenuItem3 = new ToolStripMenuItem();
-            toolStripMenuItem4 = new ToolStripMenuItem();
+            reporte_conduce_conprecio = new ToolStripMenuItem();
+            reporte_conduce_sinprecio = new ToolStripMenuItem();
+            reporte_picking_list = new ToolStripMenuItem();
+            reporte_detalle_paleta = new ToolStripMenuItem();
             btn_exports = new ToolStripSplitButton();
-            conduceConPrecioToolStripMenuItem = new ToolStripMenuItem();
-            detalleDePaletaToolStripMenuItem = new ToolStripMenuItem();
+            export_excel = new ToolStripMenuItem();
+            export_pdf = new ToolStripMenuItem();
             btn_close_document = new ToolStripButton();
             btn_label_print = new ToolStripButton();
             bot_anular = new ToolStripButton();
@@ -223,63 +223,70 @@
             // 
             // btn_reports
             // 
-            btn_reports.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4 });
+            btn_reports.DropDownItems.AddRange(new ToolStripItem[] { reporte_conduce_conprecio, reporte_conduce_sinprecio, reporte_picking_list, reporte_detalle_paleta });
             btn_reports.Image = Properties.Resources.print_48px;
             btn_reports.ImageTransparentColor = Color.Magenta;
             btn_reports.Name = "btn_reports";
             btn_reports.Size = new Size(103, 30);
             btn_reports.Text = "Reportes";
             // 
-            // toolStripMenuItem1
+            // reporte_conduce_conprecio
             // 
-            toolStripMenuItem1.Image = (Image)resources.GetObject("toolStripMenuItem1.Image");
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(215, 24);
-            toolStripMenuItem1.Text = "Conduce con Precio";
+            reporte_conduce_conprecio.Image = (Image)resources.GetObject("reporte_conduce_conprecio.Image");
+            reporte_conduce_conprecio.Name = "reporte_conduce_conprecio";
+            reporte_conduce_conprecio.Size = new Size(215, 24);
+            reporte_conduce_conprecio.Text = "Conduce con Precio";
+            reporte_conduce_conprecio.Click += reporte_conduce_conprecio_Click;
             // 
-            // toolStripMenuItem2
+            // reporte_conduce_sinprecio
             // 
-            toolStripMenuItem2.Image = Properties.Resources.report48_48;
-            toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(215, 24);
-            toolStripMenuItem2.Text = "Conduce sin Precio";
+            reporte_conduce_sinprecio.Image = Properties.Resources.report48_48;
+            reporte_conduce_sinprecio.Name = "reporte_conduce_sinprecio";
+            reporte_conduce_sinprecio.Size = new Size(215, 24);
+            reporte_conduce_sinprecio.Text = "Conduce sin Precio";
+            reporte_conduce_sinprecio.Click += reporte_conduce_sinprecio_Click;
             // 
-            // toolStripMenuItem3
+            // reporte_picking_list
             // 
-            toolStripMenuItem3.Image = Properties.Resources.report48_481;
-            toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(215, 24);
-            toolStripMenuItem3.Text = "Reporte Picking List";
+            reporte_picking_list.Image = Properties.Resources.report48_481;
+            reporte_picking_list.Name = "reporte_picking_list";
+            reporte_picking_list.Size = new Size(215, 24);
+            reporte_picking_list.Text = "Reporte Picking List";
+            reporte_picking_list.Click += reporte_picking_list_Click;
             // 
-            // toolStripMenuItem4
+            // reporte_detalle_paleta
             // 
-            toolStripMenuItem4.Image = Properties.Resources.report48_482;
-            toolStripMenuItem4.Name = "toolStripMenuItem4";
-            toolStripMenuItem4.Size = new Size(215, 24);
-            toolStripMenuItem4.Text = "Detalle de Paleta";
+            reporte_detalle_paleta.Image = Properties.Resources.report48_482;
+            reporte_detalle_paleta.Name = "reporte_detalle_paleta";
+            reporte_detalle_paleta.Size = new Size(215, 24);
+            reporte_detalle_paleta.Text = "Detalle de Paleta";
+            reporte_detalle_paleta.Click += reporte_detalle_paleta_Click;
             // 
             // btn_exports
             // 
-            btn_exports.DropDownItems.AddRange(new ToolStripItem[] { conduceConPrecioToolStripMenuItem, detalleDePaletaToolStripMenuItem });
+            btn_exports.DropDownItems.AddRange(new ToolStripItem[] { export_excel, export_pdf });
             btn_exports.Image = (Image)resources.GetObject("btn_exports.Image");
             btn_exports.ImageTransparentColor = Color.Magenta;
             btn_exports.Name = "btn_exports";
             btn_exports.Size = new Size(100, 30);
             btn_exports.Text = "Exportar";
             // 
-            // conduceConPrecioToolStripMenuItem
+            // export_excel
             // 
-            conduceConPrecioToolStripMenuItem.Image = (Image)resources.GetObject("conduceConPrecioToolStripMenuItem.Image");
-            conduceConPrecioToolStripMenuItem.Name = "conduceConPrecioToolStripMenuItem";
-            conduceConPrecioToolStripMenuItem.Size = new Size(192, 24);
-            conduceConPrecioToolStripMenuItem.Text = "Excel";
+            export_excel.AccessibleRole = AccessibleRole.Clock;
+            export_excel.Image = (Image)resources.GetObject("export_excel.Image");
+            export_excel.Name = "export_excel";
+            export_excel.Size = new Size(198, 24);
+            export_excel.Text = "Excel";
+            export_excel.Click += export_excel_Click;
             // 
-            // detalleDePaletaToolStripMenuItem
+            // export_pdf
             // 
-            detalleDePaletaToolStripMenuItem.Image = (Image)resources.GetObject("detalleDePaletaToolStripMenuItem.Image");
-            detalleDePaletaToolStripMenuItem.Name = "detalleDePaletaToolStripMenuItem";
-            detalleDePaletaToolStripMenuItem.Size = new Size(192, 24);
-            detalleDePaletaToolStripMenuItem.Text = "Documento PDF";
+            export_pdf.Image = (Image)resources.GetObject("export_pdf.Image");
+            export_pdf.Name = "export_pdf";
+            export_pdf.Size = new Size(198, 24);
+            export_pdf.Text = "Documento PDF";
+            export_pdf.Click += export_pdf_Click;
             // 
             // btn_close_document
             // 
@@ -1198,13 +1205,13 @@
         private TextBox txt_transport_name;
         private TextBox txt_camion_name;
         private ToolStripSplitButton btn_exports;
-        private ToolStripMenuItem conduceConPrecioToolStripMenuItem;
-        private ToolStripMenuItem detalleDePaletaToolStripMenuItem;
+        private ToolStripMenuItem export_excel;
+        private ToolStripMenuItem export_pdf;
         private ToolStripSplitButton btn_reports;
-        private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem toolStripMenuItem2;
-        private ToolStripMenuItem toolStripMenuItem3;
-        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripMenuItem reporte_conduce_conprecio;
+        private ToolStripMenuItem reporte_conduce_sinprecio;
+        private ToolStripMenuItem reporte_picking_list;
+        private ToolStripMenuItem reporte_detalle_paleta;
         private ToolStripButton btn_label_print;
         private ToolStripButton btn_close_document;
     }

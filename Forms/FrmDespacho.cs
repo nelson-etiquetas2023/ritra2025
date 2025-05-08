@@ -111,7 +111,7 @@ namespace Ritrama2025.Forms
             txt_pie_total.DataBindings.Add("Text", Bs, "total_pie");
             txt_kilos_total.DataBindings.Add("Text", Bs, "total_kilos");
             txt_palet_kilo_neto.DataBindings.Add("Text", Bs, "total_kilos_netos_palet");
-            txt_palet_kilo_bruto.DataBindings.Add("Text",Bs, "total_kilos_brutos_palet");
+            txt_palet_kilo_bruto.DataBindings.Add("Text", Bs, "total_kilos_brutos_palet");
             //agregar la columna.
             DataGridViewButtonColumn ColumnButton = new()
             {
@@ -471,7 +471,7 @@ namespace Ritrama2025.Forms
                 Detalle_Paleta = [],
             };
             //picking-list;
-            for (int i = 0; i <= grid_rc.Rows.Count - 1; i++) 
+            for (int i = 0; i <= grid_rc.Rows.Count - 1; i++)
             {
                 RolloCortado Rollo = new()
                 {
@@ -487,7 +487,7 @@ namespace Ritrama2025.Forms
                     Roll_Id = Convert.ToString(grid_rc.Rows[i].Cells["roll_id"].Value) ?? string.Empty,
                     Code_Person = Convert.ToString(grid_rc.Rows[i].Cells["code_person"].Value) ?? string.Empty,
                     Cantidad_despacho = 0,
-                    Tipo="n/a",
+                    Tipo = "n/a",
                     Paleta = "0"
                 };
                 DocumentDespacho.Detalle_RC.Add(Rollo);
@@ -501,7 +501,7 @@ namespace Ritrama2025.Forms
                     Product_id = Convert.ToString(grid_items.Rows[i].Cells["product_id"].Value) ?? string.Empty,
                     Product_name = Convert.ToString(grid_items.Rows[i].Cells["product_name"].Value) ?? string.Empty,
                     Cantidad = Convert.ToDecimal(grid_items.Rows[i].Cells["cantidad"].Value),
-                    Unid_id ="1",
+                    Unid_id = "1",
                     Unidad = Convert.ToString(grid_items.Rows[i].Cells["unidad"].Value) ?? string.Empty,
                     Width = Convert.ToDecimal(grid_items.Rows[i].Cells["width"].Value),
                     Lenght = Convert.ToDecimal(grid_items.Rows[i].Cells["lenght"].Value),
@@ -517,14 +517,14 @@ namespace Ritrama2025.Forms
                 };
                 DocumentDespacho.Items_Despacho.Add(itemsDespacho);
                 //Guardar en base de datos el encxabezado del despacho.
-               
+
             }
             //detalle paleta.
-            for (int i = 0; i <= grid_detalle_paletas.Rows.Count - 1; i++) 
+            for (int i = 0; i <= grid_detalle_paletas.Rows.Count - 1; i++)
             {
                 Paleta palet = new()
                 {
-                    Numero =  DocumentDespacho.Numero,
+                    Numero = DocumentDespacho.Numero,
                     Number_Palet = Convert.ToString(grid_detalle_paletas.Rows[i].Cells["number_palet"].Value) ?? string.Empty,
                     Medida = Convert.ToString(grid_detalle_paletas.Rows[i].Cells["medida"].Value) ?? string.Empty,
                     Contenido = Convert.ToString(grid_detalle_paletas.Rows[i].Cells["contenido"].Value) ?? string.Empty,
@@ -537,6 +537,36 @@ namespace Ritrama2025.Forms
             Service.AddPickingListDespacho(DocumentDespacho.Detalle_RC);
             Service.AddItemsDespacho(DocumentDespacho.Items_Despacho);
             Service.AddPaletDetailsDespacho(DocumentDespacho.Detalle_Paleta);
+        }
+
+        private void reporte_conduce_conprecio_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Reporte Conduce con precio");
+        }
+
+        private void reporte_conduce_sinprecio_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Reporte Conduce sin precio");
+        }
+
+        private void reporte_picking_list_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Reporte picking-list");
+        }
+
+        private void reporte_detalle_paleta_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Reporte detalle de paleta");
+        }
+
+        private void export_excel_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Exportar a Excel");
+        }
+
+        private void export_pdf_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Exportar a PDF.");
         }
     }
 }

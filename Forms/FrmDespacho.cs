@@ -123,8 +123,8 @@ namespace Ritrama2025.Forms
             };
             grid_detalle_paletas.Columns.Add(ColumnButton);
             grid_detalle_paletas.Columns["btn_description"]!.DisplayIndex = 3;
-
-
+            //IR AL FINAL DE LA BASE DE DATOS LA ULTIMA ORDEN DE DESPACHO.
+            Bs.Position = Bs.Count - 1;
         }
 
         private void Bot_primero_Click(object sender, EventArgs e)

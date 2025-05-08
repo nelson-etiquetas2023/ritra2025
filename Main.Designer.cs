@@ -169,10 +169,15 @@
             BackColor = SystemColors.Window;
             ClientSize = new Size(935, 536);
             Controls.Add(panel1);
+            Font = new Font("Segoe UI", 8.830189F);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            IsMdiContainer = true;
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Main";
+            Text = "SISTEMA DE PRODUCCION EMPRESA FEDRIGONI VERSION 2025 [CREADO POR ETIQUETAS.COM.DO - SANTO DOMINGO REPUBLICA DOMINICANA - SOPORTE TECNICO: 829-8805472]";
             WindowState = FormWindowState.Maximized;
+            Load += Main_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

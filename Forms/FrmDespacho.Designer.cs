@@ -38,7 +38,16 @@
             bot_grabar = new ToolStripButton();
             bot_cancelar = new ToolStripButton();
             bot_buscar = new ToolStripButton();
-            bot_imprimir = new ToolStripButton();
+            btn_reports = new ToolStripSplitButton();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripMenuItem3 = new ToolStripMenuItem();
+            toolStripMenuItem4 = new ToolStripMenuItem();
+            btn_exports = new ToolStripSplitButton();
+            conduceConPrecioToolStripMenuItem = new ToolStripMenuItem();
+            detalleDePaletaToolStripMenuItem = new ToolStripMenuItem();
+            btn_close_document = new ToolStripButton();
+            btn_label_print = new ToolStripButton();
             bot_anular = new ToolStripButton();
             label1 = new Label();
             txt_numero = new TextBox();
@@ -122,7 +131,7 @@
             // 
             toolStrip1.Font = new Font("Segoe UI", 10.18868F);
             toolStrip1.ImageScalingSize = new Size(18, 18);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { bot_primero, bot_anterior, bot_siguiente, bot_ultimo, bot_nuevo, bot_grabar, bot_cancelar, bot_buscar, bot_imprimir, bot_anular });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { bot_primero, bot_anterior, bot_siguiente, bot_ultimo, bot_nuevo, bot_grabar, bot_cancelar, bot_buscar, btn_reports, btn_exports, btn_close_document, btn_label_print, bot_anular });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1238, 33);
@@ -212,14 +221,83 @@
             bot_buscar.Size = new Size(74, 30);
             bot_buscar.Text = "Buscar";
             // 
-            // bot_imprimir
+            // btn_reports
             // 
-            bot_imprimir.Font = new Font("Segoe UI", 10.18868F);
-            bot_imprimir.Image = (Image)resources.GetObject("bot_imprimir.Image");
-            bot_imprimir.ImageTransparentColor = Color.Magenta;
-            bot_imprimir.Name = "bot_imprimir";
-            bot_imprimir.Size = new Size(88, 30);
-            bot_imprimir.Text = "Imprimir";
+            btn_reports.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4 });
+            btn_reports.Image = Properties.Resources.print_48px;
+            btn_reports.ImageTransparentColor = Color.Magenta;
+            btn_reports.Name = "btn_reports";
+            btn_reports.Size = new Size(103, 30);
+            btn_reports.Text = "Reportes";
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Image = (Image)resources.GetObject("toolStripMenuItem1.Image");
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(215, 24);
+            toolStripMenuItem1.Text = "Conduce con Precio";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Image = Properties.Resources.report48_48;
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(215, 24);
+            toolStripMenuItem2.Text = "Conduce sin Precio";
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Image = Properties.Resources.report48_481;
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(215, 24);
+            toolStripMenuItem3.Text = "Reporte Picking List";
+            // 
+            // toolStripMenuItem4
+            // 
+            toolStripMenuItem4.Image = Properties.Resources.report48_482;
+            toolStripMenuItem4.Name = "toolStripMenuItem4";
+            toolStripMenuItem4.Size = new Size(215, 24);
+            toolStripMenuItem4.Text = "Detalle de Paleta";
+            // 
+            // btn_exports
+            // 
+            btn_exports.DropDownItems.AddRange(new ToolStripItem[] { conduceConPrecioToolStripMenuItem, detalleDePaletaToolStripMenuItem });
+            btn_exports.Image = (Image)resources.GetObject("btn_exports.Image");
+            btn_exports.ImageTransparentColor = Color.Magenta;
+            btn_exports.Name = "btn_exports";
+            btn_exports.Size = new Size(100, 30);
+            btn_exports.Text = "Exportar";
+            // 
+            // conduceConPrecioToolStripMenuItem
+            // 
+            conduceConPrecioToolStripMenuItem.Image = (Image)resources.GetObject("conduceConPrecioToolStripMenuItem.Image");
+            conduceConPrecioToolStripMenuItem.Name = "conduceConPrecioToolStripMenuItem";
+            conduceConPrecioToolStripMenuItem.Size = new Size(192, 24);
+            conduceConPrecioToolStripMenuItem.Text = "Excel";
+            // 
+            // detalleDePaletaToolStripMenuItem
+            // 
+            detalleDePaletaToolStripMenuItem.Image = (Image)resources.GetObject("detalleDePaletaToolStripMenuItem.Image");
+            detalleDePaletaToolStripMenuItem.Name = "detalleDePaletaToolStripMenuItem";
+            detalleDePaletaToolStripMenuItem.Size = new Size(192, 24);
+            detalleDePaletaToolStripMenuItem.Text = "Documento PDF";
+            // 
+            // btn_close_document
+            // 
+            btn_close_document.Font = new Font("Segoe UI", 10.18868F);
+            btn_close_document.Image = (Image)resources.GetObject("btn_close_document.Image");
+            btn_close_document.ImageTransparentColor = Color.Magenta;
+            btn_close_document.Name = "btn_close_document";
+            btn_close_document.Size = new Size(71, 30);
+            btn_close_document.Text = "Cerrar";
+            // 
+            // btn_label_print
+            // 
+            btn_label_print.Font = new Font("Segoe UI", 10.18868F);
+            btn_label_print.Image = (Image)resources.GetObject("btn_label_print.Image");
+            btn_label_print.ImageTransparentColor = Color.Magenta;
+            btn_label_print.Name = "btn_label_print";
+            btn_label_print.Size = new Size(92, 30);
+            btn_label_print.Text = "Etiquetas";
             // 
             // bot_anular
             // 
@@ -1020,8 +1098,10 @@
             Controls.Add(label1);
             Controls.Add(toolStrip1);
             Font = new Font("Segoe UI", 10.18868F);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "FrmDespacho";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Despacho";
             Load += Despacho_Load;
             toolStrip1.ResumeLayout(false);
@@ -1047,7 +1127,6 @@
         private ToolStripButton bot_cancelar;
         private ToolStripButton bot_grabar;
         private ToolStripButton bot_buscar;
-        private ToolStripButton bot_imprimir;
         private ToolStripButton bot_anular;
         private Label label1;
         private TextBox txt_numero;
@@ -1118,5 +1197,15 @@
         private TextBox txt_chofer_name;
         private TextBox txt_transport_name;
         private TextBox txt_camion_name;
+        private ToolStripSplitButton btn_exports;
+        private ToolStripMenuItem conduceConPrecioToolStripMenuItem;
+        private ToolStripMenuItem detalleDePaletaToolStripMenuItem;
+        private ToolStripSplitButton btn_reports;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem toolStripMenuItem3;
+        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripButton btn_label_print;
+        private ToolStripButton btn_close_document;
     }
 }

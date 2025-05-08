@@ -63,6 +63,16 @@ namespace Ritrama2025.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_file_32px {
+            get {
+                object obj = ResourceManager.GetObject("add_file_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_to_clipboard_48px {
             get {
                 object obj = ResourceManager.GetObject("add_to_clipboard_48px", resourceCulture);
@@ -133,6 +143,16 @@ namespace Ritrama2025.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap print_48px {
+            get {
+                object obj = ResourceManager.GetObject("print_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap procurement_48px {
             get {
                 object obj = ResourceManager.GetObject("procurement_48px", resourceCulture);
@@ -156,6 +176,36 @@ namespace Ritrama2025.Properties {
         internal static System.Drawing.Bitmap registry_editor_32px {
             get {
                 object obj = ResourceManager.GetObject("registry_editor_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap report48_48 {
+            get {
+                object obj = ResourceManager.GetObject("report48_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap report48_481 {
+            get {
+                object obj = ResourceManager.GetObject("report48_481", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap report48_482 {
+            get {
+                object obj = ResourceManager.GetObject("report48_482", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

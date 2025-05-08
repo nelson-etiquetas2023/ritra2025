@@ -20,8 +20,18 @@ namespace Ritrama2025
 
         private void bot_despacho_Click(object sender, EventArgs e)
         {
-            FrmDespacho frmdespacho = new FrmDespacho();
+            FrmDespacho frmdespacho = new FrmDespacho() 
+            {
+                MdiParent = this,
+                StartPosition = FormStartPosition.Manual,Location = new Point{ X = Location.X + 20, Y = Location.Y + 20 }
+            };
+            
             frmdespacho.Show();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.Reporting.WinForms;
 using Ritrama2025.Forms.Otros;
 using System.Data;
+using System.Drawing.Printing;
 
 
 namespace Ritrama2025.Services
@@ -26,7 +27,7 @@ namespace Ritrama2025.Services
                     Connection = conn,
                     CommandText = "select a.numero,a.fecha,a.customer_id,b.Customer_Name,a.person_contact,a.vendor_id,c.vendor_name,a.packing," +
                       "a.orden_trabajo,a.orden_compra,a.subtotal,a.porc_itbis,a.itbis,a.total$rd as " + "TotalMontoDoc,a.transport_id,a.transporte,a.chofer_id,a.chofer,a.placas_id,a.camion,a.tipo_venta," + "a.reserva,a.impuesto,a.status,a.total_cantidad,a.total_msi,a.total_pie,a.total_kilos,a.total_kilos_netos_palet,a.total_kilos_brutos_palet,d.product_id,e.Product_Name,e.Product_Descrip,e.ratio,e.precio," + "d.cant,d.unid_id,f.UNID_NAME,d.width,d.lenght,d.msi,d.total_pie_lin,d.ratio,d.kilo_rollo,d.kilo_total," +
-                      "d.precio,d.total_renglon,d.code_person,d.m2 from despacho a left join Customer b on " + "a.customer_id=b.Customer_ID left join vendedor c on a.vendor_id=c.vendor_id left join item_despacho d on a.numero = d.numero left join producto e on d.product_id = e.Product_ID left join unidad f on f.UNID_ID = d.unid_id where a.numero='9'",
+                      "d.precio,d.total_renglon,d.code_person,d.m2 from despacho a left join Customer b on " + "a.customer_id=b.Customer_ID left join vendedor c on a.vendor_id=c.vendor_id left join item_despacho d on a.numero = d.numero left join producto e on d.product_id = e.Product_ID left join unidad f on f.UNID_ID = d.unid_id where a.numero=@p1",
                     CommandType = CommandType.Text
                 };
                 SqlParameter p1 = new("@p1", SqlDbType.VarChar)
@@ -38,7 +39,6 @@ namespace Ritrama2025.Services
                 SqlDataAdapter da = new(comando);
                 da.Fill(ds, "dt");
             }
-
             ReportsViewer reports = new()
             {
                 Text = "Reporte Conduce con Precio",
@@ -46,11 +46,22 @@ namespace Ritrama2025.Services
                 Height = 780,
                 MdiParent = form.MdiParent,
             };
+            string ReportName = "RptConduceConPrecio.rdlc";
             reports.reportViewer1.ProcessingMode = ProcessingMode.Local;
-            reports.reportViewer1.LocalReport.ReportPath = @"c:\programacion\ritrama2025\Reports\RptConduceConPrecio.rdlc";
+            reports.reportViewer1.LocalReport.ReportPath = GetPathApplication(ReportName);
+            //creo un objeto del tipo PageSettings para configurar la pagina a imprimir.
+            PageSettings pageSettings = new()
+            {
+                PaperSize = new PaperSize("Letter", 1100, 850), // A4 size in hundredths of millimeters
+                Landscape = true,
+                Margins = new Margins(0, 0, 0, 0)
+            };
+            reports.reportViewer1.SetPageSettings(pageSettings);
+            //trabajo con los parametros del reporte.
+            ReportParameter[] param = [new ReportParameter("numero_conduce", conduce)];
             reports.reportViewer1.LocalReport.DataSources.Clear();
             reports.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", ds.Tables["dt"]));
-
+            reports.reportViewer1.LocalReport.SetParameters(param);
             reports.reportViewer1.RefreshReport();
             reports.Show();
         }
@@ -62,10 +73,20 @@ namespace Ritrama2025.Services
         {
             throw new NotImplementedException();
         }
-
         public void Reporte_PackingList()
         {
             throw new NotImplementedException();
+        }
+        private static string GetPathApplication(string ReportName) 
+        {
+            string AppDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string ReportsFolder = Path.Combine(AppDirectory, "Reports");
+            if (!Directory.Exists(ReportsFolder)) 
+            {
+                Directory.CreateDirectory(ReportsFolder);
+            }
+            string ReportPath = Path.Combine(ReportsFolder, ReportName);
+            return ReportPath;
         }
     }
 }

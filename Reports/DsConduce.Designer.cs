@@ -365,19 +365,19 @@ namespace Ritrama2025.Reports {
             
             private global::System.Data.DataColumn columntotal_pie_lin;
             
-            private global::System.Data.DataColumn columnratio1;
-            
             private global::System.Data.DataColumn columnkilo_rollo;
             
             private global::System.Data.DataColumn columnkilo_total;
-            
-            private global::System.Data.DataColumn columnprecio1;
             
             private global::System.Data.DataColumn columntotal_renglon;
             
             private global::System.Data.DataColumn columncode_person;
             
             private global::System.Data.DataColumn columnm2;
+            
+            private global::System.Data.DataColumn columnExpr1;
+            
+            private global::System.Data.DataColumn columnExpr2;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -752,14 +752,6 @@ namespace Ritrama2025.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ratio1Column {
-                get {
-                    return this.columnratio1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn kilo_rolloColumn {
                 get {
                     return this.columnkilo_rollo;
@@ -771,14 +763,6 @@ namespace Ritrama2025.Reports {
             public global::System.Data.DataColumn kilo_totalColumn {
                 get {
                     return this.columnkilo_total;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn precio1Column {
-                get {
-                    return this.columnprecio1;
                 }
             }
             
@@ -803,6 +787,22 @@ namespace Ritrama2025.Reports {
             public global::System.Data.DataColumn m2Column {
                 get {
                     return this.columnm2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Expr1Column {
+                get {
+                    return this.columnExpr1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Expr2Column {
+                get {
+                    return this.columnExpr2;
                 }
             }
             
@@ -886,13 +886,13 @@ namespace Ritrama2025.Reports {
                         decimal lenght, 
                         decimal msi, 
                         decimal total_pie_lin, 
-                        decimal ratio1, 
                         decimal kilo_rollo, 
                         decimal kilo_total, 
-                        decimal precio1, 
                         decimal total_renglon, 
                         string code_person, 
-                        decimal m2) {
+                        decimal m2, 
+                        decimal Expr1, 
+                        decimal Expr2) {
                 DespachoRow rowDespachoRow = ((DespachoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         numero,
@@ -937,13 +937,13 @@ namespace Ritrama2025.Reports {
                         lenght,
                         msi,
                         total_pie_lin,
-                        ratio1,
                         kilo_rollo,
                         kilo_total,
-                        precio1,
                         total_renglon,
                         code_person,
-                        m2};
+                        m2,
+                        Expr1,
+                        Expr2};
                 rowDespachoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDespachoRow);
                 return rowDespachoRow;
@@ -1015,13 +1015,13 @@ namespace Ritrama2025.Reports {
                 this.columnlenght = base.Columns["lenght"];
                 this.columnmsi = base.Columns["msi"];
                 this.columntotal_pie_lin = base.Columns["total_pie_lin"];
-                this.columnratio1 = base.Columns["ratio1"];
                 this.columnkilo_rollo = base.Columns["kilo_rollo"];
                 this.columnkilo_total = base.Columns["kilo_total"];
-                this.columnprecio1 = base.Columns["precio1"];
                 this.columntotal_renglon = base.Columns["total_renglon"];
                 this.columncode_person = base.Columns["code_person"];
                 this.columnm2 = base.Columns["m2"];
+                this.columnExpr1 = base.Columns["Expr1"];
+                this.columnExpr2 = base.Columns["Expr2"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1111,20 +1111,20 @@ namespace Ritrama2025.Reports {
                 base.Columns.Add(this.columnmsi);
                 this.columntotal_pie_lin = new global::System.Data.DataColumn("total_pie_lin", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal_pie_lin);
-                this.columnratio1 = new global::System.Data.DataColumn("ratio1", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnratio1);
                 this.columnkilo_rollo = new global::System.Data.DataColumn("kilo_rollo", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnkilo_rollo);
                 this.columnkilo_total = new global::System.Data.DataColumn("kilo_total", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnkilo_total);
-                this.columnprecio1 = new global::System.Data.DataColumn("precio1", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnprecio1);
                 this.columntotal_renglon = new global::System.Data.DataColumn("total_renglon", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal_renglon);
                 this.columncode_person = new global::System.Data.DataColumn("code_person", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncode_person);
                 this.columnm2 = new global::System.Data.DataColumn("m2", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnm2);
+                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpr1);
+                this.columnExpr2 = new global::System.Data.DataColumn("Expr2", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpr2);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnumero}, true));
                 this.columnnumero.AllowDBNull = false;
@@ -1912,22 +1912,6 @@ namespace Ritrama2025.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal ratio1 {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableDespacho.ratio1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ratio1\' de la tabla \'Despacho\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDespacho.ratio1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal kilo_rollo {
                 get {
                     try {
@@ -1955,22 +1939,6 @@ namespace Ritrama2025.Reports {
                 }
                 set {
                     this[this.tableDespacho.kilo_totalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal precio1 {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableDespacho.precio1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'precio1\' de la tabla \'Despacho\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDespacho.precio1Column] = value;
                 }
             }
             
@@ -2019,6 +1987,38 @@ namespace Ritrama2025.Reports {
                 }
                 set {
                     this[this.tableDespacho.m2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Expr1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDespacho.Expr1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Expr1\' de la tabla \'Despacho\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDespacho.Expr1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Expr2 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDespacho.Expr2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Expr2\' de la tabla \'Despacho\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDespacho.Expr2Column] = value;
                 }
             }
             
@@ -2372,18 +2372,6 @@ namespace Ritrama2025.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isratio1Null() {
-                return this.IsNull(this.tableDespacho.ratio1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setratio1Null() {
-                this[this.tableDespacho.ratio1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Iskilo_rolloNull() {
                 return this.IsNull(this.tableDespacho.kilo_rolloColumn);
             }
@@ -2404,18 +2392,6 @@ namespace Ritrama2025.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setkilo_totalNull() {
                 this[this.tableDespacho.kilo_totalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isprecio1Null() {
-                return this.IsNull(this.tableDespacho.precio1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setprecio1Null() {
-                this[this.tableDespacho.precio1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2452,6 +2428,30 @@ namespace Ritrama2025.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setm2Null() {
                 this[this.tableDespacho.m2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsExpr1Null() {
+                return this.IsNull(this.tableDespacho.Expr1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetExpr1Null() {
+                this[this.tableDespacho.Expr1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsExpr2Null() {
+                return this.IsNull(this.tableDespacho.Expr2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetExpr2Null() {
+                this[this.tableDespacho.Expr2Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -2656,13 +2656,13 @@ namespace Ritrama2025.Reports.DsConduceTableAdapters {
             tableMapping.ColumnMappings.Add("lenght", "lenght");
             tableMapping.ColumnMappings.Add("msi", "msi");
             tableMapping.ColumnMappings.Add("total_pie_lin", "total_pie_lin");
-            tableMapping.ColumnMappings.Add("ratio1", "ratio1");
             tableMapping.ColumnMappings.Add("kilo_rollo", "kilo_rollo");
             tableMapping.ColumnMappings.Add("kilo_total", "kilo_total");
-            tableMapping.ColumnMappings.Add("precio1", "precio1");
             tableMapping.ColumnMappings.Add("total_renglon", "total_renglon");
             tableMapping.ColumnMappings.Add("code_person", "code_person");
             tableMapping.ColumnMappings.Add("m2", "m2");
+            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
+            tableMapping.ColumnMappings.Add("Expr2", "Expr2");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2680,29 +2680,34 @@ namespace Ritrama2025.Reports.DsConduceTableAdapters {
             this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"select a.numero,a.fecha,a.customer_id,b.Customer_Name,a.person_contact,
-a.vendor_id,c.vendor_name,a.packing,a.orden_trabajo,a.orden_compra,a.subtotal,a.porc_itbis,a.itbis,
-a.total$rd as TotalMontoDoc,a.transport_id,a.transporte,a.chofer_id,a.chofer,a.placas_id,a.camion,a.tipo_venta,
-a.reserva,a.impuesto,a.status,a.total_cantidad,a.total_msi,a.total_pie,a.total_kilos,a.total_kilos_netos_palet,
-a.total_kilos_brutos_palet,d.product_id,e.Product_Name,e.Product_Descrip,e.ratio,e.precio,
-d.cant,d.unid_id,f.UNID_NAME,d.width,d.lenght,d.msi,d.total_pie_lin,d.ratio,d.kilo_rollo,d.kilo_total,d.precio,
-d.total_renglon,d.code_person,d.m2
-from despacho a
-left join Customer b on a.customer_id=b.Customer_ID
-left join vendedor c on a.vendor_id=c.vendor_id
-left join item_despacho d on a.numero = d.numero
-left join producto e on d.product_id = e.Product_ID
-left join unidad f on f.UNID_ID = d.unid_id
-where a.numero='9'";
+            this._commandCollection[0].CommandText = @"SELECT a.numero, a.fecha, a.customer_id, b.Customer_Name, a.person_contact, a.vendor_id, c.vendor_name, a.packing, a.orden_trabajo, a.orden_compra, a.subtotal, a.porc_itbis, a.itbis, a.total$rd AS TotalMontoDoc, a.transport_id, a.transporte, a.chofer_id, a.chofer, a.placas_id, a.camion, a.tipo_venta, 
+  a.reserva, a.impuesto, a.status, a.total_cantidad, a.total_msi, a.total_pie, a.total_kilos, a.total_kilos_netos_palet, a.total_kilos_brutos_palet, d.product_id, e.Product_Name, e.Product_Descrip, e.ratio, e.precio, d.cant, d.unid_id, f.UNID_NAME, d.width, d.lenght, d.msi, d.total_pie_lin, d.ratio AS Expr1, 
+  d.kilo_rollo, d.kilo_total, d.precio AS Expr2, d.total_renglon, d.code_person, d.m2
+FROM despacho AS a LEFT OUTER JOIN
+  Customer AS b ON a.customer_id = b.Customer_ID LEFT OUTER JOIN
+  vendedor AS c ON a.vendor_id = c.vendor_id LEFT OUTER JOIN
+  item_despacho AS d ON a.numero = d.numero LEFT OUTER JOIN
+  producto AS e ON d.product_id = e.Product_ID LEFT OUTER JOIN
+  unidad AS f ON f.UNID_ID = d.unid_id
+WHERE (a.numero = @numero_conduce)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            global::Microsoft.Data.SqlClient.SqlParameter param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@numero_conduce";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SqlDbType = global::System.Data.SqlDbType.Int;
+            param.Size = 4;
+            param.IsNullable = true;
+            param.SourceColumn = "numero";
+            this._commandCollection[0].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DsConduce.DespachoDataTable dataTable) {
+        public virtual int Fill(DsConduce.DespachoDataTable dataTable, int numero_conduce) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(numero_conduce));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2714,8 +2719,9 @@ where a.numero='9'";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DsConduce.DespachoDataTable GetData() {
+        public virtual DsConduce.DespachoDataTable GetData(int numero_conduce) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(numero_conduce));
             DsConduce.DespachoDataTable dataTable = new DsConduce.DespachoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

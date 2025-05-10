@@ -236,7 +236,7 @@
             reporte_conduce_conprecio.Name = "reporte_conduce_conprecio";
             reporte_conduce_conprecio.Size = new Size(215, 24);
             reporte_conduce_conprecio.Text = "Conduce con Precio";
-            reporte_conduce_conprecio.Click += reporte_conduce_conprecio_Click;
+            reporte_conduce_conprecio.Click += Reporte_conduce_conprecio_Click;
             // 
             // reporte_conduce_sinprecio
             // 
@@ -244,7 +244,7 @@
             reporte_conduce_sinprecio.Name = "reporte_conduce_sinprecio";
             reporte_conduce_sinprecio.Size = new Size(215, 24);
             reporte_conduce_sinprecio.Text = "Conduce sin Precio";
-            reporte_conduce_sinprecio.Click += reporte_conduce_sinprecio_Click;
+            reporte_conduce_sinprecio.Click += Reporte_conduce_sinprecio_Click;
             // 
             // reporte_picking_list
             // 
@@ -252,7 +252,7 @@
             reporte_picking_list.Name = "reporte_picking_list";
             reporte_picking_list.Size = new Size(215, 24);
             reporte_picking_list.Text = "Reporte Picking List";
-            reporte_picking_list.Click += reporte_picking_list_Click;
+            reporte_picking_list.Click += Reporte_picking_list_Click;
             // 
             // reporte_detalle_paleta
             // 
@@ -260,7 +260,7 @@
             reporte_detalle_paleta.Name = "reporte_detalle_paleta";
             reporte_detalle_paleta.Size = new Size(215, 24);
             reporte_detalle_paleta.Text = "Detalle de Paleta";
-            reporte_detalle_paleta.Click += reporte_detalle_paleta_Click;
+            reporte_detalle_paleta.Click += Reporte_detalle_paleta_Click;
             // 
             // btn_exports
             // 
@@ -278,7 +278,7 @@
             export_excel.Name = "export_excel";
             export_excel.Size = new Size(198, 24);
             export_excel.Text = "Excel";
-            export_excel.Click += export_excel_Click;
+            export_excel.Click += Export_excel_Click;
             // 
             // export_pdf
             // 
@@ -286,7 +286,7 @@
             export_pdf.Name = "export_pdf";
             export_pdf.Size = new Size(198, 24);
             export_pdf.Text = "Documento PDF";
-            export_pdf.Click += export_pdf_Click;
+            export_pdf.Click += Export_pdf_Click;
             // 
             // btn_close_document
             // 

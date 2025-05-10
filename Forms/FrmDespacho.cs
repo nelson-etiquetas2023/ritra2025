@@ -3,14 +3,13 @@ using Ritrama2025.Forms.Seleccion;
 using Ritrama2025.Models;
 using Ritrama2025.Services;
 using System.Data;
-using Microsoft.Reporting.WinForms;
-using Microsoft.Data.SqlClient;
 
 namespace Ritrama2025.Forms
 {
     public partial class FrmDespacho : Form
     {
         private readonly DespachoService Service = new();
+        private readonly ReportsService ReportsService = new();
         DataSet Ds = new();
         readonly BindingSource Bs = [];
         readonly BindingSource BsDetalleRC = [];
@@ -541,67 +540,35 @@ namespace Ritrama2025.Forms
             Service.AddPaletDetailsDespacho(DocumentDespacho.Detalle_Paleta);
         }
 
-        private void reporte_conduce_conprecio_Click(object sender, EventArgs e)
+        private void Reporte_conduce_conprecio_Click(object sender, EventArgs e)
         {
-            string SqlConnect = @"Data Source=DATABASE-CENTER\RITRAMASRV01; Initial Catalog=RITRAMA2;User Id=Npino;Password=123;TrustServerCertificate=True;";
-            DataSet ds = new();
-            using (SqlConnection conn = new(SqlConnect))
+            if (this.Parent != null)
             {
-                SqlCommand comando = new()
-                {
-                    Connection = conn,
-                    CommandText = "select a.numero,a.fecha,a.customer_id,b.Customer_Name,a.person_contact,a.vendor_id,c.vendor_name,a.packing," +
-                      "a.orden_trabajo,a.orden_compra,a.subtotal,a.porc_itbis,a.itbis,a.total$rd as " + "TotalMontoDoc,a.transport_id,a.transporte,a.chofer_id,a.chofer,a.placas_id,a.camion,a.tipo_venta," +"a.reserva,a.impuesto,a.status,a.total_cantidad,a.total_msi,a.total_pie,a.total_kilos,a.total_kilos_netos_palet,a.total_kilos_brutos_palet,d.product_id,e.Product_Name,e.Product_Descrip,e.ratio,e.precio,"+ "d.cant,d.unid_id,f.UNID_NAME,d.width,d.lenght,d.msi,d.total_pie_lin,d.ratio,d.kilo_rollo,d.kilo_total,"+
-                      "d.precio,d.total_renglon,d.code_person,d.m2 from despacho a left join Customer b on " +"a.customer_id=b.Customer_ID left join vendedor c on a.vendor_id=c.vendor_id left join item_despacho d on a.numero = d.numero left join producto e on d.product_id = e.Product_ID left join unidad f on f.UNID_ID = d.unid_id where a.numero='9'",
-                    CommandType = CommandType.Text
-                };
-                SqlParameter p1 = new SqlParameter("@p1", SqlDbType.VarChar)
-                {
-                    Value = txt_numero.Text
-                };
-                comando.Parameters.Add(p1);
-                conn.Open();
-                SqlDataAdapter da = new(comando);
-                da.Fill(ds, "dt");
+                ReportsService.ReporteConduce_conPrecio(txt_numero.Text, this);
             }
-
-            ReportsViewer reports = new()
-            {
-                Text = "Reporte Conduce con Precio",
-                Width = 1130,
-                Height = 780,
-                MdiParent = this.MdiParent,
-            };
-            reports.reportViewer1.ProcessingMode = ProcessingMode.Local;
-            reports.reportViewer1.LocalReport.ReportPath = @"c:\programacion\ritrama2025\Reports\RptConduceConPrecio.rdlc";
-            reports.reportViewer1.LocalReport.DataSources.Clear();
-            reports.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", ds.Tables["dt"]));
-
-            reports.reportViewer1.RefreshReport();
-            reports.Show();
         }
 
-        private void reporte_conduce_sinprecio_Click(object sender, EventArgs e)
+        private void Reporte_conduce_sinprecio_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Reporte Conduce sin precio");
         }
 
-        private void reporte_picking_list_Click(object sender, EventArgs e)
+        private void Reporte_picking_list_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Reporte picking-list");
         }
 
-        private void reporte_detalle_paleta_Click(object sender, EventArgs e)
+        private void Reporte_detalle_paleta_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Reporte detalle de paleta");
         }
 
-        private void export_excel_Click(object sender, EventArgs e)
+        private void Export_excel_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Exportar a Excel");
         }
 
-        private void export_pdf_Click(object sender, EventArgs e)
+        private void Export_pdf_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Exportar a PDF.");
         }

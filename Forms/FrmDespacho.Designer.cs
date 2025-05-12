@@ -45,6 +45,8 @@
             reporte_detalle_paleta = new ToolStripMenuItem();
             btn_exports = new ToolStripSplitButton();
             export_excel = new ToolStripMenuItem();
+            rollosCortadosToolStripMenuItem = new ToolStripMenuItem();
+            detalleDePaletaToolStripMenuItem = new ToolStripMenuItem();
             export_pdf = new ToolStripMenuItem();
             btn_close_document = new ToolStripButton();
             btn_label_print = new ToolStripButton();
@@ -274,11 +276,27 @@
             // export_excel
             // 
             export_excel.AccessibleRole = AccessibleRole.Clock;
+            export_excel.DropDownItems.AddRange(new ToolStripItem[] { rollosCortadosToolStripMenuItem, detalleDePaletaToolStripMenuItem });
             export_excel.Image = (Image)resources.GetObject("export_excel.Image");
             export_excel.Name = "export_excel";
             export_excel.Size = new Size(198, 24);
             export_excel.Text = "Excel";
             export_excel.Click += Export_excel_Click;
+            // 
+            // rollosCortadosToolStripMenuItem
+            // 
+            rollosCortadosToolStripMenuItem.Image = (Image)resources.GetObject("rollosCortadosToolStripMenuItem.Image");
+            rollosCortadosToolStripMenuItem.Name = "rollosCortadosToolStripMenuItem";
+            rollosCortadosToolStripMenuItem.Size = new Size(198, 24);
+            rollosCortadosToolStripMenuItem.Text = "Rollos Cortados";
+            rollosCortadosToolStripMenuItem.Click += RollosCortadosToolStripMenuItem_Click;
+            // 
+            // detalleDePaletaToolStripMenuItem
+            // 
+            detalleDePaletaToolStripMenuItem.Image = Properties.Resources.DATA_READ481;
+            detalleDePaletaToolStripMenuItem.Name = "detalleDePaletaToolStripMenuItem";
+            detalleDePaletaToolStripMenuItem.Size = new Size(198, 24);
+            detalleDePaletaToolStripMenuItem.Text = "Detalle de Paleta";
             // 
             // export_pdf
             // 
@@ -1214,5 +1232,7 @@
         private ToolStripMenuItem reporte_detalle_paleta;
         private ToolStripButton btn_label_print;
         private ToolStripButton btn_close_document;
+        private ToolStripMenuItem rollosCortadosToolStripMenuItem;
+        private ToolStripMenuItem detalleDePaletaToolStripMenuItem;
     }
 }

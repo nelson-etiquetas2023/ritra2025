@@ -2,12 +2,18 @@ C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Ritrama2025.exe
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Reports\RptConduceConPrecio.rdlc
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Reports\Picking-List.rdlc
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Reports\RptConduceSinPrecio.rdlc
+C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Reports\RptDetalle-Paleta.rdlc
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Ritrama2025.deps.json
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Ritrama2025.runtimeconfig.json
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Ritrama2025.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Ritrama2025.pdb
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Azure.Core.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Azure.Identity.dll
+C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\ClosedXML.dll
+C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\ClosedXML.Parser.dll
+C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\DocumentFormat.OpenXml.dll
+C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\ExcelNumberFormat.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.Bcl.Cryptography.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.dll
@@ -31,10 +37,12 @@ C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.IdentityModel.Pro
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.IdentityModel.Tokens.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.SqlServer.Server.dll
+C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\RBush.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.ReportViewer.Common.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.ReportViewer.DataVisualization.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.ReportViewer.ProcessingObjectModel.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Microsoft.ReportViewer.WinForms.dll
+C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\SixLabors.Fonts.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\System.ClientModel.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\System.Configuration.ConfigurationManager.dll
 C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\System.Diagnostics.EventLog.dll
@@ -139,4 +147,3 @@ C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\refint\Ritrama2025.dll
 C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\Ritrama2025.pdb
 C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\Ritrama2025.genruntimeconfig.cache
 C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\ref\Ritrama2025.dll
-C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Reports\RptDetalle-Paleta.rdlc

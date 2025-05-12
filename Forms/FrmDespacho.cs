@@ -2,6 +2,7 @@
 using Ritrama2025.Forms.Seleccion;
 using Ritrama2025.Models;
 using Ritrama2025.Services;
+using Ritrama2025.Services.ExportData;
 using System.Data;
 
 namespace Ritrama2025.Forms
@@ -10,6 +11,7 @@ namespace Ritrama2025.Forms
     {
         private readonly DespachoService Service = new();
         private readonly ReportsService ReportsService = new();
+        private readonly ExportDataService ExportDataService = new();
         DataSet Ds = new();
         readonly BindingSource Bs = [];
         readonly BindingSource BsDetalleRC = [];
@@ -551,7 +553,7 @@ namespace Ritrama2025.Forms
 
         private void Reporte_conduce_sinprecio_Click(object sender, EventArgs e)
         {
-            if (this.Parent != null) 
+            if (this.Parent != null)
             {
                 var TitleReport = "REPORTE DE CONDUCE SIN PRECIO.";
                 ReportsService.ReporteCondece_sinPrecio(txt_numero.Text, this, "RptConduceSinPrecio.rdlc", TitleReport);
@@ -560,12 +562,12 @@ namespace Ritrama2025.Forms
 
         private void Reporte_picking_list_Click(object sender, EventArgs e)
         {
-            ReportsService.Reporte_PackingList(txt_numero.Text,this);
+            ReportsService.Reporte_PackingList(txt_numero.Text, this);
         }
 
         private void Reporte_detalle_paleta_Click(object sender, EventArgs e)
         {
-            ReportsService.Reporte_DetallePaleta(txt_numero.Text,this);
+            ReportsService.Reporte_DetallePaleta(txt_numero.Text, this);
         }
 
         private void Export_excel_Click(object sender, EventArgs e)
@@ -577,5 +579,39 @@ namespace Ritrama2025.Forms
         {
             MessageBox.Show("Exportar a PDF.");
         }
+
+        private void RollosCortadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<RolloCortado> rollosCortados = CREATE_ROLLOS_CORTADOS();
+            ExportDataService.ExportToExcel<RolloCortado>(rollosCortados);
+        }
+
+        private List<RolloCortado> CREATE_ROLLOS_CORTADOS() 
+        {
+            List<RolloCortado> Lista_Rollos = [];
+            //picking-list;
+            for (int i = 0; i <= grid_rc.Rows.Count - 1; i++)
+            {
+                RolloCortado Rollo = new()
+                {
+                    Numero = txt_numero.Text,
+                    UniqueCode = Convert.ToString(grid_rc.Rows[i].Cells["unique_code"].Value) ?? string.Empty,
+                    Product_Id = Convert.ToString(grid_rc.Rows[i].Cells["product_id"].Value) ?? string.Empty,
+                    Product_Name = Convert.ToString(grid_rc.Rows[i].Cells["product_name"].Value) ?? string.Empty,
+                    RollNumber = Convert.ToInt16(grid_rc.Rows[i].Cells["Roll_Number"].Value),
+                    Width = Convert.ToDecimal(grid_rc.Rows[i].Cells["width"].Value),
+                    Length = Convert.ToDecimal(grid_rc.Rows[i].Cells["length"].Value),
+                    Msi = Convert.ToDecimal(grid_rc.Rows[i].Cells["msi"].Value),
+                    Splice = Convert.ToInt16(grid_rc.Rows[i].Cells["splice"].Value),
+                    Roll_Id = Convert.ToString(grid_rc.Rows[i].Cells["roll_id"].Value) ?? string.Empty,
+                    //Code_Person = Convert.ToString(grid_rc.Rows[i].Cells["code_person"].Value) ?? string.Empty,
+                    Cantidad_despacho = 0,
+                    Tipo = "n/a",
+                    Paleta = "0"
+                };
+                Lista_Rollos.Add(Rollo);
+            }
+            return Lista_Rollos;
+        } 
     }
 }

@@ -136,7 +136,13 @@
   <data name="LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\LOGO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="report48_482" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\report48_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="registry_editor_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\registry_editor_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="registry_editor_32px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\registry_editor_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="administrative_tools_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -166,7 +172,7 @@
   <data name="report48_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\report48_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="report48_482" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\report48_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DATA_READ481" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\DATA_READ48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

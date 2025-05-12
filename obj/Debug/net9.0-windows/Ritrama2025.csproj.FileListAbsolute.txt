@@ -139,3 +139,4 @@ C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\refint\Ritrama2025.dll
 C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\Ritrama2025.pdb
 C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\Ritrama2025.genruntimeconfig.cache
 C:\Programacion\Ritrama2025\obj\Debug\net9.0-windows\ref\Ritrama2025.dll
+C:\Programacion\Ritrama2025\bin\Debug\net9.0-windows\Reports\RptDetalle-Paleta.rdlc

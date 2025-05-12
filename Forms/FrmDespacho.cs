@@ -544,7 +544,8 @@ namespace Ritrama2025.Forms
         {
             if (this.Parent != null)
             {
-                ReportsService.ReporteConduce_conPrecio(txt_numero.Text, this, "RptConduceConPrecio.rdlc");
+                var TitleReport = "REPORTE DE CONDUCE CON PRECIO.";
+                ReportsService.ReporteConduce_conPrecio(txt_numero.Text, this, "RptConduceConPrecio.rdlc", TitleReport);
             }
         }
 
@@ -552,7 +553,8 @@ namespace Ritrama2025.Forms
         {
             if (this.Parent != null) 
             {
-                ReportsService.ReporteCondece_sinPrecio(txt_numero.Text, this, "RptConduceSinPrecio.rdlc");
+                var TitleReport = "REPORTE DE CONDUCE SIN PRECIO.";
+                ReportsService.ReporteCondece_sinPrecio(txt_numero.Text, this, "RptConduceSinPrecio.rdlc", TitleReport);
             }
         }
 
@@ -563,7 +565,7 @@ namespace Ritrama2025.Forms
 
         private void Reporte_detalle_paleta_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Reporte detalle de paleta");
+            ReportsService.Reporte_DetallePaleta(txt_numero.Text,this);
         }
 
         private void Export_excel_Click(object sender, EventArgs e)

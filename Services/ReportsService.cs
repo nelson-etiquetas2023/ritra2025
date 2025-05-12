@@ -6,7 +6,6 @@ using System.Data;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 
-
 namespace Ritrama2025.Services
 {
     public class ReportsService : IReportsService
@@ -19,7 +18,7 @@ namespace Ritrama2025.Services
             StringConnex = @"Data Source=DATABASE-CENTER\RITRAMASRV01; Initial Catalog=RITRAMA2;User Id=Npino;Password=123;TrustServerCertificate=True;";
         }
 
-        public void ReporteConduce_conPrecio(string conduce, Form form,string ReportName)
+        public void ReporteConduce_conPrecio(string conduce, Form form,string ReportName,string TitleReport)
         {
             DataSet ds = new();
             using (SqlConnection conn = new(StringConnex))
@@ -40,10 +39,12 @@ namespace Ritrama2025.Services
                 conn.Open();
                 SqlDataAdapter da = new(comando);
                 da.Fill(ds, "dt");
+                //Creacion del reporte
+
             }
             ReportsViewer reports = new()
             {
-                Text = "Reporte Conduce con Precio",
+                Text = TitleReport,
                 Width = 1130,
                 Height = 780,
                 MdiParent = form.MdiParent,
@@ -66,9 +67,9 @@ namespace Ritrama2025.Services
             reports.reportViewer1.RefreshReport();
             reports.Show();
         }
-        public void ReporteCondece_sinPrecio(string conduce, Form form, string ReportName)
+        public void ReporteCondece_sinPrecio(string conduce, Form form, string ReportName, string TitleReport)
         {
-            ReporteConduce_conPrecio(conduce, form, ReportName);
+            ReporteConduce_conPrecio(conduce, form, ReportName, TitleReport);
         }
         public void Reporte_PackingList(string conduce, Form form)
         {
@@ -92,7 +93,7 @@ namespace Ritrama2025.Services
             //creacion del reporte.
             ReportsViewer reports = new()
             {
-                Text = "Reporte de Packing-List",
+                Text = "REPORTE DE PACKING-LIST.",
                 Width = 1130,
                 Height = 780,
                 MdiParent = form.MdiParent,
@@ -116,11 +117,53 @@ namespace Ritrama2025.Services
             reports.reportViewer1.RefreshReport();
             reports.Show();
         }
-        public void Reporte_DetallePaleta()
+        public void Reporte_DetallePaleta(string conduce,Form form)
         {
-            throw new NotImplementedException();
+            // Conexion a la base de datos.
+            DataSet ds = new();
+            using SqlConnection conn = new(StringConnex);
+            SqlCommand comando = new()
+            {
+                Connection = conn,
+                CommandText = "SELECT a.numero,a.number_palet,a.medida,a.contenido,a.kilo_neto,a.kilo_bruto,"+          "b.customer_id,c.Customer_Name,b.fecha FROM Paleta AS a LEFT OUTER JOIN despacho AS b " +
+                  "ON a.numero = b.numero LEFT OUTER JOIN Customer AS c ON b.customer_id = c.Customer_ID " +
+                  "WHERE(a.numero = @p1)",
+                CommandType = CommandType.Text
+            };
+            SqlParameter p1 = new("@p1", SqlDbType.VarChar)
+            {
+                Value = conduce
+            };
+            comando.Parameters.Add(p1);
+            conn.Open();
+            SqlDataAdapter da = new(comando);
+            da.Fill(ds, "dt");
+            ReportsViewer reports = new()
+            {
+                Text = "REPORTE DETALLE DE PALETA",
+                Width = 1130,
+                Height = 780,
+                MdiParent = form.MdiParent,
+            };
+            string ReportName = "RptDetalle-Paleta.rdlc";
+            reports.reportViewer1.ProcessingMode = ProcessingMode.Local;
+            reports.reportViewer1.LocalReport.ReportPath = GetPathApplication(ReportName);
+            //creo un objeto del tipo PageSettings para configurar la pagina a imprimir.
+            PageSettings pageSettings = new()
+            {
+                PaperSize = new PaperSize("Letter", 1100, 850), // A4 size in hundredths of millimeters
+                Landscape = true,
+                Margins = new Margins(0, 0, 0, 0)
+            };
+            reports.reportViewer1.SetPageSettings(pageSettings);
+            //trabajo con los parametros del reporte.
+            ReportParameter[] param = [new ReportParameter("numero_conduce", conduce)];
+            reports.reportViewer1.LocalReport.DataSources.Clear();
+            reports.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DsPaleta", ds.Tables["dt"]));
+            reports.reportViewer1.LocalReport.SetParameters(param);
+            reports.reportViewer1.RefreshReport();
+            reports.Show();
         }
-       
         private static string GetPathApplication(string ReportName) 
         {
             string AppDirectory = AppDomain.CurrentDomain.BaseDirectory;

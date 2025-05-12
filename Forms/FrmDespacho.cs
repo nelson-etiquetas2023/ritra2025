@@ -558,7 +558,7 @@ namespace Ritrama2025.Forms
 
         private void Reporte_picking_list_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Reporte picking-list");
+            ReportsService.Reporte_PackingList(txt_numero.Text,this);
         }
 
         private void Reporte_detalle_paleta_Click(object sender, EventArgs e)

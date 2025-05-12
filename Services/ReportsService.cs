@@ -1,8 +1,10 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Reporting.WinForms;
 using Ritrama2025.Forms.Otros;
+using Ritrama2025.Reports;
 using System.Data;
 using System.Drawing.Printing;
+using System.Windows.Forms;
 
 
 namespace Ritrama2025.Services
@@ -68,14 +70,57 @@ namespace Ritrama2025.Services
         {
             ReporteConduce_conPrecio(conduce, form, ReportName);
         }
+        public void Reporte_PackingList(string conduce, Form form)
+        {
+            DataSet ds = new();
+            using SqlConnection conn = new(StringConnex);
+            //Conexion a la base de datos.
+            SqlCommand comando = new()
+            {
+                Connection = conn,
+                CommandText = "SELECT a.conduce,a.product_id,b.product_name,a.unique_code,a.roll_number,a.width,a.lenght,a.msi,a.splice,a.roll_id,a.cant_despacho,a.tipo,no_paleta,c.fecha,c.customer_id,d.customer_name FROM rcdespacho a LEFT JOIN producto b ON a.product_id = b.product_id LEFT JOIN despacho c ON a.conduce=c.numero LEFT JOIN customer d ON c.customer_id=d.customer_id WHERE conduce=@p1",
+                CommandType = CommandType.Text
+            };
+            SqlParameter p1 = new("@p1", SqlDbType.VarChar)
+            {
+                Value = conduce
+            };
+            comando.Parameters.Add(p1);
+            conn.Open();
+            SqlDataAdapter da = new(comando);
+            da.Fill(ds, "dt");
+            //creacion del reporte.
+            ReportsViewer reports = new()
+            {
+                Text = "Reporte de Packing-List",
+                Width = 1130,
+                Height = 780,
+                MdiParent = form.MdiParent,
+            };
+            string ReportName = "Picking-List.rdlc";
+            reports.reportViewer1.ProcessingMode = ProcessingMode.Local;
+            reports.reportViewer1.LocalReport.ReportPath = GetPathApplication(ReportName);
+            //creo un objeto del tipo PageSettings para configurar la pagina a imprimir.
+            PageSettings pageSettings = new()
+            {
+                PaperSize = new PaperSize("Letter", 1100, 850), // A4 size in hundredths of millimeters
+                Landscape = true,
+                Margins = new Margins(0, 0, 0, 0)
+            };
+            reports.reportViewer1.SetPageSettings(pageSettings);
+            //trabajo con los parametros del reporte.
+            ReportParameter[] param = [new ReportParameter("numero_conduce", conduce)];
+            reports.reportViewer1.LocalReport.DataSources.Clear();
+            reports.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DsRollos", ds.Tables["dt"]));
+            reports.reportViewer1.LocalReport.SetParameters(param);
+            reports.reportViewer1.RefreshReport();
+            reports.Show();
+        }
         public void Reporte_DetallePaleta()
         {
             throw new NotImplementedException();
         }
-        public void Reporte_PackingList()
-        {
-            throw new NotImplementedException();
-        }
+       
         private static string GetPathApplication(string ReportName) 
         {
             string AppDirectory = AppDomain.CurrentDomain.BaseDirectory;

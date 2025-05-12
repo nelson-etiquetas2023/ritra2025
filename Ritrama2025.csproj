@@ -37,6 +37,9 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsConduce.Designer.cs</LastGenOutput>
     </None>
+    <None Update="Reports\Picking-List.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Reports\RptConduceSinPrecio.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

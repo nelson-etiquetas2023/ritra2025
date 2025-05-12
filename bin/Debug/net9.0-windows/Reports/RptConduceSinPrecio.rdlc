@@ -1895,217 +1895,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox59">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>SUBTOTAL:</Value>
-                    <Style>
-                      <FontFamily>JetBrains Mono ExtraBold</FontFamily>
-                      <FontSize>12pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox52</rd:DefaultName>
-            <Top>11.40188cm</Top>
-            <Left>16.79674cm</Left>
-            <Height>0.6cm</Height>
-            <Width>4.0478cm</Width>
-            <ZIndex>25</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>LightGrey</BackgroundColor>
-              <VerticalAlign>Middle</VerticalAlign>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox60">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>="TAX(" &amp; CInt(Fields!porc_itbis.Value) &amp; "%) :"</Value>
-                    <Style>
-                      <FontFamily>JetBrains Mono ExtraBold</FontFamily>
-                      <FontSize>12pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox52</rd:DefaultName>
-            <Top>12.17827cm</Top>
-            <Left>16.79674cm</Left>
-            <Height>0.6cm</Height>
-            <Width>4.0478cm</Width>
-            <ZIndex>26</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>LightGrey</BackgroundColor>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox61">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>TOTAL:</Value>
-                    <Style>
-                      <FontFamily>JetBrains Mono ExtraBold</FontFamily>
-                      <FontSize>12pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox52</rd:DefaultName>
-            <Top>12.95466cm</Top>
-            <Left>16.79674cm</Left>
-            <Height>0.6cm</Height>
-            <Width>4.0478cm</Width>
-            <ZIndex>27</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>LightGrey</BackgroundColor>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox62">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!subtotal.Value</Value>
-                    <Style>
-                      <FontFamily>JetBrains Mono ExtraBold</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <Format>'$'#,0.00;('$'#,0.00)</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox52</rd:DefaultName>
-            <Top>11.40188cm</Top>
-            <Left>21.23259cm</Left>
-            <Height>0.6cm</Height>
-            <Width>4.5639cm</Width>
-            <ZIndex>28</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <rd:FormatSymbolCulture>es-DO</rd:FormatSymbolCulture>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox63">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!itbis.Value</Value>
-                    <Style>
-                      <FontFamily>JetBrains Mono ExtraBold</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <Format>#,0.00;(#,0.00)</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox52</rd:DefaultName>
-            <Top>12.17827cm</Top>
-            <Left>21.23259cm</Left>
-            <Height>0.6cm</Height>
-            <Width>4.5639cm</Width>
-            <ZIndex>29</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox64">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!TotalMontoDoc.Value</Value>
-                    <Style>
-                      <FontFamily>JetBrains Mono ExtraBold</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <Format>'$'#,0.00;('$'#,0.00)</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox52</rd:DefaultName>
-            <Top>12.95466cm</Top>
-            <Left>21.23259cm</Left>
-            <Height>0.6cm</Height>
-            <Width>4.5639cm</Width>
-            <ZIndex>30</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-              <rd:FormatSymbolCulture>es-DO</rd:FormatSymbolCulture>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox65">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -2127,10 +1916,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox52</rd:DefaultName>
             <Top>11.29519cm</Top>
-            <Left>0.39969cm</Left>
+            <Left>0.42719cm</Left>
             <Height>0.6cm</Height>
-            <Width>15.02049cm</Width>
-            <ZIndex>31</ZIndex>
+            <Width>25.3693cm</Width>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2182,7 +1971,7 @@
             <Left>0.3997cm</Left>
             <Height>1.78752cm</Height>
             <Width>4.91933cm</Width>
-            <ZIndex>32</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -2230,7 +2019,7 @@
             <Left>5.46013cm</Left>
             <Height>1.78752cm</Height>
             <Width>4.89183cm</Width>
-            <ZIndex>33</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -2278,7 +2067,7 @@
             <Left>10.52835cm</Left>
             <Height>1.78752cm</Height>
             <Width>4.89183cm</Width>
-            <ZIndex>34</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -2312,7 +2101,7 @@
             <Left>21.2326cm</Left>
             <Height>0.94758cm</Height>
             <Width>4.5639cm</Width>
-            <ZIndex>35</ZIndex>
+            <ZIndex>29</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2347,7 +2136,7 @@
             <Left>21.2326cm</Left>
             <Height>0.6cm</Height>
             <Width>4.5639cm</Width>
-            <ZIndex>36</ZIndex>
+            <ZIndex>30</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2382,7 +2171,7 @@
             <Left>0.3175cm</Left>
             <Height>0.55335cm</Height>
             <Width>4.82154cm</Width>
-            <ZIndex>37</ZIndex>
+            <ZIndex>31</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2414,7 +2203,7 @@
             <Left>5.31543cm</Left>
             <Height>0.55335cm</Height>
             <Width>10.10475cm</Width>
-            <ZIndex>38</ZIndex>
+            <ZIndex>32</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2422,6 +2211,54 @@
               <VerticalAlign>Middle</VerticalAlign>
             </Style>
           </Textbox>
+          <Rectangle Name="Rectangle6">
+            <ReportItems>
+              <Textbox Name="Textbox71">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Observaciones</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox50</rd:DefaultName>
+                <Top>0.1067cm</Top>
+                <Height>0.68547cm</Height>
+                <Width>10.25697cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <BackgroundColor>LightGrey</BackgroundColor>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>11.91282cm</Top>
+            <Left>15.53952cm</Left>
+            <Height>1.78752cm</Height>
+            <Width>10.25698cm</Width>
+            <ZIndex>33</ZIndex>
+            <Style>
+              <Border>
+                <Color>LightGrey</Color>
+                <Style>Dotted</Style>
+                <Width>0.25pt</Width>
+              </Border>
+            </Style>
+          </Rectangle>
         </ReportItems>
         <Height>5.79998in</Height>
         <Style>
@@ -2430,7 +2267,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>10.69723in</Width>
+      <Width>10.35422in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

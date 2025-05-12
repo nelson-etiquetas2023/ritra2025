@@ -7,7 +7,7 @@ namespace Ritrama2025.Services.ExportData
 {
     public class ExportDataService : IExportDataService
     {
-        public bool ExportToExcel<T>(List<T> data)
+        public bool ExportToExcel<T>(List<T> data, string FileName)
         {
             if (data == null || data.Count == 0)
             {
@@ -42,7 +42,7 @@ namespace Ritrama2025.Services.ExportData
 
             // 3. Autoajustar ancho de columnas
             worksheet.Columns().AdjustToContents();
-            string filePath = Path.Combine(Environment.CurrentDirectory, "MiReporte.xlsx");
+            string filePath = Path.Combine(Environment.CurrentDirectory, FileName);
             // 4. Guardar el archivo
             workbook.SaveAs(filePath);
 

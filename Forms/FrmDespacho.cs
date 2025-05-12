@@ -583,10 +583,10 @@ namespace Ritrama2025.Forms
         private void RollosCortadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             List<RolloCortado> rollosCortados = CREATE_ROLLOS_CORTADOS();
-            ExportDataService.ExportToExcel<RolloCortado>(rollosCortados);
+            ExportDataService.ExportToExcel<RolloCortado>(rollosCortados,"RollosCortados.xlsx");
         }
 
-        private List<RolloCortado> CREATE_ROLLOS_CORTADOS() 
+        private List<RolloCortado> CREATE_ROLLOS_CORTADOS()
         {
             List<RolloCortado> Lista_Rollos = [];
             //picking-list;
@@ -612,6 +612,32 @@ namespace Ritrama2025.Forms
                 Lista_Rollos.Add(Rollo);
             }
             return Lista_Rollos;
-        } 
+        }
+
+        private List<Paleta> CREATE_DETALLE_PALETA_LIST() 
+        {
+            List<Paleta> Lista_Paletas = [];
+            //detalle paleta.
+            for (int i = 0; i <= grid_detalle_paletas.Rows.Count - 1; i++)
+            {
+                Paleta palet = new()
+                {
+                    Numero = txt_numero.Text,
+                    Number_Palet = Convert.ToString(grid_detalle_paletas.Rows[i].Cells["number_palet"].Value) ?? string.Empty,
+                    Medida = Convert.ToString(grid_detalle_paletas.Rows[i].Cells["medida"].Value) ?? string.Empty,
+                    Contenido = Convert.ToString(grid_detalle_paletas.Rows[i].Cells["contenido"].Value) ?? string.Empty,
+                    Kilo_Neto = Convert.ToDecimal(grid_detalle_paletas.Rows[i].Cells["kilo_neto"].Value),
+                    Kilo_Bruto = Convert.ToDecimal(grid_detalle_paletas.Rows[i].Cells["kilo_bruto"].Value)
+                };
+                Lista_Paletas.Add(palet);
+            }
+            return Lista_Paletas;
+        }
+
+        private void Opc_exportdata_excel_detallepaleta_Click(object sender, EventArgs e)
+        {
+            List<Paleta> detalle_paleta = CREATE_DETALLE_PALETA_LIST();
+            ExportDataService.ExportToExcel<Paleta>(detalle_paleta,"detalle_paleta.xlsx");
+        }
     }
 }

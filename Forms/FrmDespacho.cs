@@ -544,13 +544,16 @@ namespace Ritrama2025.Forms
         {
             if (this.Parent != null)
             {
-                ReportsService.ReporteConduce_conPrecio(txt_numero.Text, this);
+                ReportsService.ReporteConduce_conPrecio(txt_numero.Text, this, "RptConduceConPrecio.rdlc");
             }
         }
 
         private void Reporte_conduce_sinprecio_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Reporte Conduce sin precio");
+            if (this.Parent != null) 
+            {
+                ReportsService.ReporteCondece_sinPrecio(txt_numero.Text, this, "RptConduceSinPrecio.rdlc");
+            }
         }
 
         private void Reporte_picking_list_Click(object sender, EventArgs e)

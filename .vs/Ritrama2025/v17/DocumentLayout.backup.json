@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Programacion\\Ritrama2025\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|c:\\programacion\\ritrama2025\\reports\\rptconduceconprecio.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
-      "RelativeMoniker": "D:0:0:{E5D1E5BA-AD11-4A13-BD21-AD28FF5AA477}|Ritrama2025.csproj|solutionrelative:reports\\rptconduceconprecio.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -27,18 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RptConduceConPrecio.rdlc [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Programacion\\Ritrama2025\\Reports\\RptConduceConPrecio.rdlc",
-              "RelativeDocumentMoniker": "Reports\\RptConduceConPrecio.rdlc",
-              "ToolTip": "C:\\Programacion\\Ritrama2025\\Reports\\RptConduceConPrecio.rdlc [Dise\u00F1o]",
-              "RelativeToolTip": "Reports\\RptConduceConPrecio.rdlc [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
-              "WhenOpened": "2025-05-10T15:57:27.772Z",
-              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         },

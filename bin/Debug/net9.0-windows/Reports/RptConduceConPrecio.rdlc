@@ -401,7 +401,7 @@
             <Top>6.66592cm</Top>
             <Left>0.42719cm</Left>
             <Height>0.6cm</Height>
-            <Width>15.47596cm</Width>
+            <Width>10.81489cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -543,19 +543,19 @@
                   <Width>2.025cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.13135cm</Width>
+                  <Width>1.93965cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.02602cm</Width>
+                  <Width>1.74494cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.71003cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.8417cm</Width>
+                  <Width>1.57812cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.13135cm</Width>
+                  <Width>2.61059cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1106,6 +1106,7 @@
                                 <TextRun>
                                   <Value>=Fields!cant.Value</Value>
                                   <Style>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>0;(0)</Format>
                                   </Style>
                                 </TextRun>
@@ -1452,7 +1453,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1490,7 +1490,7 @@
             <Top>9.56955cm</Top>
             <Left>0.3997cm</Left>
             <Height>1.52607cm</Height>
-            <Width>25.65392cm</Width>
+            <Width>25.3968cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -1941,7 +1941,7 @@
             <Top>4.18478cm</Top>
             <Left>0.39969cm</Left>
             <Height>0.6cm</Height>
-            <Width>8.68226cm</Width>
+            <Width>10.84239cm</Width>
             <ZIndex>22</ZIndex>
             <Style>
               <Border>
@@ -2079,7 +2079,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>TAX:</Value>
+                    <Value>="TAX(" &amp; CInt(Fields!porc_itbis.Value) &amp; "%) :"</Value>
                     <Style>
                       <FontFamily>JetBrains Mono ExtraBold</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -2155,7 +2155,7 @@
                     <Style>
                       <FontFamily>JetBrains Mono ExtraBold</FontFamily>
                       <FontSize>11pt</FontSize>
-                      <Format>#,0.00;(#,0.00)</Format>
+                      <Format>'$'#,0.00;('$'#,0.00)</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -2174,6 +2174,7 @@
               <Border>
                 <Style>None</Style>
               </Border>
+              <rd:FormatSymbolCulture>es-DO</rd:FormatSymbolCulture>
             </Style>
           </Textbox>
           <Textbox Name="Textbox63">
@@ -2223,7 +2224,7 @@
                     <Style>
                       <FontFamily>JetBrains Mono ExtraBold</FontFamily>
                       <FontSize>11pt</FontSize>
-                      <Format>#,0.00;(#,0.00)</Format>
+                      <Format>'$'#,0.00;('$'#,0.00)</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -2246,6 +2247,7 @@
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>es-DO</rd:FormatSymbolCulture>
             </Style>
           </Textbox>
           <Textbox Name="Textbox65">
@@ -2507,9 +2509,10 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Reporte Conduce con precio</Value>
+                    <Value>REPORTE CONDCE CON PRECIO</Value>
                     <Style>
                       <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>

@@ -17,7 +17,7 @@ namespace Ritrama2025.Services
             StringConnex = @"Data Source=DATABASE-CENTER\RITRAMASRV01; Initial Catalog=RITRAMA2;User Id=Npino;Password=123;TrustServerCertificate=True;";
         }
 
-        public void ReporteConduce_conPrecio(string conduce, Form form)
+        public void ReporteConduce_conPrecio(string conduce, Form form,string ReportName)
         {
             DataSet ds = new();
             using (SqlConnection conn = new(StringConnex))
@@ -46,7 +46,6 @@ namespace Ritrama2025.Services
                 Height = 780,
                 MdiParent = form.MdiParent,
             };
-            string ReportName = "RptConduceConPrecio.rdlc";
             reports.reportViewer1.ProcessingMode = ProcessingMode.Local;
             reports.reportViewer1.LocalReport.ReportPath = GetPathApplication(ReportName);
             //creo un objeto del tipo PageSettings para configurar la pagina a imprimir.
@@ -65,9 +64,9 @@ namespace Ritrama2025.Services
             reports.reportViewer1.RefreshReport();
             reports.Show();
         }
-        public void ReporteCondece_sinPrecio()
+        public void ReporteCondece_sinPrecio(string conduce, Form form, string ReportName)
         {
-            throw new NotImplementedException();
+            ReporteConduce_conPrecio(conduce, form, ReportName);
         }
         public void Reporte_DetallePaleta()
         {
